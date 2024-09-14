@@ -1,0 +1,175 @@
+/* Body - Đặt nền gradient cho trang */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header và Navigation */
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 20px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header .logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: 2px solid white;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header nav ul li a:hover {
+    background-color: white;
+    color: #3498db;
+}
+
+/* Container của form đăng ký */
+#register .container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Tiêu đề đăng ký */
+#register h2.section-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Form */
+#register form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label */
+#register label {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Các trường nhập liệu */
+#register input {
+    padding: 15px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#register input:focus {
+    border-color: #3498db;
+}
+
+/* Nút đăng ký */
+#register button {
+    background-color: #3498db;
+    color: white;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+#register button:hover {
+    background-color: #2c3e50;
+}
+
+/* Liên kết phụ - Đã có tài khoản? Đăng nhập */
+#register .extra-links {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+#register .extra-links a {
+    text-decoration: none;
+    color: #3498db;
+    transition: color 0.3s;
+}
+
+#register .extra-links a:hover {
+    color: #2c3e50;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    color: white;
+    margin: 0;
+}
+
+/* Responsive - Hiển thị tốt trên thiết bị nhỏ hơn */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #register .container {
+        padding: 20px;
+    }
+
+    #register h2.section-title {
+        font-size: 1.5rem;
+    }
+
+    #register input, #register button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
