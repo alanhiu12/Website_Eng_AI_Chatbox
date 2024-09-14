@@ -8,16 +8,22 @@
 
 body {
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Gradient nhẹ nhàng cho nền */
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Header */
 header {
-    background-color: #34495e;
+    width: 100%;
+    background-color: #004a9a; /* Xanh đậm để phù hợp với chủ đề học tập */
     color: white;
-    padding: 10px 0;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
 }
 
 header .container {
@@ -30,12 +36,14 @@ header .container {
 }
 
 header .logo {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 header nav ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
 }
 
@@ -46,179 +54,72 @@ header nav ul li {
 header nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: 500;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 header nav ul li a:hover {
-    text-decoration: underline;
+    background-color: white;
+    color: #004a9a;
+    border-color: #004a9a;
 }
 
-/* Hero Section */
-#hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?language,ai') no-repeat center center/cover;
-    color: white;
-    height: 80vh;
+/* Phần nội dung chính */
+#main-content {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 40px;
     text-align: center;
-    padding: 0 20px;
 }
 
-#hero h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-#hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-.btn-primary {
-    background-color: #e67e22;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-.btn-primary:hover {
-    background-color: #d35400;
-}
-
-/* Features Section */
-#features {
-    padding: 60px 20px;
-    background-color: #fff;
-}
-
-#features .section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.feature-card {
-    background-color: #ecf0f1;
-    padding: 30px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-}
-
-.feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.feature-card p {
-    font-size: 1rem;
-    color: #7f8c8d;
-}
-
-.feature-card i {
-    font-size: 2.5rem;
-    color: #3498db;
-    margin-bottom: 15px;
-}
-
-/* About Section */
-#about {
-    padding: 60px 20px;
-    background-color: #f4f4f4;
-}
-
-#about .container {
+#main-content .container {
     max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
 }
 
-#about p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-}
-
-/* Contact Section */
-#contact {
-    padding: 60px 20px;
-    background-color: white;
-}
-
-#contact form {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#contact label {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-}
-
-#contact input, #contact textarea {
-    padding: 15px;
+#main-content h2 {
+    font-size: 2.5rem;
+    color: #004a9a;
     margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    width: 100%;
-    font-size: 1rem;
 }
 
-#contact button {
-    padding: 12px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-}
-
-#contact button:hover {
-    background-color: #2980b9;
+#main-content p {
+    font-size: 1.2rem;
+    color: #333;
 }
 
 /* Footer */
 footer {
-    background-color: #34495e;
+    background-color: #004a9a;
     color: white;
-    text-align: center;
     padding: 20px 0;
+    text-align: center;
 }
 
 footer p {
     margin: 0;
 }
-.btn-login {
-    background-color: transparent;
-    border: 2px solid white;
-    padding: 8px 15px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
 
-.btn-login:hover {
-    background-color: white;
-    color: #34495e;
+/* Responsive - Hiển thị tốt trên thiết bị nhỏ hơn */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #main-content {
+        padding: 20px;
+    }
+
+    #main-content h2 {
+        font-size: 2rem;
+    }
+
+    #main-content p {
+        font-size: 1rem;
+    }
 }

@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LearnLinguaAI - Hỗ trợ học ngoại ngữ</title>
+    <title>Trang chủ - LearnLinguaAI</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="home.css">
+    <!-- <script>
+        // Kiểm tra trạng thái đăng nhập
+        document.addEventListener("DOMContentLoaded", function() {
+            // Giả sử trạng thái đăng nhập được lưu trữ trong localStorage với key "loggedIn"
+            const loggedIn = localStorage.getItem("loggedIn");
+            
+            // Nếu chưa đăng nhập, điều hướng tới trang đăng nhập
+            if (!loggedIn) {
+                window.location.href = "login.html";
+            }
+        });
+    </script> -->
 </head>
 <body>
     <header>
@@ -14,68 +26,18 @@
             <h1 class="logo">LearnLinguaAI</h1>
             <nav>
                 <ul>
-                    <li><a href="#features">Tính năng</a></li>
-                    <li><a href="#about">Giới thiệu</a></li>
-                    <li><a href="#contact">Liên hệ</a></li>
-                    <li><a href="login.html" class="btn-login">Đăng nhập</a></li>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="logout.html" id="logout-link">Đăng xuất</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="hero">
+    <section id="main-content">
         <div class="container">
-            <h2>Học ngoại ngữ thông minh với AI</h2>
-            <p>Nâng cao kỹ năng ngoại ngữ với công nghệ AI tiên tiến. Cải thiện ngữ pháp, phát âm, và luyện tập hội thoại!</p>
-            <a href="login.html" class="btn-primary">Khám phá ngay</a>
-        </div>
-    </section>
-
-    <section id="features">
-        <div class="container">
-            <h2 class="section-title">Các tính năng chính</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fa fa-check-circle"></i>
-                    <h3>Phân tích ngữ pháp</h3>
-                    <p>Nhập văn bản và nhận được phản hồi ngữ pháp chi tiết cùng gợi ý sửa lỗi thông minh.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fa fa-microphone"></i>
-                    <h3>Đánh giá phát âm</h3>
-                    <p>AI đưa ra phản hồi phát âm của bạn trong thời gian thực để cải thiện khả năng nói.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fa fa-book"></i>
-                    <h3>Gợi ý từ vựng</h3>
-                    <p>Nhận gợi ý từ vựng dựa trên ngữ cảnh sử dụng, giúp mở rộng vốn từ nhanh chóng.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">Giới thiệu</h2>
-            <p>LearnLinguaAI là nền tảng học ngoại ngữ tích hợp AI, cung cấp các công cụ hỗ trợ học hiệu quả, giúp bạn cải thiện kỹ năng ngôn ngữ toàn diện.</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Liên hệ với chúng tôi</h2>
-            <form action="#">
-                <label for="name">Họ tên:</label>
-                <input type="text" id="name" name="name" placeholder="Nhập họ tên của bạn" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
-                
-                <label for="message">Lời nhắn:</label>
-                <textarea id="message" name="message" placeholder="Nhập lời nhắn của bạn" required></textarea>
-                
-                <button type="submit" class="btn-primary">Gửi</button>
-            </form>
+            <h2>Chào mừng đến với LearnLinguaAI</h2>
+            <p>Hỗ trợ học ngoại ngữ thông minh với trí tuệ nhân tạo!</p>
         </div>
     </section>
 
@@ -85,7 +47,15 @@
         </div>
     </footer>
 
-    <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // Xử lý đăng xuất
+        document.getElementById('logout-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            // Xóa trạng thái đăng nhập
+            localStorage.removeItem("loggedIn");
+            // Điều hướng về trang đăng nhập
+            window.location.href = "login.html";
+        });
+    </script>
 </body>
 </html>
