@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chỉnh sửa thông tin cá nhân - LearnLinguaAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="edit-profile.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Wrapped the logo in an anchor tag -->
+            <a href="index.html" class="logo">LearnLinguaAI</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="study.html">Bài tập</a></li>
+                    <li><a href="about.html">Giới thiệu</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Tài khoản</a>
+                        <div class="dropdown-content">
+                            <a href="user-profile.html">Thông tin cá nhân</a>
+                            <a href="#" id="logout-link">Đăng xuất</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+
+    <section id="edit-profile">
+        <div class="container">
+            <h2>Chỉnh sửa thông tin cá nhân</h2>
+            <form id="edit-profile-form">
+                <div class="form-group">
+                    <label for="name">Tên</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+                <button type="submit" class="btn-primary">Lưu thay đổi</button>
+            </form>
+            <p id="success-message" class="success-message" style="display: none;">Thông tin của bạn đã được cập nhật!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tải thông tin người dùng từ localStorage và hiển thị trong form
+        document.addEventListener("DOMContentLoaded", function() {
+            const username = localStorage.getItem("username") || "John Doe";
+            const email = localStorage.getItem("email") || "john.doe@example.com";
+            const phone = localStorage.getItem("phone") || "123-456-7890";
+            
+            document.getElementById('name').value = username;
+            document.getElementById('email').value = email;
+            document.getElementById('phone').value = phone;
+        });
+
+        // Xử lý form khi người dùng lưu thông tin mới
+        document.getElementById('edit-profile-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Lấy giá trị từ form
+            const username = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            // Lưu thông tin vào localStorage
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('phone', phone);
+
+            // Hiển thị thông báo thành công
+            document.getElementById('success-message').style.display = 'block';
+        });
+
+        // Xử lý đăng xuất
+        document.getElementById('logout-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            // Xóa trạng thái đăng nhập
+            localStorage.removeItem("loggedIn");
+            // Điều hướng về trang đăng nhập
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>

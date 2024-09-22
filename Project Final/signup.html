@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Đăng ký - LearnLinguaAI</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="signup.css">
@@ -18,7 +17,7 @@
     <section id="register">
         <div class="container">
             <h2 class="section-title">Đăng ký tài khoản</h2>
-            <form action="#" method="POST">
+            <form id="register-form">
                 <label for="fullname">Họ và tên:</label>
                 <input type="text" id="fullname" name="fullname" placeholder="Nhập họ và tên" required>
 
@@ -30,7 +29,17 @@
 
                 <label for="confirm-password">Xác nhận mật khẩu:</label>
                 <input type="password" id="confirm-password" name="confirm-password" placeholder="Nhập lại mật khẩu" required>
-                
+
+                <label>Vai trò:</label>
+                <div class="form-group">
+                    <label for="teacher">
+                        <input type="radio" id="teacher" name="role" value="teacher" required> Giáo viên
+                    </label>
+                    <label for="student">
+                        <input type="radio" id="student" name="role" value="student" required> Học sinh
+                    </label>
+                </div>
+
                 <button type="submit" class="btn-primary">Đăng ký</button>
                 
                 <div class="extra-links">
@@ -45,5 +54,33 @@
             <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Lấy dữ liệu từ form
+            const fullname = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const role = document.querySelector('input[name="role"]:checked').value;
+
+            // Kiểm tra mật khẩu khớp
+            if (password !== confirmPassword) {
+                alert("Mật khẩu xác nhận không khớp!");
+                return;
+            }
+
+            // Lưu thông tin vào localStorage
+            localStorage.setItem('fullname', fullname);
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+            localStorage.setItem('role', role);
+
+            alert("Đăng ký thành công!");
+            window.location.href = 'login.html';
+        });
+    </script>
 </body>
 </html>

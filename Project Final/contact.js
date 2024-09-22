@@ -9,8 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Sau khi gửi thành công
         alert('Thông tin đã được gửi thành công!');
-
-        // Chuyển hướng về trang chủ
-        window.location.href = 'index.html';
     });
+});
+
+// Handle logout functionality
+document.getElementById('logout-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    // Clear login state
+    localStorage.removeItem("loggedIn");
+    // Redirect to login page
+    window.location.href = "login.html";
 });

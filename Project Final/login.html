@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Đăng nhập - LearnLinguaAI</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="login.css">
@@ -28,7 +27,7 @@
                 <button type="submit" class="btn-primary">Đăng nhập</button>
                 
                 <div class="extra-links">
-                    <a href="#">Quên mật khẩu?</a>
+                    <a href="forgot-password.html">Quên mật khẩu?</a>
                     <span> | </span>
                     <a href="signup.html">Đăng ký</a>
                 </div>
@@ -45,10 +44,22 @@
     <script>
         document.getElementById('login-form').addEventListener('submit', function(event) {
             event.preventDefault();
-            // Giả sử đăng nhập thành công
-            localStorage.setItem("loggedIn", "true");
-            // Điều hướng về trang chính
-            window.location.href = "index.html";
+
+            // Lấy dữ liệu từ localStorage
+            const storedEmail = localStorage.getItem('email');
+            const storedPassword = localStorage.getItem('password');
+
+            // Lấy dữ liệu từ form
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Kiểm tra thông tin đăng nhập
+            if (email === storedEmail && password === storedPassword) {
+                alert("Đăng nhập thành công!");
+                window.location.href = 'index.html';
+            } else {
+                alert("Email hoặc mật khẩu không chính xác!");
+            }
         });
     </script>
 </body>

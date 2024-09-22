@@ -113,47 +113,6 @@ header nav ul li a:hover {
     position: relative;
     bottom: -5px;
 }
-
-/* Phần nội dung chính */
-#main-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    text-align: center;
-    background-color: #99CCFF;
-    background-image: url('https://i.imgur.com/g4Q6mQ5.png');
-    background-repeat: repeat;
-    background-size: cover;
-    color: #fff;
-}
-
-#main-content .container {
-    max-width: 800px;
-}
-
-#main-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-#main-content p {
-    font-size: 1.2rem;
-}
-
-/* Footer */
-footer {
-    background-color: #1c1c1c;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-footer p {
-    margin: 0;
-}
-
 /* Dropdown Menu Animation */
 .dropdown-content {
     display: none;
@@ -214,80 +173,103 @@ nav ul li:hover .dropdown-content {
     }
 }
 
-
-/* Hero Section */
-#hero {
+/* Main Content */
+main {
+    flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 70vh;
-    background: url('https://i.imgur.com/g4Q6mQ5.png') no-repeat center center/cover;
-    color: black;
-    text-align: center;
-    padding: 20px;
+    padding: 40px;
 }
 
-#hero h1 {
-    font-size: 3rem;
+section {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05); /* Added light shadow */
+    width: 100%;
+    max-width: 800px;
+}
+
+h2 {
+    color: #004a9a;
     margin-bottom: 20px;
 }
 
-#hero p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+p {
+    color: #333;
 }
 
-.cta-btn {
-    background-color: #00d8ff;
-    color: white;
-    padding: 15px 25px;
-    text-transform: uppercase;
-    text-decoration: none;
+/* Vocabulary Section */
+#vocabulary-list {
+    list-style: none;
+    padding: 0;
+}
+
+#vocabulary-list li {
+    background-color: #e0e0e0;
+    margin: 10px 0;
+    padding: 10px;
     border-radius: 5px;
+}
+
+/* Quiz Button Styles */
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #004a9a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.cta-btn:hover {
-    background-color: #00b5d1;
+button:hover {
+    background-color: #002d8a;
 }
 
-/* Features Section */
-#features {
-    padding: 50px 0;
-    background-color: #f4f4f4;
+/* Other Lessons Section */
+#other-lessons {
+    margin-top: 2rem;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-#features .container {
-    max-width: 1200px;
-    margin: 0 auto;
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.lesson-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
     text-align: center;
 }
 
-#features h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #00d8ff;
+.lesson-box h3 {
+    color: #004a9a;
 }
 
-.features-list {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.lesson-box a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #004a9a;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
-.feature-item {
-    max-width: 30%;
-    margin: 20px 0;
-}
-
-.feature-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.feature-item p {
-    font-size: 1rem;
-    color: #666;
+.lesson-box a:hover {
+    background-color: #002d8a;
 }
 
 /* Footer */
@@ -297,7 +279,17 @@ footer {
     padding: 20px 0;
     text-align: center;
 }
+footer p{
+    color: #fff;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
 
-footer p {
-    margin: 0;
+    main {
+        padding: 20px;
+    }
 }

@@ -4,40 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Trang chủ - LearnLinguaAI</title>
+    <title>Home - LearnLinguaAI</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="home.css">
-    <!-- <script>
-        // Kiểm tra trạng thái đăng nhập
-        document.addEventListener("DOMContentLoaded", function() {
-            // Giả sử trạng thái đăng nhập được lưu trữ trong localStorage với key "loggedIn"
-            const loggedIn = localStorage.getItem("loggedIn");
-            
-            // Nếu chưa đăng nhập, điều hướng tới trang đăng nhập
-            if (!loggedIn) {
-                window.location.href = "login.html";
-            }
-        });
-    </script> -->
 </head>
 <body>
     <header>
         <div class="container">
-            <h1 class="logo">LearnLinguaAI</h1>
+            <a href="index.html" class="logo">LearnLinguaAI</a>
             <nav>
                 <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="contact.html">Liên hệ</a></li>
-                    <li><a href="logout.html" id="logout-link">Đăng xuất</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="study.html">Exercises</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">See More</a>
+                        <div class="dropdown-content">
+                            <a href="user-profile.html">Profile</a>
+                            <a href="contact.html">Contact</a>
+                            <a href="#" id="logout-link">Logout</a>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="main-content">
+    <!-- Hero Section -->
+    <section id="hero">
         <div class="container">
-            <h2>Chào mừng đến với LearnLinguaAI</h2>
-            <p>Hỗ trợ học ngoại ngữ thông minh với trí tuệ nhân tạo!</p>
+            <h1>Welcome to LearnLinguaAI</h1>
+            <p>Boost your English skills with AI-driven exercises and personalized learning paths!</p>
+            <a href="study.html" class="cta-btn">Start Learning Now</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <h2>Why LearnLinguaAI?</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h3>Personalized Learning</h3>
+                    <p>AI tailors lessons to your proficiency level, ensuring you learn at your own pace.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Interactive Exercises</h3>
+                    <p>Engage in a variety of exercises from grammar to vocabulary to boost your skills.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Instant Feedback</h3>
+                    <p>Receive real-time feedback on your progress, helping you improve faster.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -48,12 +67,10 @@
     </footer>
 
     <script>
-        // Xử lý đăng xuất
+        // Handle logout functionality
         document.getElementById('logout-link').addEventListener('click', function(event) {
             event.preventDefault();
-            // Xóa trạng thái đăng nhập
             localStorage.removeItem("loggedIn");
-            // Điều hướng về trang đăng nhập
             window.location.href = "login.html";
         });
     </script>

@@ -1,13 +1,17 @@
-/* Body - Đặt nền gradient cho trang */
+/* Body - Đặt nền gradient cho toàn bộ trang */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #2c3e50, #3498db);
+    background: url('picture/English_pic.jpg'); /* Đặt đường dẫn ảnh của bạn */
+    background-size: cover; /* Ảnh sẽ bao phủ toàn bộ nền */
+    background-position: center; /* Ảnh sẽ được căn giữa */
+    background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 /* Header và Navigation */
@@ -15,8 +19,10 @@ header {
     position: absolute;
     top: 0;
     width: 100%;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.5); /* Thêm nền mờ để làm nổi bật nội dung */
     padding: 20px 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Thêm bóng để tăng độ nổi bật */
 }
 
 header .container {
@@ -32,10 +38,12 @@ header .logo {
     color: white;
     font-size: 1.8rem;
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 header nav ul {
     list-style: none;
+    padding: 0;
 }
 
 header nav ul li {
@@ -61,19 +69,21 @@ header nav ul li a:hover {
 /* Container của form đăng ký */
 #register .container {
     background-color: #fff;
-    padding: 40px;
+    padding: 20px; /* Giảm padding để làm cho form nhỏ hơn */
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    max-width: 350px; /* Giảm chiều rộng của form */
     width: 100%;
     text-align: center;
+    position: relative;
+    z-index: 1000;
 }
 
 /* Tiêu đề đăng ký */
 #register h2.section-title {
-    font-size: 2rem;
+    font-size: 1.5rem; /* Giảm kích thước tiêu đề */
     color: #2c3e50;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Giảm khoảng cách */
 }
 
 /* Form */
@@ -84,7 +94,7 @@ header nav ul li a:hover {
 
 /* Label */
 #register label {
-    font-size: 1rem;
+    font-size: 0.9rem; /* Giảm kích thước chữ của label */
     color: #2c3e50;
     margin-bottom: 8px;
     text-align: left;
@@ -92,13 +102,13 @@ header nav ul li a:hover {
 
 /* Các trường nhập liệu */
 #register input {
-    padding: 15px;
-    font-size: 1rem;
-    margin-bottom: 20px;
+    padding: 10px; /* Giảm padding cho các input */
+    font-size: 0.9rem; /* Giảm kích thước chữ */
+    margin-bottom: 15px; /* Giảm khoảng cách giữa các trường */
     border: 1px solid #ddd;
     border-radius: 5px;
     outline: none;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s ease;
 }
 
 #register input:focus {
@@ -109,12 +119,12 @@ header nav ul li a:hover {
 #register button {
     background-color: #3498db;
     color: white;
-    padding: 15px;
-    font-size: 1.1rem;
+    padding: 12px; /* Giảm padding nút */
+    font-size: 1rem; /* Giảm kích thước chữ */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
     font-weight: 500;
 }
 
@@ -125,7 +135,7 @@ header nav ul li a:hover {
 /* Liên kết phụ - Đã có tài khoản? Đăng nhập */
 #register .extra-links {
     margin-top: 10px;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Giảm kích thước chữ */
 }
 
 #register .extra-links a {
@@ -143,9 +153,10 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.5); /* Thêm nền mờ để làm nổi bật nội dung */
     padding: 20px 0;
     text-align: center;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3); /* Thêm bóng để tăng độ nổi bật */
 }
 
 footer p {
@@ -161,15 +172,36 @@ footer p {
     }
 
     #register .container {
-        padding: 20px;
+        padding: 15px; /* Điều chỉnh padding cho màn hình nhỏ */
     }
 
     #register h2.section-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem; /* Giảm kích thước cho màn hình nhỏ */
     }
 
     #register input, #register button {
-        font-size: 1rem;
-        padding: 12px;
+        font-size: 0.85rem;
+        padding: 10px;
     }
+}
+
+/* Định dạng cho form radio */
+.form-group {
+    display: flex;
+    gap: 10px; /* Giảm khoảng cách giữa các tùy chọn */
+    margin: 10px 0; /* Giảm khoảng cách tổng thể */
+    justify-content: center;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Giảm khoảng cách giữa radio và chữ */
+    font-size: 0.9rem; /* Giảm kích thước chữ */
+    cursor: pointer;
+    color: #2c3e50;
+}
+
+input[type="radio"] {
+    transform: scale(1.1); /* Giảm kích thước của radio */
 }

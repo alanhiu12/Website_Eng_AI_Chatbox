@@ -214,90 +214,75 @@ nav ul li:hover .dropdown-content {
     }
 }
 
-
-/* Hero Section */
-#hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70vh;
-    background: url('https://i.imgur.com/g4Q6mQ5.png') no-repeat center center/cover;
-    color: black;
-    text-align: center;
-    padding: 20px;
-}
-
-#hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-#hero p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.cta-btn {
-    background-color: #00d8ff;
-    color: white;
-    padding: 15px 25px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-btn:hover {
-    background-color: #00b5d1;
-}
-
-/* Features Section */
-#features {
-    padding: 50px 0;
-    background-color: #f4f4f4;
-}
-
-#features .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#features h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #00d8ff;
-}
-
-.features-list {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.feature-item {
-    max-width: 30%;
-    margin: 20px 0;
-}
-
-.feature-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.feature-item p {
-    font-size: 1rem;
-    color: #666;
-}
-
 /* Footer */
 footer {
     background-color: #1c1c1c;
     color: white;
     padding: 20px 0;
     text-align: center;
+    margin-top: auto;
 }
 
 footer p {
     margin: 0;
+}
+
+/* Main */
+main {
+    padding: 2rem;
+}
+
+/* Sections */
+section {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* About Project Section */
+#about-project p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Technology Section */
+#technology ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#technology ul li {
+    background-color: #e0e0e0;
+    margin: 0.5rem 0;
+    padding: 0.7rem;
+    border-radius: 5px;
+}
+
+/* Team Section */
+#team {
+    text-align: center;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.team-member {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.team-member h3 {
+    color: #0b3f77;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #666;
 }
