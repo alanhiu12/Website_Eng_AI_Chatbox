@@ -1,0 +1,270 @@
+/* Tổng quan */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Gradient nhẹ nhàng cho nền */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Ensure the logo link has no underline and keeps the original text style */
+.logo {
+    text-decoration: none;
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Optionally, you can add hover effects for the logo link */
+.logo:hover {
+    opacity: 0.8; /* Slight hover effect */
+}
+
+/* Header */
+header {
+    width: 100%;
+    background-color: #1c1c1c; /* Dark background for the header */
+    color: white;
+    padding: 15px 0;
+    position: relative;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header .logo {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+    position: relative;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Smooth underline animation */
+header nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #00d8ff; /* Underline color */
+    transition: width 0.4s ease-in-out; /* Smooth underline transition */
+}
+
+header nav ul li a:hover::before,
+header nav ul li a.active::before {
+    width: 100%; /* Expand underline on hover and active state */
+}
+
+/* Active link styling without background color */
+header nav ul li a.active {
+    color: #00d8ff; /* Thay đổi màu chữ cho trang đang được chọn */
+    background-color: transparent; /* Loại bỏ màu nền */
+    transition: color 0.4s ease-in-out; /* Chuyển đổi mượt chỉ cho màu chữ */
+}
+
+/* Animation on hover */
+header nav ul li a:hover {
+    color: #00c3d5; /* Text color change on hover */
+    transform: translateY(-3px); /* Lift the link slightly on hover */
+}
+
+/* Pixelated divider under the header */
+.header-divider {
+    height: 22px;
+    position: relative;
+    bottom: -5px;
+}
+
+/* Phần nội dung chính */
+#main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    background-color: #99CCFF;
+    background-image: url('https://i.imgur.com/g4Q6mQ5.png');
+    background-repeat: repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+#main-content .container {
+    max-width: 800px;
+}
+
+#main-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#main-content p {
+    font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+    background-color: #1c1c1c;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* Responsive - Hiển thị tốt trên thiết bị nhỏ hơn */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #main-content {
+        padding: 20px;
+    }
+
+    #main-content h2 {
+        font-size: 2rem;
+    }
+
+    #main-content p {
+        font-size: 1rem;
+    }
+}
+
+
+/* Hero Section */
+#hero {
+    display: flex;
+    flex-direction: column; /* Đảm bảo các phần tử bên trong được sắp xếp theo chiều dọc */
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    background-color: #badafb;
+    color: black;
+    text-align: center;
+    padding: 20px;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px; /* Tạo khoảng cách dưới cho h1 */
+    display: block; /* Bắt buộc h1 xuống dòng */
+}
+
+#hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px; /* Tạo khoảng cách dưới cho đoạn văn bản */
+    display: block; /* Bắt buộc p xuống dòng */
+}
+
+.cta-btn {
+    background-color: #00d8ff;
+    color: white;
+    padding: 15px 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: block; /* Đảm bảo nút xuống dòng */
+    margin-top: 10px; /* Khoảng cách phía trên nút */
+    text-align: center;
+}
+
+.cta-btn:hover {
+    background-color: #00b5d1;
+}
+
+
+/* Features Section */
+#features {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+}
+
+#features .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #00d8ff;
+}
+
+.features-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    max-width: 30%;
+    margin: 20px 0;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: #1c1c1c;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
