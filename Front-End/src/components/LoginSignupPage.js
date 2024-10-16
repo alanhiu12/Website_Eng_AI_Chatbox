@@ -1,87 +1,70 @@
-// src/components/LoginSignupPage.js
 import React, { useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import './LoginSignupPage.css';
+import Header from './Header';
+import Footer from './Footer';
+import { useNavigate } from 'react-router-dom';
+import './LoginSignupPage.css'; // Assuming you have the corresponding CSS file
 
 const LoginSignupPage = () => {
-  // State to toggle between login and signup forms
-  const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  // Validation schema using Yup
-  const validationSchema = Yup.object({
-    email: Yup.string().email('Invalid email format').required('Required'),
-    password: Yup.string().min(6, 'Password must be at least 6 characters').required('Required'),
-    ...(isLogin ? {} : { confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match').required('Required') }),
-  });
-
-  // Handle form submission
-  const handleSubmit = (values, { setSubmitting }) => {
-    setSubmitting(true);
-    if (isLogin) {
-      // Handle login logic
-      console.log('Login values:', values);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add validation and login logic here
+    if (email === 'test@example.com' && password === 'password123') {
+      navigate('/home'); // Redirect to home page on successful login
     } else {
-      // Handle signup logic
-      console.log('Signup values:', values);
+      setError('Invalid email or password.');
     }
-    setTimeout(() => {
-      setSubmitting(false);
-    }, 2000);
   };
 
   return (
+    
     <div className="login-signup-page">
+      <Header />
       <div className="form-container">
-        <h2>{isLogin ? 'Login' : 'Signup'}</h2>
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-field">
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-field">
+            <label>Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          {error && <div className="error-message">{error}</div>}
+          <button type="submit">Login</button>
+        </form>
 
-        <Formik
-          initialValues={{
-            email: '',
-            password: '',
-            confirmPassword: '',
-          }}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting }) => (
-            <Form>
-              <div className="form-field">
-                <label htmlFor="email">Email</label>
-                <Field type="email" name="email" />
-                <ErrorMessage name="email" component="div" className="error-message" />
-              </div>
-
-              <div className="form-field">
-                <label htmlFor="password">Password</label>
-                <Field type="password" name="password" />
-                <ErrorMessage name="password" component="div" className="error-message" />
-              </div>
-
-              {!isLogin && (
-                <div className="form-field">
-                  <label htmlFor="confirmPassword">Confirm Password</label>
-                  <Field type="password" name="confirmPassword" />
-                  <ErrorMessage name="confirmPassword" component="div" className="error-message" />
-                </div>
-              )}
-
-              <button type="submit" disabled={isSubmitting}>
-                {isLogin ? 'Login' : 'Signup'}
-              </button>
-            </Form>
-          )}
-        </Formik>
-
-        <p className="toggle-text">
-          {isLogin ? "Don't have an account? " : 'Already have an account? '}
-          <button onClick={() => setIsLogin(!isLogin)}>
-            {isLogin ? 'Signup here' : 'Login here'}
-          </button>
-        </p>
+        <div className="extra-links">
+          <p>
+            <a href="/forgot-password" onClick={(e) => { e.preventDefault(); navigate('/forgot-password'); }}>
+              Forgot Password?
+            </a>
+          </p>
+          <p>
+            Don’t have an account?{' '}
+            <a href="/signup" onClick={(e) => { e.preventDefault(); navigate('/signup'); }}>
+              Sign Up
+            </a>
+          </p>
+        </div>
       </div>
+      <Footer/>
     </div>
   );
-};
-
+}
 export default LoginSignupPage;
