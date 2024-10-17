@@ -1,6 +1,6 @@
 // src/components/ChatInput.js
 import React, { useState } from 'react';
-import './ChatInput.css';
+import './styles/ChatInput.css';
 
 const ChatInput = ({ onSubmit }) => {
   const [message, setMessage] = useState('');

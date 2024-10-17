@@ -1,7 +1,7 @@
 // src/components/ChatBox.js (updated with audio)
 import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
-import './ChatBox.css';
+import './styles/ChatBox.css';
 
 const ChatBox = ({ messages }) => {
   return (

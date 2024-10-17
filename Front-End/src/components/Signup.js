@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; // Import useState from React
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-import './Signup.css';  // Assuming you have a CSS file for styling
+import './styles/Signup.css';  // Assuming you have a CSS file for styling
 import Header from './Header';
 import Footer from './Footer';
 const Signup = () => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; 
-import './ForgotPassword.css'; // Import the CSS
+import './styles/ForgotPassword.css'; // Import the CSS
 import Header from './Header'; // Import the Header component
 import Footer from './Footer'; // Import the Footer component
 
