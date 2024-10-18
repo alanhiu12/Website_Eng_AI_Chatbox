@@ -8,6 +8,7 @@ import AboutPage from './page/AboutPage';
 import UserProfile from './page/UserProfile';
 import ContactUs from './components/ContactUs';
 import Setting from './page/Settings';
+import Study from './page/Study';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/setting" element={<Setting />} />
+        <Route path="/study" element={<Study />} />
       </Routes>
     </Router>
   );

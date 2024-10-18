@@ -1,76 +1,296 @@
 /* Tổng quan */
 .settings-page {
-    background: #f4f4f4;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  header {
-    background-color: #1c1c1c;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-  }
-  
-  #settings-section {
-    flex: 1;
-    padding: 40px 20px;
-    background-color: white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .form-group input,
-  .form-group select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-  }
-  
-  .save-btn {
-    background-color: #00d8ff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .save-btn:hover {
-    background-color: #00b5d1;
-  }
-  
-  footer {
-    background-color: #1c1c1c;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-  }
-  
+  background: #f4f4f4;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.settings-container {
+  display: flex;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 300px;
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 15px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.sidebar ul li:hover, .sidebar ul li.active {
+  background-color: #00d8ff;
+  color: white;
+}
+
+/* Settings Content */
+.settings-content {
+  flex: 1;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.settings-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.settings-content p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+footer {
+  background-color: #1c1c1c;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+/* Information Section */
+.info-section {
+  margin-bottom: 30px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+/* Label styling for "Tên Người Dùng", "Email", "Số Điện Thoại" */
+.info-item span:first-child {
+  font-weight: bold;
+  color: #333;
+  font-size: 16px; /* Increased font size for labels */
+}
+
+/* Value styling for the user's information */
+.info-item span:last-child {
+  color: #666;
+  font-size: 16px; /* Increased font size for values */
+  font-family: 'Roboto', sans-serif; /* A cleaner font for the user information */
+}
+
+/* Input field styling for username editing */
+.name-input {
+  border: 1px solid #e6e6e6;
+  padding: 8px;
+  border-radius: 4px;
+  width: 200px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Link styling for managing user information */
+.manage-link {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.manage-link:hover {
+  text-decoration: underline;
+}
+
+/* Delete Account Section */
+.delete-account-section {
+  margin-top: 40px;
+}
+
+.delete-account-section h3 {
+  font-size: 18px;
+  color: #000000;
+}
+
+.delete-account-section p {
+  font-size: 14px;
+  color: #666;
+}
+
+.delete-link {
+  color: #ff4d4f;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.delete-link:hover {
+  text-decoration: underline;
+}
+
+.security-section {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.security-section h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.password-section {
+  margin-bottom: 20px;
+}
+
+.password-section .last-updated {
+  color: #666;
+  margin-left: 10px;
+}
+
+.update-link {
+  color: #007bff;
+  text-decoration: none;
+  float: right;
+}
+
+.trusted-devices h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.device-list {
+  list-style: none;
+  padding: 0;
+}
+
+.device-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.device-info strong {
+  display: block;
+  font-size: 16px;
+  color: #333;
+}
+
+.device-meta {
+  display: flex;
+  align-items: center;
+}
+
+.device-meta span {
+  margin-right: 20px;
+  color: #666;
+}
+
+.remove-device-link {
+  color: #ff4d4d;
+  text-decoration: none;
+}
+
+.linked-accounts-section {
+  margin-top: 20px;
+}
+
+.linked-accounts-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.account-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.account-details {
+  display: flex;
+  align-items: center;
+}
+
+.account-icon {
+  width: 30px;
+  height:30px;
+  margin-right: 10px;
+}
+
+.account-status .linked-text {
+  color: #28a745;
+}
+
+.link-button {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
+
+.overview-section {
+  padding: 20px;
+}
+
+.info-section, .security-section, .linked-accounts-section {
+  margin-bottom: 20px;
+}
+
+.info-item, .password-info, .trusted-devices {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.info-item span, .password-info span, .trusted-devices span {
+  font-size: 16px;
+}
+
+.manage-link {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.linked-accounts-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.account-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.linked-accounts-list li {
+  text-align: center;
+}

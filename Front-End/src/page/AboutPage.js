@@ -21,6 +21,7 @@ const About = () => {
                 <div className="dropdown-content">
                   <Link to="/user-profile">Profile</Link>
                   <Link to="/contact">Contact</Link>
+                  <Link to="/setting">Setting</Link>
                   <a href="#" id="logout-link">Logout</a>
                 </div>
               </li>

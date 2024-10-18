@@ -1,8 +1,8 @@
 // src/ChatbotPage.js
 import React, { useState } from 'react';
-import ChatInput from './components/ChatInput';
-import ChatBox from './components/ChatBox';
-import './ChatbotPage.css';
+import ChatInput from '../components/ChatInput';
+import ChatBox from '../components/ChatBox';
+import './css/ChatbotPage.css';
 
 const ChatbotPage = () => {
   const [messages, setMessages] = useState([]);

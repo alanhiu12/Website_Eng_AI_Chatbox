@@ -26,6 +26,7 @@ const UserProfile = () => {
                 <div className="dropdown-content">
                   <Link to="/user-profile">Profile</Link>
                   <Link to="/contact">Contact</Link>
+                  <Link to="/setting">Setting</Link>
                   <Link to="#" id="logout-link">Logout</Link>
                 </div>
               </li>
