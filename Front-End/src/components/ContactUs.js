@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './styles/Contact.css'; // Assuming you have a CSS file in the 'css' folder
+import { Link } from 'react-router-dom';
 
 const ContactUs = () => {
     // State to handle form inputs
@@ -39,6 +40,7 @@ const ContactUs = () => {
                                 <div className="dropdown-content">
                                     <a href="/user-profile">Profile</a>
                                     <a href="/contact">Contact</a>
+                                    <Link to="/setting">Setting</Link>
                                     <a href="#" id="logout-link">Logout</a>
                                 </div>
                             </li>
