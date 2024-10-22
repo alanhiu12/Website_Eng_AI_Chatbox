@@ -1,55 +1,57 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './css/Study.css'; // Import your CSS file
+import './css/Study.css';
 
-const Study = () => {
+const StudyLesson = () => {
     const [quizResult, setQuizResult] = useState('');
-    const [lessons, setLessons] = useState([
-        { title: 'Basic Grammar', description: 'Learn the essential grammar rules.' },
-        { title: 'Intermediate Vocabulary', description: 'Expand your vocabulary with intermediate words.' },
-        { title: 'Advanced Phrases', description: 'Master advanced phrases for conversation.' },
-        { title: 'Pronunciation Tips', description: 'Improve your English pronunciation.' }
-    ]);
-    const [newLessonTitle, setNewLessonTitle] = useState('');
-    const [newLessonDescription, setNewLessonDescription] = useState('');
-    const [successMessage, setSuccessMessage] = useState('');
-
-    // Function to handle quiz answer checking
+    const [lessonSuccess, setLessonSuccess] = useState(false);
+    
     const checkAnswer = (answer) => {
-        setQuizResult(answer === 'run' ? 'Correct!' : 'Try again!');
+        if (answer === 'run') {
+            setQuizResult('Correct!');
+        } else {
+            setQuizResult('Try again.');
+        }
     };
 
-    // Function to handle new lesson submission
-    const addLesson = (e) => {
+    const navigateToLesson = (lesson) => {
+        alert(`Navigating to ${lesson}`);
+        // Implement the navigation logic here
+    };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const newLesson = { title: newLessonTitle, description: newLessonDescription };
-        setLessons((prevLessons) => [...prevLessons, newLesson]);
-        setNewLessonTitle('');
-        setNewLessonDescription('');
-        setSuccessMessage('Lesson added successfully!');
-        
-        // Clear the success message after 3 seconds
-        setTimeout(() => setSuccessMessage(''), 3000);
+        setLessonSuccess(true);
+        setTimeout(() => {
+            setLessonSuccess(false);
+        }, 3000);
+    };
+
+    // Define the handleLogout function
+    const handleLogout = () => {
+        // Implement logout logic here, e.g., clearing user data
+        alert("You have logged out.");
+        // Redirect to the home page or login page if necessary
+        window.location.href = "/";
     };
 
     return (
         <div>
-            {/* Header */}
             <header>
                 <div className="container">
-                    <Link to="/" className="logo">LearnLinguaAI</Link>
+                    <a href="/" className="logo">LearnLinguaAI</a>
                     <nav>
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/study" className="active">Exercises</Link></li>
-                            <li><Link to="/about" >About</Link></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/study" className="active">Learn</a></li>
+                            <li><a href="/about">About</a></li>
                             <li className="dropdown">
                                 <a href="#" className="dropbtn">See More</a>
                                 <div className="dropdown-content">
-                                    <Link to="/user-profile">Profile</Link>
-                                    <Link to="/contact">Contact</Link>
-                                    <Link to="/setting">Setting</Link>
-                                    <a href="#" id="logout-link">Logout</a>
+                                    <a href="/user-profile">Profile</a>
+                                    <a href="/contact">Contact</a>
+                                    <a href="/setting">Setting</a>
+                                    {/* Use handleLogout on logout link */}
+                                    <a href="#" onClick={handleLogout} id="logout-link">Logout</a>
                                 </div>
                             </li>
                         </ul>
@@ -87,58 +89,51 @@ const Study = () => {
                 <section id="other-lessons">
                     <h2>Other English Lessons You Can Learn</h2>
                     <div className="lesson-grid" id="lesson-grid">
-                        {lessons.map((lesson, index) => (
-                            <div className="lesson-box" key={index}>
-                                <h3>{lesson.title}</h3>
-                                <p>{lesson.description}</p>
-                                <button onClick={() => alert(`Navigating to ${lesson.title} lesson`)}>Start Lesson</button>
-                            </div>
-                        ))}
+                        <div className="lesson-box">
+                            <h3>Basic Grammar</h3>
+                            <p>Learn the essential grammar rules.</p>
+                            <button onClick={() => navigateToLesson('basic-grammar')}>Start Lesson</button>
+                        </div>
+                        <div className="lesson-box">
+                            <h3>Intermediate Vocabulary</h3>
+                            <p>Expand your vocabulary with intermediate words.</p>
+                            <button onClick={() => navigateToLesson('intermediate-vocabulary')}>Start Lesson</button>
+                        </div>
+                        <div className="lesson-box">
+                            <h3>Advanced Phrases</h3>
+                            <p>Master advanced phrases for conversation.</p>
+                            <button onClick={() => navigateToLesson('advanced-phrases')}>Start Lesson</button>
+                        </div>
+                        <div className="lesson-box">
+                            <h3>Pronunciation Tips</h3>
+                            <p>Improve your English pronunciation.</p>
+                            <button onClick={() => navigateToLesson('pronunciation-tips')}>Start Lesson</button>
+                        </div>
                     </div>
                 </section>
 
                 <section id="add-lesson-section">
                     <h2>Add a New Lesson</h2>
-                    <form id="add-lesson-form" onSubmit={addLesson}>
+                    <form id="add-lesson-form" onSubmit={handleSubmit}>
                         <label htmlFor="lesson-title">Lesson Title:</label>
-                        <input
-                            type="text"
-                            id="lesson-title"
-                            name="lesson-title"
-                            value={newLessonTitle}
-                            onChange={(e) => setNewLessonTitle(e.target.value)}
-                            placeholder="Enter lesson title"
-                            required
-                        />
+                        <input type="text" id="lesson-title" name="lesson-title" placeholder="Enter lesson title" required />
 
                         <label htmlFor="lesson-description">Lesson Description:</label>
-                        <textarea
-                            id="lesson-description"
-                            name="lesson-description"
-                            value={newLessonDescription}
-                            onChange={(e) => setNewLessonDescription(e.target.value)}
-                            placeholder="Enter lesson description"
-                            required
-                        />
+                        <textarea id="lesson-description" name="lesson-description" placeholder="Enter lesson description" required></textarea>
 
                         <button type="submit">Add Lesson</button>
                     </form>
-                    {successMessage && (
-                        <div id="lesson-success-message" style={{ color: 'green' }}>
-                            {successMessage}
-                        </div>
-                    )}
+                    {lessonSuccess && <div id="lesson-success-message" style={{ color: 'green' }}>Lesson added successfully!</div>}
                 </section>
-
-                {/* Footer */}
-                <footer>
-                    <div className="container">
-                        <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
-                    </div>
-                </footer>
             </main>
+
+            <footer>
+                <div className="container">
+                    <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
+                </div>
+            </footer>
         </div>
     );
 };
 
-export default Study;
+export default StudyLesson;

@@ -9,6 +9,7 @@ import UserProfile from './page/UserProfile';
 import ContactUs from './components/ContactUs';
 import Setting from './page/Settings';
 import Study from './page/Study';
+import Chatbot from './page/ChatbotPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/setting" element={<Setting />} />
         <Route path="/study" element={<Study />} />
+        <Route path="/chatbot" element={<Chatbot />} />
       </Routes>
     </Router>
   );

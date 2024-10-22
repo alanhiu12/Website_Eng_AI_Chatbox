@@ -19,7 +19,7 @@ const UserProfile = () => {
           <nav>
             <ul>
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/study">Exercises</Link></li>
+              <li><Link to="/study">Learn</Link></li>
               <li><Link to="/about">About</Link></li>
               <li className="dropdown">
                 <Link to="#" className="dropbtn">See More</Link>
@@ -44,6 +44,11 @@ const UserProfile = () => {
       </div>
 
       <ProgressDashboard />
+      <footer>
+                <div className="container">
+                    <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
+                </div>
+            </footer>
     </div>
   );
 };

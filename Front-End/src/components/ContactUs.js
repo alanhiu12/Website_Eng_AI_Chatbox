@@ -33,7 +33,7 @@ const ContactUs = () => {
                     <nav>
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/study">Exercises</a></li>
+                            <li><a href="/study">Learn</a></li>
                             <li><a href="/about">About</a></li>
                             <li className="dropdown">
                                 <a href="#" className="dropbtn">More</a>

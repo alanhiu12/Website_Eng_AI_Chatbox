@@ -50,7 +50,7 @@ const Settings = () => {
           <nav>
             <ul>
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/study">Exercises</Link></li>
+              <li><Link to="/study">Learn</Link></li>
               <li><Link to="/about">About</Link></li>
               <li className="dropdown">
                 <a href="#" className="dropbtn">See More</a>

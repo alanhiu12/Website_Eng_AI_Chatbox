@@ -1,14 +1,36 @@
+:root {
+  --primary-color: #00d8ff; /* Main accent color */
+  --secondary-color: #1c1c1c; /* Header and footer color */
+  --background-color: #f4f4f4; /* Page background */
+  --card-background: #fff; /* Content background */
+  --text-color: #333; /* Main text color */
+  --label-color: #666; /* Label text color */
+  --danger-color: #ff4d4f; /* Danger color for delete links */
+  --success-color: #28a745; /* Success color for linked accounts */
+  --border-color: #ccc; /* Border color */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Shadow color */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Set a base font */
+  margin: 0;
+}
+
 /* Tổng quan */
 .settings-page {
-  background: #f4f4f4;
-  color: #333;
+  background: var(--background-color);
+  color: var(--text-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 header {
-  background-color: #1c1c1c;
+  background-color: var(--secondary-color);
   color: white;
   padding: 20px 0;
   text-align: center;
@@ -29,8 +51,8 @@ header {
 /* Sidebar */
 .sidebar {
   width: 300px;
-  background-color: #fff;
-  border-right: 1px solid #ccc;
+  background-color: var(--card-background);
+  border-right: 1px solid var(--border-color);
   padding: 20px;
   border-radius: 10px;
 }
@@ -45,10 +67,12 @@ header {
   cursor: pointer;
   font-weight: bold;
   border-bottom: 1px solid #f4f4f4;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
-.sidebar ul li:hover, .sidebar ul li.active {
-  background-color: #00d8ff;
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -56,9 +80,9 @@ header {
 .settings-content {
   flex: 1;
   padding: 40px;
-  background-color: white;
+  background-color: var(--card-background);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .settings-content h2 {
@@ -72,11 +96,12 @@ header {
 }
 
 footer {
-  background-color: #1c1c1c;
+  background-color: var(--secondary-color);
   color: white;
   text-align: center;
   padding: 20px 0;
 }
+
 /* Information Section */
 .info-section {
   margin-bottom: 30px;
@@ -93,15 +118,14 @@ footer {
 /* Label styling for "Tên Người Dùng", "Email", "Số Điện Thoại" */
 .info-item span:first-child {
   font-weight: bold;
-  color: #333;
+  color: var(--text-color);
   font-size: 16px; /* Increased font size for labels */
 }
 
 /* Value styling for the user's information */
 .info-item span:last-child {
-  color: #666;
+  color: var(--label-color);
   font-size: 16px; /* Increased font size for values */
-  font-family: 'Roboto', sans-serif; /* A cleaner font for the user information */
 }
 
 /* Input field styling for username editing */
@@ -109,9 +133,9 @@ footer {
   border: 1px solid #e6e6e6;
   padding: 8px;
   border-radius: 4px;
-  width: 200px;
+  width: 100%; /* Make it responsive */
+  max-width: 200px; /* Limit maximum width */
   font-size: 16px;
-  font-family: 'Roboto', sans-serif;
 }
 
 /* Link styling for managing user information */
@@ -138,11 +162,11 @@ footer {
 
 .delete-account-section p {
   font-size: 14px;
-  color: #666;
+  color: var(--label-color);
 }
 
 .delete-link {
-  color: #ff4d4f;
+  color: var(--danger-color);
   font-size: 14px;
   text-decoration: none;
 }
@@ -160,7 +184,6 @@ footer {
 .security-section h2 {
   margin-bottom: 20px;
   font-size: 20px;
-  text-align: left;
 }
 
 .password-section {
@@ -168,7 +191,7 @@ footer {
 }
 
 .password-section .last-updated {
-  color: #666;
+  color: var(--label-color);
   margin-left: 10px;
 }
 
@@ -198,7 +221,7 @@ footer {
 .device-info strong {
   display: block;
   font-size: 16px;
-  color: #333;
+  color: var(--text-color);
 }
 
 .device-meta {
@@ -208,11 +231,11 @@ footer {
 
 .device-meta span {
   margin-right: 20px;
-  color: #666;
+  color: var(--label-color);
 }
 
 .remove-device-link {
-  color: #ff4d4d;
+  color: var(--danger-color);
   text-decoration: none;
 }
 
@@ -239,13 +262,13 @@ footer {
 }
 
 .account-icon {
-  width: 30px;
-  height:30px;
+  width: 40px; /* Ensure uniformity with linked accounts */
+  height: 40px;
   margin-right: 10px;
 }
 
 .account-status .linked-text {
-  color: #28a745;
+  color: var(--success-color);
 }
 
 .link-button {
@@ -261,17 +284,23 @@ footer {
   padding: 20px;
 }
 
-.info-section, .security-section, .linked-accounts-section {
+.info-section,
+.security-section,
+.linked-accounts-section {
   margin-bottom: 20px;
 }
 
-.info-item, .password-info, .trusted-devices {
+.info-item,
+.password-info,
+.trusted-devices {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
 }
 
-.info-item span, .password-info span, .trusted-devices span {
+.info-item span,
+.password-info span,
+.trusted-devices span {
   font-size: 16px;
 }
 
@@ -284,11 +313,6 @@ footer {
   list-style: none;
   display: flex;
   gap: 20px;
-}
-
-.account-icon {
-  width: 40px;
-  height: 40px;
 }
 
 .linked-accounts-list li {
