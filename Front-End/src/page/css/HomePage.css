@@ -136,17 +136,17 @@ header nav ul li a:hover {
     font-size: 1.2rem;
 }
 
-/* Footer */
-footer {
-    background-color: #1c1c1c;
-    color: white;
+ /* Footer stays at the bottom */
+ footer {
+    background-color: black;
     padding: 20px 0;
+    color: white;
     text-align: center;
-}
-
-footer p {
-    margin: 0;
-}
+    width: 100%;
+    position: relative;
+    bottom: 0;
+  }
+  
 
 /* Responsive */
 @media (max-width: 768px) {

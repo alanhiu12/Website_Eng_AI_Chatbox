@@ -112,19 +112,7 @@ const StudyLesson = () => {
                     </div>
                 </section>
 
-                <section id="add-lesson-section">
-                    <h2>Add a New Lesson</h2>
-                    <form id="add-lesson-form" onSubmit={handleSubmit}>
-                        <label htmlFor="lesson-title">Lesson Title:</label>
-                        <input type="text" id="lesson-title" name="lesson-title" placeholder="Enter lesson title" required />
-
-                        <label htmlFor="lesson-description">Lesson Description:</label>
-                        <textarea id="lesson-description" name="lesson-description" placeholder="Enter lesson description" required></textarea>
-
-                        <button type="submit">Add Lesson</button>
-                    </form>
-                    {lessonSuccess && <div id="lesson-success-message" style={{ color: 'green' }}>Lesson added successfully!</div>}
-                </section>
+                
             </main>
 
             <footer>
