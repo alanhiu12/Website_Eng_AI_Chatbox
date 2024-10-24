@@ -10,7 +10,7 @@ import ContactUs from './components/ContactUs';
 import Setting from './page/Settings';
 import Study from './page/Study';
 import Chatbot from './page/ChatbotPage';
-import AssignmentManager from './page/AssignmentManager';
+import TeacherContentPage from './page/TeacherContentPage';
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
         <Route path="/setting" element={<Setting />} />
         <Route path="/study" element={<Study />} />
         <Route path="/chatbot" element={<Chatbot />} />
-        <Route path="/assignments" element={<AssignmentManager />} />
+        <Route path="/teacher" element={<TeacherContentPage />} />
       </Routes>
     </Router>
   );

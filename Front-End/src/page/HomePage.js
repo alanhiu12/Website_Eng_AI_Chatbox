@@ -28,7 +28,7 @@ const Home = () => {
                   <Link to="/user-profile">Profile</Link>
                   <Link to="/contact">Contact</Link>
                   <Link to="/setting">Setting</Link>
-                  <Link to="/assignments">Assignment</Link>
+                  <Link to="/teacher">Teacher</Link>
                   <a href="#" onClick={handleLogout}>Logout</a>
                 </div>
               </li>
