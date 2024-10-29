@@ -142,18 +142,6 @@ header nav ul li a:hover {
     font-size: 1.2rem;
 }
 
-/* Footer */
-footer {
-    background-color: #1c1c1c;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-footer p {
-    margin: 0;
-}
-
 /* Dropdown Menu Animation */
 .dropdown-content {
     display: none;
@@ -214,18 +202,6 @@ nav ul li:hover .dropdown-content {
     }
 }
 
-/* Footer */
-footer {
-    background-color: #1c1c1c;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: auto;
-}
-
-footer p {
-    margin: 0;
-}
 
 /* Main */
 main {

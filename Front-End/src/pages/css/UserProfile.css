@@ -129,15 +129,6 @@ h1 {
     text-align: center;
 }
 
-/* Footer Styles */
-footer {
-    background-color: #1c1c1c; /* Footer background color */
-    color: white; /* Footer text color */
-    padding: 20px 0; /* Padding for footer */
-    text-align: center; /* Center text alignment */
-    margin-top: auto; /* Push footer to the bottom */
-}
-
 /* Dropdown Menu Styles */
 .dropdown-content {
     display: none; /* Initially hidden */

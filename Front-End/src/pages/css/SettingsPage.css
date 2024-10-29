@@ -1,7 +1,7 @@
 :root {
   --primary-color: #00d8ff; /* Main accent color */
   --secondary-color: #1c1c1c; /* Header and footer color */
-  --background-color: #f4f4f4; /* Page background */
+  --background-color: #f4f4f4; /* pages background */
   --card-background: #fff; /* Content background */
   --text-color: #333; /* Main text color */
   --label-color: #666; /* Label text color */
@@ -21,7 +21,7 @@ body {
 }
 
 /* Tổng quan */
-.settings-page {
+.settings-pages {
   background: var(--background-color);
   color: var(--text-color);
   min-height: 100vh;
@@ -93,13 +93,6 @@ header {
 .settings-content p {
   font-size: 1.2rem;
   margin-bottom: 15px;
-}
-
-footer {
-  background-color: var(--secondary-color);
-  color: white;
-  text-align: center;
-  padding: 20px 0;
 }
 
 /* Information Section */

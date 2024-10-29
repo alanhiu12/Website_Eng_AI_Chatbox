@@ -4,7 +4,7 @@ import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 import './styles/Login.css'; // Assuming you have the corresponding CSS file
 
-const LoginSignupPage = () => {
+const LoginSignuppages = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -14,7 +14,7 @@ const LoginSignupPage = () => {
     e.preventDefault();
     // Add validation and login logic here
     if (email === 'test@example.com' && password === 'password123') {
-      navigate('/home'); // Redirect to home page on successful login
+      navigate('/home'); // Redirect to home pages on successful login
     } else {
       setError('Invalid email or password.');
     }
@@ -22,7 +22,7 @@ const LoginSignupPage = () => {
 
   return (
     
-    <div className="login-signup-page">
+    <div className="login-signup-pages">
       <Header />
       <div className="form-container">
         <h2>Login</h2>
@@ -67,4 +67,4 @@ const LoginSignupPage = () => {
     </div>
   );
 }
-export default LoginSignupPage;
+export default LoginSignuppages;

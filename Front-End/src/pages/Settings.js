@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './css/SettingsPage.css';
+import './css/SettingsPage.css'; // Ensure this path exists
 import { Link } from 'react-router-dom';
 
 const devices = [
@@ -43,7 +43,7 @@ const Settings = () => {
   };
 
   return (
-    <div className="settings-page">
+    <div className="settings-pages">
       <header>
         <div className="container">
           <Link to="/" className="logo">LearnLinguaAI</Link>

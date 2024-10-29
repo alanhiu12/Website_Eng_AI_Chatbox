@@ -1,120 +1,65 @@
-/* Sign-up container styling */
+/* Signup pages Styles */ 
 .signup-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-image: url('../../assets/pictures/English_pic.jpg');
     min-height: 100vh;
-    background-color: #f5f5f5;
-  }
+    background-size: cover;
+    background-position: center;
+    background-color: #f0f2f5;
+}
 
-/* Sign-up box */
 .signup-box {
-    background-color: white;
-    padding: 20px; /* Reduced padding */
+    background-color: #fff;
+    padding: 15px; /* Reduced padding */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Reduced width */
+    text-align: left;
+}
+
+.signup-box h2 {
+    margin-bottom: 15px; /* Reduced margin */
+    font-size: 1.4rem; /* Slightly reduced font size */
+    color: #333;
+}
+
+.signup-box input[type="text"],
+.signup-box input[type="email"],
+.signup-box input[type="password"] {
     width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Form field styles */
-  .signup-form .form-field {
-    margin-bottom: 10px; /* Reduced margin between form fields */
-  }
-  
-  .signup-form .form-field label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .signup-form .form-field input[type="text"],
-  .signup-form .form-field input[type="email"],
-  .signup-form .form-field input[type="password"] {
-    width: 100%;
-    padding: 8px; /* Reduced padding inside the input fields */
-    font-size: 16px;
+    padding: 8px; /* Reduced padding */
+    margin-bottom: 12px; /* Reduced margin */
     border-radius: 5px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  
-  /* Radio button group */
-  .form-group {
-    margin-bottom: 10px; /* Reduced margin for the radio button group */
-  }
-  
-  .form-group div {
-    display: flex;
-    justify-content: space-between; /* Space the radio buttons apart */
-    margin-top: 5px; /* Reduced margin above radio buttons */
-  }
-  
-  .form-group label {
-    display: flex;
-    align-items: center;
-    font-weight: normal;
-  }
-  
-  .form-group input[type="radio"] {
-    margin-right: 5px;
-  }
-  
-  /* Submit button */
-  .btn-primary {
+    font-size: 0.95rem; /* Slightly reduced font size */
+}
+
+.signup-box button {
     width: 100%;
-    padding: 8px; /* Reduced padding for the button */
-    font-size: 16px;
+    padding: 10px;
+    background-color: #28a745;
     color: white;
-    background-color: #3498db;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    text-align: center;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.signup-box button:hover {
+    background-color: #218838;
+}
+
+.signup-box .login-link {
     margin-top: 10px;
-  }
-  
-  .btn-primary:hover {
-    background-color: #2980b9;
-  }
-  
-  /* Extra links */
-  .extra-links {
-    margin-top: 15px; /* Reduced space above the extra links */
-    text-align: center;
-  }
-  
-  .extra-links a {
-    color: #3498db;
+    display: block;
+    font-size: 0.9rem;
+    color: #007bff;
     text-decoration: none;
-  }
-  
-  .extra-links a:hover {
+}
+
+.signup-box .login-link:hover {
     text-decoration: underline;
-  }
-  /* Radio button group */
-.form-group {
-    margin-bottom: 10px; /* Reduced margin for the radio button group */
-    text-align: center;
-  }
-  
-  .form-group div {
-    display: flex;
-    justify-content: center; /* Center the radio buttons */
-    gap: 30px; /* Add space between the radio buttons */
-    margin-top: 5px; /* Reduced margin above radio buttons */
-  }
-  
-  .form-group label {
-    display: flex;
-    align-items: center;
-    font-weight: normal;
-  }
-  
-  .form-group input[type="radio"] {
-    margin-right: 5px;
-  }
-  
+}

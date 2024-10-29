@@ -1,10 +1,10 @@
-// src/ChatbotPage.js
+// src/Chatbotpages.js
 import React, { useState } from 'react';
 import ChatInput from '../components/ChatInput';
 import ChatBox from '../components/ChatBox';
-import './css/ChatbotPage.css';
+import './css/Chatbotpages.css';
 
-const ChatbotPage = () => {
+const Chatbotpages = () => {
   const [messages, setMessages] = useState([]);
 
   // Simulate API response for now (You will replace this with actual API call)
@@ -31,11 +31,11 @@ const ChatbotPage = () => {
   };
 
   return (
-    <div className="chatbot-page">
+    <div className="chatbot-pages">
       <ChatBox messages={messages} />
       <ChatInput onSubmit={sendMessageToChatbot} />
     </div>
   );
 };
 
-export default ChatbotPage;
+export default Chatbotpages;

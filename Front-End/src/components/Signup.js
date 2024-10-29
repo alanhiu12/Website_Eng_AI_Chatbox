@@ -27,7 +27,7 @@ const Signup = () => {
       localStorage.setItem('role', role);
 
       alert('Đăng ký thành công!');
-      navigate('/login');  // Redirect to login page
+      navigate('/login');  // Redirect to login pages
   };
 
   return (

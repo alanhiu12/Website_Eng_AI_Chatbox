@@ -136,17 +136,15 @@ header nav ul li a:hover {
     font-size: 1.2rem;
 }
 
- /* Footer stays at the bottom */
- footer {
+/* Footer styles */
+footer {
     background-color: black;
     padding: 20px 0;
     color: white;
     text-align: center;
     width: 100%;
-    position: relative;
-    bottom: 0;
-  }
-  
+    margin-top: auto; /* Push the footer to the bottom */
+}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -249,15 +247,6 @@ header nav ul li a:hover {
 .feature-item p {
     font-size: 1rem;
     color: #666;
-}
-
-/* Footer */
-footer {
-    background-color: #1c1c1c;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: auto;
 }
 
 footer p {
