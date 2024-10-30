@@ -19,7 +19,7 @@ const UserProfile = () => {
           <nav>
             <ul>
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/study">Learn</Link></li>
+              <li><Link to="/classes">Classes</Link></li>
               <li><Link to="/about">About</Link></li>
               <li className="dropdown">
                 <Link to="#" className="dropbtn">See More</Link>

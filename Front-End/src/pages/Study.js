@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './css/Study.css';
-import { Link } from 'react-router-dom';
 
 const StudyLesson = () => {
     const [quizResult, setQuizResult] = useState('');
     const [lessonSuccess, setLessonSuccess] = useState(false);
-
+    
     const checkAnswer = (answer) => {
         if (answer === 'run') {
             setQuizResult('Correct!');
@@ -14,8 +13,24 @@ const StudyLesson = () => {
         }
     };
 
+    const navigateToLesson = (lesson) => {
+        alert(`Navigating to ${lesson}`);
+        // Implement the navigation logic here
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setLessonSuccess(true);
+        setTimeout(() => {
+            setLessonSuccess(false);
+        }, 3000);
+    };
+
+    // Define the handleLogout function
     const handleLogout = () => {
+        // Implement logout logic here, e.g., clearing user data
         alert("You have logged out.");
+        // Redirect to the home page or login page if necessary
         window.location.href = "/";
     };
 
@@ -27,7 +42,7 @@ const StudyLesson = () => {
                     <nav>
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/study" className="active">Learn</a></li>
+                            <li><a href="/classes">Classes</a></li>
                             <li><a href="/about">About</a></li>
                             <li className="dropdown">
                                 <a href="#" className="dropbtn">See More</a>
@@ -35,6 +50,7 @@ const StudyLesson = () => {
                                     <a href="/user-profile">Profile</a>
                                     <a href="/contact">Contact</a>
                                     <a href="/setting">Setting</a>
+                                    {/* Use handleLogout on logout link */}
                                     <a href="#" onClick={handleLogout} id="logout-link">Logout</a>
                                 </div>
                             </li>
@@ -61,7 +77,7 @@ const StudyLesson = () => {
                 <section id="quiz-section">
                     <h2>Quick Quiz</h2>
                     <p>Match the words with their meanings:</p>
-                    <div id="quiz">
+<div id="quiz">
                         <p>1. Which word means "to move swiftly on foot"?</p>
                         <button onClick={() => checkAnswer('run')}>Run</button>
                         <button onClick={() => checkAnswer('apple')}>Apple</button>
@@ -76,25 +92,27 @@ const StudyLesson = () => {
                         <div className="lesson-box">
                             <h3>Basic Grammar</h3>
                             <p>Learn the essential grammar rules.</p>
-                            <Link to="/basic-grammar"><button>Start Lesson</button></Link>
+                            <button onClick={() => navigateToLesson('basic-grammar')}>Start Lesson</button>
                         </div>
                         <div className="lesson-box">
                             <h3>Intermediate Vocabulary</h3>
                             <p>Expand your vocabulary with intermediate words.</p>
-                            <Link to="/intermediate-vocabulary"><button>Start Lesson</button></Link>
+                            <button onClick={() => navigateToLesson('intermediate-vocabulary')}>Start Lesson</button>
                         </div>
                         <div className="lesson-box">
                             <h3>Advanced Phrases</h3>
                             <p>Master advanced phrases for conversation.</p>
-                            <Link to="/advanced-phrases"><button>Start Lesson</button></Link>
+                            <button onClick={() => navigateToLesson('advanced-phrases')}>Start Lesson</button>
                         </div>
                         <div className="lesson-box">
                             <h3>Pronunciation Tips</h3>
                             <p>Improve your English pronunciation.</p>
-                            <Link to="/pronunciation-tips"><button>Start Lesson</button></Link>
+                            <button onClick={() => navigateToLesson('pronunciation-tips')}>Start Lesson</button>
                         </div>
                     </div>
                 </section>
+
+                
             </main>
 
             <footer>
