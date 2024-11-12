@@ -1,0 +1,91 @@
+/* TeacherManagement.css */
+
+/* Đặt toàn bộ kích thước bảng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Đặt kiểu cho các ô của bảng */
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+/* Màu nền cho tiêu đề của bảng */
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Màu nền cho hàng chẵn và hàng lẻ */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Đặt kiểu cho hàng khi hover */
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Đặt kiểu cho input và textarea */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Đặt kiểu cho nút */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hiệu ứng hover cho nút */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Đặt kiểu cho tiêu đề h1 của Teacher Management */
+.teacher-management-title {
+    color: #4CAF50;
+    /* Màu sắc riêng cho tiêu đề */
+    font-size: 2em;
+    /* Kích thước chữ */
+    margin-bottom: 20px;
+    /* Khoảng cách phía dưới */
+}
+
+/* Đặt kiểu cho tiêu đề h2 của Teacher Management */
+.teacher-management-subtitle {
+    color: #333;
+    /* Màu sắc riêng cho tiêu đề */
+    font-size: 1.5em;
+    /* Kích thước chữ */
+    margin-top: 20px;
+    /* Khoảng cách phía trên */
+}
+
+/* Đặt kiểu cho biểu đồ */
+.line-chart {
+    margin-top: 20px;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    /* Căn giữa theo chiều ngang */
+    margin-bottom: 20px;
+    /* Khoảng cách dưới cùng */
+}
