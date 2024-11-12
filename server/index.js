@@ -1,3 +1,4 @@
+const OPENAI = require('openai');
 
 const express = require('express');
 const cors = require('cors');
@@ -7,6 +8,8 @@ const path = require('path');
 const { User, connectDB } = require('./User'); // File User.js đã được tạo
 const app = express();
 const bodyParser = require('body-parser');
+
+
 
 app.use(cors());
 app.use(express.json());
