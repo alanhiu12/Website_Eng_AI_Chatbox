@@ -25,6 +25,7 @@ const Home = () => {
               <li className="dropdown">
                 <a href="#" className="dropbtn">See More</a>
                 <div className="dropdown-content">
+                  <Link to="/admin">Admin</Link>
                   <Link to="/user-profile">Profile</Link>
                   <Link to="/contact">Contact</Link>
                   <Link to="/setting">Setting</Link>

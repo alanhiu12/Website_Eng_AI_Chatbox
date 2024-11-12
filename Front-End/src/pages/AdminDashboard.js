@@ -1,7 +1,17 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './css/AdminDashboard.css'; //Import the CSS module
 
 const AdminDashboard = () => {
+    const navigate = useNavigate();
+
+    // Logout functionality
+  const handleLogout = (event) => {
+    event.preventDefault();
+    localStorage.removeItem("loggedIn");
+    navigate("/login"); // Redirect to login pages after logout
+  };
+
     return (
       <div className="admin-dashboard">
         {/* Search Bar and Profile Icon */}
@@ -87,6 +97,13 @@ const AdminDashboard = () => {
               {/* Add more rows as needed */}
             </tbody>
           </table>
+
+        <footer>
+        <div className="container">
+          <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
+        </div>
+      </footer>
+
         </div>
       </div>
     );
