@@ -12,12 +12,15 @@ import Classes from './pages/Classes'
 import TeacherContentPage from './pages/TeacherContentPage';
 import ChatbotPage from './pages/ChatbotPage'
 import Study from './pages/Study'
+import Admin from './pages/AdminDashboard'
 
 function App() {
   return (
     <Router>
       <Routes>
+      
         <Route path="/" element={<Homepages />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
