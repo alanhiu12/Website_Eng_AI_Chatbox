@@ -1,94 +1,43 @@
-import React, { useState } from 'react';
-import './css/ChatbotPage.css';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
-const ChatBotBox = () => {
-  const navigate = useNavigate();
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState("");
+const Chatbot = () => {
+  useEffect(() => {
+    // Dynamically create the chatbot configuration script
+    const chatbotScript = document.createElement('script');
+    chatbotScript.src = "https://www.chatbase.co/embed.min.js";
+    chatbotScript.defer = true;
+    chatbotScript.setAttribute("chatbotId", "fg7EHhAK8iHpmf_4ZF_VL");
+    chatbotScript.setAttribute("domain", "www.chatbase.co");
+    document.body.appendChild(chatbotScript);
 
-  // Logout functionality
-  const handleLogout = (event) => {
-    event.preventDefault();
-    localStorage.removeItem("loggedIn");
-    navigate("/login"); // Redirect to login page after logout
-  };
+    // Configure the embedded chatbot
+    const chatbotConfigScript = document.createElement('script');
+    chatbotConfigScript.innerHTML = `
+      window.embeddedChatbotConfig = {
+        chatbotId: "fg7EHhAK8iHpmf_4ZF_VL",
+        domain: "www.chatbase.co"
+      };
+    `;
+    document.body.appendChild(chatbotConfigScript);
 
-  // Function to handle sending messages
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (input.trim() === "") return;
-
-    const userMessage = { text: input, sender: "user" };
-    const botReply = { text: "Đang xử lý...", sender: "bot" };
-
-    setMessages([...messages, userMessage, botReply]);
-    setInput("");
-
-    // Simulate bot reply after a delay
-    setTimeout(() => {
-      setMessages((prevMessages) =>
-        prevMessages.map((msg, idx) =>
-          idx === prevMessages.length - 1
-            ? { ...msg, text: "Đây là câu trả lời từ bot." }
-            : msg
-        )
-      );
-    }, 1000);
-  };
+    // Clean up by removing the scripts when the component is unmounted
+    return () => {
+      document.body.removeChild(chatbotScript);
+      document.body.removeChild(chatbotConfigScript);
+    };
+  }, []);
 
   return (
-    <div className="chatbot-box">
-      <header>
-        <div className="container">
-          <Link to="/" className="logo">LearnLinguaAI</Link>
-          <nav>
-            <ul>
-              <li><Link to="/" className="active">Home</Link></li>
-              <li><Link to="/classes">Classes</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li className="dropdown">
-                <a href="#" className="dropbtn">See More</a>
-                <div className="dropdown-content">
-                  <Link to="/user-profile">Profile</Link>
-                  <Link to="/contact">Contact</Link>
-                  <Link to="/setting">Setting</Link>
-                  <Link to="/teacher">Teacher</Link>
-                  <Link to="/chatbot">Chat</Link>
-                  <a href="#" onClick={handleLogout}>Logout</a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
-      <div className="chat-header">
-        <h2>Chat với Bot</h2>
-      </div>
-
-      <div className="chat-body">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`message ${message.sender === "user" ? "user-message" : "bot-message"}`}
-          >
-            {message.text}
-          </div>
-        ))}
-      </div>
-
-      <form className="chat-input" onSubmit={handleSendMessage}>
-        <input
-          type="text"
-          placeholder="Nhập tin nhắn..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <button type="submit">Gửi</button>
-      </form>
+    <div>
+      <iframe
+        src="https://www.chatbase.co/chatbot-iframe/fg7EHhAK8iHpmf_4ZF_VL"
+        width="100%"
+        style={{ height: '100%', minHeight: '700px' }}
+        frameBorder="0"
+        title="Chatbot"
+      ></iframe>
     </div>
   );
 };
 
-export default ChatBotBox;
+export default Chatbot;

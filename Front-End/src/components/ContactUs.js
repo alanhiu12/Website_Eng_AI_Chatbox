@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './styles/Contact.css'; // Assuming you have a CSS file in the 'css' folder
-import { Link } from 'react-router-dom';
+import './styles/Contact.css'; // Assuming you have a CSS file in the 'styles' folder
+import { Link, useNavigate } from 'react-router-dom';
 
 const ContactUs = () => {
     // State to handle form inputs
@@ -10,6 +10,14 @@ const ContactUs = () => {
         phone: '',
         message: ''
     });
+
+    const navigate = useNavigate();
+
+    const handleLogout = (event) => {
+        event.preventDefault();
+        localStorage.removeItem("loggedIn");
+        navigate("/login"); // Redirect to login page after logout
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,19 +37,21 @@ const ContactUs = () => {
         <div>
             <header>
                 <div className="container">
-                    <a href="/" className="logo">LearnLinguaAI</a>
+                    <Link to="/" className="logo">LearnLinguaAI</Link>
                     <nav>
                         <ul>
-                            <li><a href="/">Home</a></li>
+                            <li><Link to="/" className="active">Home</Link></li>
                             <li><Link to="/classes">Classes</Link></li>
-                            <li><a href="/about">About</a></li>
+                            <li><Link to="/about">About</Link></li>
                             <li className="dropdown">
-                                <a href="#" className="dropbtn">More</a>
+                                <a href="#" className="dropbtn">See More</a>
                                 <div className="dropdown-content">
-                                    <a href="/user-profile">Profile</a>
-                                    <a href="/contact">Contact</a>
+                                    <Link to="/user-profile">Profile</Link>
+                                    <Link to="/contact">Contact</Link>
                                     <Link to="/setting">Setting</Link>
-                                    <a href="#" id="logout-link">Logout</a>
+                                    <Link to="/teacher">Teacher</Link>
+                                    <Link to="/chatbot">Chat</Link>
+                                    <a href="#" onClick={handleLogout}>Logout</a>
                                 </div>
                             </li>
                         </ul>
@@ -52,14 +62,14 @@ const ContactUs = () => {
             <main>
                 <section id="contact">
                     <div className="container">
-                        <h2 className="section-title">Liên hệ với chúng tôi</h2>
+                        <h2 className="section-title">Contact Us</h2>
                         <form id="contactForm" onSubmit={handleSubmit}>
-                            <label htmlFor="name">Họ và tên:</label>
+                            <label htmlFor="name">Full Name</label>
                             <input
                                 type="text"
                                 id="name"
                                 name="name"
-                                placeholder="Nhập tên của bạn"
+                                placeholder="Enter your name"
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
@@ -70,34 +80,34 @@ const ContactUs = () => {
                                 type="email"
                                 id="email"
                                 name="email"
-                                placeholder="Nhập email của bạn"
+                                placeholder="Enter your email"
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
                             />
                             
-                            <label htmlFor="phone">Số điện thoại:</label>
+                            <label htmlFor="phone">Phone Number:</label>
                             <input
                                 type="tel"
                                 id="phone"
                                 name="phone"
-                                placeholder="Nhập số điện thoại của bạn"
+                                placeholder="Enter your phone number"
                                 value={formData.phone}
                                 onChange={handleChange}
                             />
                             
-                            <label htmlFor="message">Tin nhắn:</label>
+                            <label htmlFor="message">Message:</label>
                             <textarea
                                 id="message"
                                 name="message"
                                 rows="5"
-                                placeholder="Nhập nội dung tin nhắn"
+                                placeholder="Enter your message"
                                 value={formData.message}
                                 onChange={handleChange}
                                 required
                             ></textarea>
                             
-                            <button type="submit" className="btn-primary">Gửi tin nhắn</button>
+                            <button type="submit" className="btn-primary">Send Message</button>
                         </form>
                     </div>
                 </section>

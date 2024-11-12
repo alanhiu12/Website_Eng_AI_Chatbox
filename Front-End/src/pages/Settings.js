@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './css/SettingsPage.css'; // Ensure this path exists
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const devices = [
   {
@@ -29,6 +29,7 @@ const devices = [
   }
 ];
 
+
 const Settings = () => {
   const [activeTab, setActiveTab] = useState('personal'); // Personal info as default
   const [isEditingName, setIsEditingName] = useState(false); // Toggle for editing name
@@ -37,7 +38,14 @@ const Settings = () => {
   const handleNameChange = (e) => {
     setUsername(e.target.value);
   };
+  
+  const navigate = useNavigate();
 
+  const handleLogout = (event) => {
+      event.preventDefault();
+      localStorage.removeItem("loggedIn");
+      navigate("/login"); // Redirect to login page after logout
+  };
   const toggleEditName = () => {
     setIsEditingName(!isEditingName);
   };
@@ -45,26 +53,28 @@ const Settings = () => {
   return (
     <div className="settings-pages">
       <header>
-        <div className="container">
-          <Link to="/" className="logo">LearnLinguaAI</Link>
-          <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/classes">Classes</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li className="dropdown">
-                <a href="#" className="dropbtn">See More</a>
-                <div className="dropdown-content">
-                  <Link to="/user-profile">Profile</Link>
-                  <Link to="/contact">Contact</Link>
-                  <Link to="/setting">Setting</Link>
-                  <a href="#" id="logout-link">Logout</a>
+                <div className="container">
+                    <Link to="/" className="logo">LearnLinguaAI</Link>
+                    <nav>
+                        <ul>
+                            <li><Link to="/" className="active">Home</Link></li>
+                            <li><Link to="/classes">Classes</Link></li>
+                            <li><Link to="/about">About</Link></li>
+                            <li className="dropdown">
+                                <a href="#" className="dropbtn">See More</a>
+                                <div className="dropdown-content">
+                                    <Link to="/user-profile">Profile</Link>
+                                    <Link to="/contact">Contact</Link>
+                                    <Link to="/setting">Setting</Link>
+                                    <Link to="/teacher">Teacher</Link>
+                                    <Link to="/chatbot">Chat</Link>
+                                    <a href="#" onClick={handleLogout}>Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+            </header>
 
       <div className="settings-container">
         {/* Sidebar Navigation */}
