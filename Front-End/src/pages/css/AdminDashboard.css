@@ -40,13 +40,6 @@ body.dark {
     --title-icon-color: #CCC;
 }
 
-/* General Layout */
-.dashboard {
-    background-color: var(--panel-color);
-    padding: 20px;
-    color: var(--text-color);
-    min-height: 100vh;
-}
 
 .header {
     display: flex;
@@ -69,17 +62,18 @@ body.dark {
     height: 40px;
 }
 
-.dashboard {
+.dashboard-section {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap; /* Prevent cards from stacking */
     justify-content: space-around;
     align-items: center;
     gap: 20px;
+    width: 100%; /* Ensure it spans the full width of the container */
 }
 
-/* Individual cards */
 .card {
-    background-color: #333; /* Or any preferred color */
+    background-color: #333;
     color: white;
     padding: 20px;
     border-radius: 8px;
