@@ -58,9 +58,11 @@ button:hover {
 
 /* Đặt kiểu cho tiêu đề h1 của Teacher Management */
 .teacher-management-title {
-    color: #4CAF50; /* Màu sắc riêng cho tiêu đề */
+    color: #000000; /* Màu sắc riêng cho tiêu đề */
     font-size: 2em; /* Kích thước chữ */
-    margin-bottom: 20px; /* Khoảng cách phía dưới */
+    margin-bottom: 10px; /* Khoảng cách phía dưới */
+    margin-top: 10px;
+    text-align: center;
 }
 
 /* Đặt kiểu cho tiêu đề h2 của Teacher Management */

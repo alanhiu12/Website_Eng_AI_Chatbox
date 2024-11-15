@@ -46,12 +46,16 @@ const UserProfile = () => {
         </div>
       </header>
 
-      <h1>User Profile</h1>
-      <div className="profile-info">
-        <img src={profileImage} alt="Profile" className="profile-image" />
-        <h2>{user.name}</h2>
-        <p>Joined : {user.time}</p>
-        <p>Learning Progress: {user.progress}</p>
+      <div className="Users-info">
+        <div className="profile-info">
+          <h1>User Profile</h1>
+            <img src={profileImage} alt="Profile" className="profile-image" />
+        </div>
+        <div className="info">
+          <h2>Name: {user.name}</h2>
+          <p>Joined : {user.time}</p>
+          <p>Learning Progress: {user.progress}</p>
+        </div>
       </div>
 
       <ProgressDashboard />

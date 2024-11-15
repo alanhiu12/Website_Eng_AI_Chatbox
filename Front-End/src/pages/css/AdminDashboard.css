@@ -52,13 +52,14 @@ body.dark {
     padding: 10px;
     border-radius: 5px;
     border: none;
-    width: 300px;
+    width: 100px;
+    height: 10px;
     font-size: 16px;
 }
 
 .profileIcon img {
     border-radius: 50%;
-    width: 40px;
+    width: 4px;
     height: 40px;
 }
 
@@ -69,30 +70,34 @@ body.dark {
     justify-content: space-around;
     align-items: center;
     gap: 20px;
-    width: 100%; /* Ensure it spans the full width of the container */
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px; /* Ensure it spans the full width of the container */
 }
 
 .card {
-    background-color: #333;
-    color: white;
+    background-color: #000000;
+    color: rgb(216, 216, 216);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 20px;
     text-align: center;
-    width: 200px; /* Control the width as needed */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 470px; /* Control the width as needed */
+    height: auto;
+    box-shadow: 0px 4px 6px rgba(3, 3, 3, 0.1);
 }
+
 
 /* Icon styling */
 .icon {
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 /* Card text */
 .card p {
     font-size: 16px;
     margin: 5px 0;
-    color: #cccccc; /* Slightly lighter text */
+    color: #ffffff; /* Slightly lighter text */
 }
 
 /* Card number */

@@ -224,14 +224,14 @@ main {
 #contact h2.section-title {
     font-size: 2rem;
     color: #004a9a;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 /* Form */
 #contact form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 /* Label */
@@ -245,7 +245,7 @@ main {
 #contact input, #contact textarea {
     padding: 15px;
     font-size: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid #03effb;
     border-radius: 8px;
     outline: none;
     transition: border-color 0.3s, box-shadow 0.3s;
@@ -258,8 +258,8 @@ main {
 
 /* Nút gửi tin nhắn */
 #contact button {
-    background-color: #004a9a;
-    color: white;
+    background-color: #0ae411;
+    color: rgb(0, 0, 0);
     padding: 15px;
     font-size: 1.1rem;
     border: none;
@@ -270,7 +270,7 @@ main {
 }
 
 #contact button:hover {
-    background-color: #003470;
+    background-color: #06ff27;
     transform: translateY(-2px);
 }
 

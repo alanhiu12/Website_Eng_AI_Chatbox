@@ -6,30 +6,34 @@
 .category {
     margin-bottom: 30px;
     padding: 20px; /* Add some padding for better spacing */
-    border: 1px solid #ccc; /* Optional: Add a border */
+    border: 1px solid #cccccc; /* Optional: Add a border */
     border-radius: 8px; /* Optional: Rounded corners */
     background-color: #f9f9f9; /* Optional: Light background color */
 }
 
 .category h2 {
     font-size: 24px; /* Increased font size for better visibility */
-    margin-bottom: 10px;
-    color: #333;
+    margin-bottom: 20px;
+    color: #000000;
 }
 
 .quiz-cards {
     display: flex; /* Use flexbox for layout */
     flex-wrap: wrap; /* Allow wrapping of cards */
     gap: 15px; /* Space between cards */
+
+    
 }
 
 .quiz-card {
     flex: 1 1 calc(33.33% - 15px); /* Responsive card size */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.786); /* Subtle shadow for depth */
     border-radius: 8px; /* Rounded corners for cards */
     padding: 15px; /* Padding inside quiz cards */
-    background-color: #fff; /* White background for cards */
+    background-color: #ffffff; /* White background for cards */
     transition: transform 0.2s; /* Smooth hover effect */
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .quiz-card:hover {

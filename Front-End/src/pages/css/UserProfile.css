@@ -93,40 +93,67 @@ nav ul li a:hover {
 
 /* Main Content Styles */
 .user-profile {
+    margin-bottom: 10px;
     flex: 1;
     padding: 40px; /* Padding for main content */
     text-align: center; /* Center text alignment */
 }
 
 /* Profile Image */
+
+
+.Users-info{
+    background-color: #00c3d5;
+    display: flex;
+    width: 900px; /* Set a specific width */
+    height: auto; /* Set a specific height */
+    border-radius: 10%; /* Make it circular */
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 3px solid #00d8ff; 
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+.profile-info{
+    margin-left: 20px;
+}
 .profile-image {
+ 
     width: 150px; /* Set a specific width */
     height: 150px; /* Set a specific height */
     border-radius: 50%; /* Make it circular */
     border: 3px solid #00d8ff; /* Add border for emphasis */
-    object-fit: cover; /* Maintain aspect ratio */
     margin-bottom: 20px; /* Space below the image */
-    display: block; /* Ensure the image behaves like a block element */
-    margin-left: auto; /* Center the image */
-    margin-right: auto; /* Center the image */
+    display: flex; /* Ensure the image behaves like a block element */
+    margin-left: 30px;
 }
 
-h1 {
+.h1 {
+    margin-top: 20px;
     font-size: 2.5rem; /* Main heading size */
     margin-bottom: 20px; /* Space below heading */
-    text-align: center;
+    text-align: left;
+    
+}
+.info{
+    margin-left: 150px;
 }
 
-.profile-info h2 {
+.info h2 {
+    margin-top: 50px;
     font-size: 2rem; /* Name font size */
     margin-bottom: 10px; /* Space below name */
-    text-align: center; 
+    text-align: left; 
+
 }
 
-.profile-info p {
+.info p {
     font-size: 1.2rem; /* Info font size */
     margin-bottom: 10px; /* Space below each paragraph */
-    text-align: center;
+    text-align: left;
 }
 
 /* Dropdown Menu Styles */

@@ -83,11 +83,10 @@ const Signup = () => {
                           required
                       />
                   </div>
-
+                  <label>
+                        Vai trò:
+                    </label>
                   <div className="form-group">
-                      <label>
-                          Vai trò:
-                      </label>
                       <div>
                           <label htmlFor="teacher">
                               <input

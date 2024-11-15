@@ -29,7 +29,7 @@ h2 {
 
 /* Form Field */
 .form-field {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .form-field label {
@@ -110,9 +110,11 @@ button[disabled] {
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s;
+  
 }
 
 .extra-links a:hover {
   color: #0056b3;
+ 
 }
 

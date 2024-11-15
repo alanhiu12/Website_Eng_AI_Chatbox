@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './css/AdminDashboard.css'; // Import the CSS module
+import img1 from '../assets/pictures/like.png';
+import img2 from '../assets/pictures/comment.png';
+import img3 from '../assets/pictures/share.png';
+import img4 from '../assets/pictures/find.png';
 
 // Updated data structure
 const activityData = [
@@ -53,13 +57,7 @@ const AdminDashboard = () => {
 
     return (
         <div className="admin-dashboard">
-            {/* Search Bar and Profile Icon */}
-            <div className="header">
-                <input type="text" placeholder="Search" className="search-bar" />
-                <div className="profile-icon">
-                    <img src="profile-pic-url" alt="Profile" />
-                </div>
-            </div>
+         
             
             <header>
                 <div className="container">
@@ -86,19 +84,30 @@ const AdminDashboard = () => {
                 </div>
             </header>
 
+                {/* Search Bar and Profile Icon */}
+                <div className="header">
+                        <input type="text" placeholder="Search"  className="search-bar" />
+                        <div className="profile-icon">
+                            <img src={img4} alt="Profile" />
+                        </div>
+                </div>
+
             {/* Dashboard Summary Section */}
             <div className="dashboard-section">
                 <div className="card">
+                    <img src={img1} classname="img"/>
                     <i className="fas fa-thumbs-up icon"></i>
                     <p>Total Likes</p>
                     <h2>50,120</h2>
                 </div>
                 <div className="card">
+                <img src={img2} classname="img"/>
                     <i className="fas fa-comments icon"></i>
                     <p>Comments</p>
                     <h2>20,120</h2>
                 </div>
                 <div className="card">
+                <img src={img3} classname="img"/>
                     <i className="fas fa-share icon"></i>
                     <p>Total Share</p>
                     <h2>10,120</h2>

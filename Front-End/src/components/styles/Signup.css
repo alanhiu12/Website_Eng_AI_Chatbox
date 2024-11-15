@@ -8,21 +8,25 @@
     background-size: cover;
     background-position: center;
     background-color: #f0f2f5;
+
 }
 
 .signup-box {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 15px; /* Reduced padding */
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 300px; /* Reduced width */
     text-align: left;
+    width: 500px;
+    height: 575px ;
+    
 }
 
 .signup-box h2 {
-    margin-bottom: 15px; /* Reduced margin */
+    margin-bottom: -2px; /* Reduced margin */
     font-size: 1.4rem; /* Slightly reduced font size */
-    color: #333;
+    color: #000000;
 }
 
 .signup-box input[type="text"],
@@ -32,7 +36,7 @@
     padding: 8px; /* Reduced padding */
     margin-bottom: 12px; /* Reduced margin */
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #07ade4;
     font-size: 0.95rem; /* Slightly reduced font size */
 }
 
@@ -63,4 +67,14 @@
 .signup-box .login-link:hover {
     text-decoration: underline;
 }
-
+.extra-links{
+    text-align: center;
+    margin-top: 10px;
+}
+.form-group div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px; /* Khoảng cách giữa các radio */
+    margin-bottom: 10px;
+}

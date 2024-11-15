@@ -138,23 +138,23 @@ const Settings = () => {
                 <ul className="linked-accounts-list">
                   <li>
                     <img src="/images/google-icon.png" alt="Google" className="account-icon" />
-                    <span>Google</span>
+                    <span></span>
                     <span>Trịnh Hiếu</span>
                   </li>
                   <li>
                     <img src="/images/facebook-icon.png" alt="Facebook" className="account-icon" />
-                    <span>Facebook</span>
-                    <span>-</span>
+                    <span></span>
+                    <span>...</span>
                   </li>
                   <li>
                     <img src="/images/apple-icon.png" alt="Apple" className="account-icon" />
-                    <span>Apple</span>
-                    <span>-</span>
+                    <span></span>
+                    <span>...</span>
                   </li>
                   <li>
                     <img src="/images/x-icon.png" alt="Twitter" className="account-icon" />
-                    <span>X</span>
-                    <span>-</span>
+                    <span></span>
+                    <span>...</span>
                   </li>
                 </ul>
               </div>
@@ -233,7 +233,7 @@ const Settings = () => {
             <h2>Liên Kết Tài Khoản</h2>
             <ul className="linked-accounts-list">
               {[
-                { id: 1, platform: 'Google', status: 'Đã liên kết', linked: true },
+                { id: 1, platform: 'Google', status: '✔', linked: true },
                 { id: 2, platform: 'Facebook', status: 'Chưa liên kết', linked: false },
                 { id: 3, platform: 'Apple', status: 'Chưa liên kết', linked: false },
                 { id: 4, platform: 'X', status: 'Chưa liên kết', linked: false }

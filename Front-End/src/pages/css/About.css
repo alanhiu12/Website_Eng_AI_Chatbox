@@ -97,7 +97,7 @@ header nav ul li a.active::before {
 header nav ul li a.active {
     color: #00d8ff; /* Thay đổi màu chữ cho trang đang được chọn */
     background-color: transparent; /* Loại bỏ màu nền */
-    transition: color 0.4s ease-in-out; /* Chuyển đổi mượt chỉ cho màu chữ */
+    transition:  width  0.4s ease-in-out; /* Chuyển đổi mượt chỉ cho màu chữ */
 }
 
 /* Animation on hover */
@@ -233,6 +233,7 @@ section {
     margin: 0.5rem 0;
     padding: 0.7rem;
     border-radius: 5px;
+    
 }
 
 /* Team Section */

@@ -104,8 +104,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 30px;
   border-bottom: 1px solid #e6e6e6;
+  gap: 8px;
 }
 
 /* Label styling for "Tên Người Dùng", "Email", "Số Điện Thoại" */
@@ -238,8 +239,11 @@ header {
 
 .linked-accounts-list {
   list-style-type: none;
-  padding: 0;
+  padding: 10px;
+  margin-left: 130px;
+  gap:30px;
 }
+
 
 .account-item {
   display: flex;
