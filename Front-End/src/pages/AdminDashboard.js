@@ -1,132 +1,209 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './css/AdminDashboard.css'; // Import the CSS module
-import img1 from '../assets/pictures/like.png';
-import img2 from '../assets/pictures/comment.png';
-import img3 from '../assets/pictures/share.png';
-import img4 from '../assets/pictures/find.png';
-
-// Updated data structure
-const activityData = [
-    { name: "Prem Shahi", email: "premshahi@gmail.com", joined: "2022-02-12", type: "New", status: "Liked" },
-    { name: "Deepa Chand", email: "deepachand@gmail.com", joined: "2022-02-12", type: "Member", status: "Liked" },
-    { name: "Manisha Chand", email: "prakashhai@gmail.com", joined: "2022-02-13", type: "Member", status: "Liked" },
-    { name: "Pratima Shahi", email: "manishachand@gmail.com", joined: "2022-02-13", type: "New", status: "Liked" },
-    { name: "Man Shahi", email: "pratimashhai@gmail.com", joined: "2022-02-14", type: "Member", status: "Liked" },
-    { name: "Ganesh Chand", email: "manshahi@gmail.com", joined: "2022-02-14", type: "New", status: "Liked" },
-    { name: "Bikash Chand", email: "ganeshchand@gmail.com", joined: "2022-02-15", type: "Member", status: "Liked" }
-];
-
-// ActivityData component
-const ActivityData = () => {
-    return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Joined</th>
-                    <th>Type</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {activityData.map((activity, index) => (
-                    <tr key={index}>
-                        <td>{activity.name}</td>
-                        <td>{activity.email}</td>
-                        <td>{activity.joined}</td>
-                        <td>{activity.type}</td>
-                        <td>{activity.status}</td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-    );
-};
+import './css/AdminDashboard.css';
 
 const AdminDashboard = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    // Logout functionality
-    const handleLogout = (event) => {
-        event.preventDefault();
-        localStorage.removeItem("loggedIn");
-        navigate("/login"); // Redirect to login pages after logout
-    };
+  // Logout functionality
+  const handleLogout = (event) => {
+    event.preventDefault();
+    localStorage.removeItem("loggedIn");
+    navigate("/login"); // Redirect to login page after logout
+  };
 
-    return (
-        <div className="admin-dashboard">
-         
-            
-            <header>
-                <div className="container">
-                    <Link to="/" className="logo">LearnLinguaAI</Link>
-                    <nav>
-                        <ul>
-                            <li><Link to="/" className="active">Home</Link></li>
-                            <li><Link to="/classes">Classes</Link></li>
-                            <li><Link to="/about">About</Link></li>
-                            <li className="dropdown">
-                                <a href="#" className="dropbtn">See More</a>
-                                <div className="dropdown-content">
-                                    <Link to="/user-profile">Profile</Link>
-                                    <Link to="/admin">Admin</Link>
-                                    <Link to="/contact">Contact</Link>
-                                    <Link to="/setting">Setting</Link>
-                                    <Link to="/teacher">Teacher</Link>
-                                    <Link to="/chatbot">Chat</Link>
-                                    <a href="#" onClick={handleLogout}>Logout</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
+  const [users, setUsers] = useState([
+    { id: 1, name: "John Doe", role: "Teacher" },
+    { id: 2, name: "Jane Smith", role: "Student" },
+  ]);
 
-                {/* Search Bar and Profile Icon */}
-                <div className="header">
-                        <input type="text" placeholder="Search"  className="search-bar" />
-                        <div className="profile-icon">
-                            <img src={img4} alt="Profile" />
-                        </div>
-                </div>
+  const [resources, setResources] = useState([
+    { id: 1, name: "Lecture Notes", type: "PDF" },
+    { id: 2, name: "Assignment 1", type: "Word Document" },
+  ]);
 
-            {/* Dashboard Summary Section */}
-            <div className="dashboard-section">
-                <div className="card">
-                    <img src={img1} classname="img"/>
-                    <i className="fas fa-thumbs-up icon"></i>
-                    <p>Total Likes</p>
-                    <h2>50,120</h2>
-                </div>
-                <div className="card">
-                <img src={img2} classname="img"/>
-                    <i className="fas fa-comments icon"></i>
-                    <p>Comments</p>
-                    <h2>20,120</h2>
-                </div>
-                <div className="card">
-                <img src={img3} classname="img"/>
-                    <i className="fas fa-share icon"></i>
-                    <p>Total Share</p>
-                    <h2>10,120</h2>
-                </div>
-            </div>
-    
-            {/* Recent Activity Section */}
-            <div className="recent-activity">
-                <h3>Recent Activity</h3>
-                <ActivityData /> {/* Render ActivityData component */}
-            </div>
+  const [classes, setClasses] = useState([
+    { id: 1, name: "Math 101", teacher: "John Doe" },
+    { id: 2, name: "English 101", teacher: "Jane Smith" },
+  ]);
 
-            <footer>
-                <div className="container">
-                    <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
+  const [newResource, setNewResource] = useState({ name: "", type: "" });
+  const [newClass, setNewClass] = useState({ name: "", teacher: "" });
+
+  const handleDeleteUser = (id) => {
+    setUsers(users.filter((user) => user.id !== id));
+  };
+
+  const handleDeleteResource = (id) => {
+    setResources(resources.filter((resource) => resource.id !== id));
+  };
+
+  const handleDeleteClass = (id) => {
+    setClasses(classes.filter((classItem) => classItem.id !== id));
+  };
+
+  const handleAddResource = () => {
+    if (newResource.name && newResource.type) {
+      setResources([
+        ...resources,
+        { id: resources.length + 1, name: newResource.name, type: newResource.type },
+      ]);
+      setNewResource({ name: "", type: "" });
+    }
+  };
+
+  const handleAddClass = () => {
+    if (newClass.name && newClass.teacher) {
+      setClasses([
+        ...classes,
+        { id: classes.length + 1, name: newClass.name, teacher: newClass.teacher },
+      ]);
+      setNewClass({ name: "", teacher: "" });
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setNewResource({ ...newResource, [e.target.name]: e.target.value });
+  };
+
+  const handleClassInputChange = (e) => {
+    setNewClass({ ...newClass, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <div className="admin-dashboard">
+      
+      <header className="admin-header">
+        <div className="container">
+          <Link to="/" className="logo">LearnLinguaAI</Link>
+          <nav>
+            <ul>
+              <li><Link to="/" >Home</Link></li>
+              <li><Link to="/classes">Classes</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li className="dropdown">
+                <a href="#" className="dropbtn">See More</a>
+                <div className="dropdown-content">
+                  <Link to="/admin">Admin</Link>
+                  <Link to="/user-profile">Profile</Link>
+                  <Link to="/contact">Contact</Link>
+                  <Link to="/setting">Setting</Link>
+                  <Link to="/teacher">Teacher</Link>
+                  <Link to="/chatbot">Chat</Link>
+                  <a href="#" onClick={handleLogout}>Logout</a>
                 </div>
-            </footer>
+              </li>
+            </ul>
+          </nav>
         </div>
-    );
+      </header>
+
+      {/* Content */}
+      <main className="admin-content">
+        <div className="admin-profile">
+          <div>
+            <h1>Welcome, Admin!</h1>
+            <p>Manage your platform with ease.</p>
+          </div>
+        </div>
+
+        {/* User Management Section */}
+        <section className="admin-section">
+          <h2>👤 Manage Users</h2>
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.name}</td>
+                  <td>{user.role}</td>
+                  <td>
+                    <button className="btn-edit">Edit</button>
+                    <button
+                      className="btn-delete"
+                      onClick={() => handleDeleteUser(user.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+
+        {/* Classes Section */}
+        <section className="admin-section">
+          <h2>🏫 Manage Classes</h2>
+
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Class Name</th>
+                <th>Teacher</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {classes.map((classItem) => (
+                <tr key={classItem.id}>
+                  <td>{classItem.name}</td>
+                  <td>{classItem.teacher}</td>
+                  <td>
+                    <button className="btn-edit">Edit</button>
+                    <button
+                      className="btn-delete"
+                      onClick={() => handleDeleteClass(classItem.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <div>
+            <h3>Add New Class</h3>
+            <input
+              type="text"
+              name="name"
+              value={newClass.name}
+              onChange={handleClassInputChange}
+              placeholder="Class Name"
+            />
+            <input
+              type="text"
+              name="teacher"
+              value={newClass.teacher}
+              onChange={handleClassInputChange}
+              placeholder="Teacher Name"
+            />
+            <button onClick={handleAddClass}>Add Class</button>
+          </div>
+        </section>
+
+        {/* Analytics Section */}
+        <section className="admin-section">
+          <h2>📊 Analytics</h2>
+          <div className="analytics-card">
+            <h3>Total Users</h3>
+            <p>{users.length}</p>
+          </div>
+          <div className="analytics-card">
+            <h3>Active Classes</h3>
+            <p>{classes.length}</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
 };
 
 export default AdminDashboard;
