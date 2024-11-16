@@ -13,6 +13,7 @@ import TeacherContentPage from './pages/TeacherContentPage';
 import ChatbotPage from './pages/ChatbotPage'
 import Study from './pages/Study'
 import Admin from './pages/AdminDashboard'
+import Payment from './pages/Payment'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/teacher" element={<TeacherContentPage />} />
         <Route path="/chatbot" element={<ChatbotPage />} />
         <Route path="/study" element={<Study />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </Router>
   );
