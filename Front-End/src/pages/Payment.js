@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./css/Payment.css";
 import { Link, useNavigate } from 'react-router-dom';
-
-
+import img1 from "../assets/pictures/momo.png";
+import img2 from "../assets/pictures/zalopay.png";
+import img3 from "../assets/pictures/visa.png";
+import img4 from "../assets/pictures/master.png";
 export default function Payment() {
   const navigate = useNavigate();
 
@@ -81,11 +83,19 @@ export default function Payment() {
             <div className="payment-method">
               <label>
                 <input type="radio" name="payment" defaultChecked />
-                Visa Debit Card ************3456
+                <img src={img1}/>
               </label>
               <label>
                 <input type="radio" name="payment" />
-                Mastercard Office ************1038
+                <img src={img2}/>
+              </label>
+              <label>
+                <input type="radio" name="payment" />
+                <img src={img3}/>
+              </label>
+              <label>
+                <input type="radio" name="payment" />
+                <img src={img4}/>
               </label>
             </div>
 
