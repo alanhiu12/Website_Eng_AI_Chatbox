@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './css/Study.css';
 
 const Study = () => {
+  
   const [classes, setClasses] = useState([
     { id: 1, name: "Math 101", teacher: "Mr. Smith", description: "Learn Algebra and Geometry basics.", code: "MATH101" },
     { id: 2, name: "Physics", teacher: "Ms. Johnson", description: "Introduction to Newtonian Physics.", code: "PHYSICS" },
@@ -43,9 +44,13 @@ const Study = () => {
     }
   };
 
-  const handleLogout = () => {
-    console.log("User logged out");
-    // Add your logout logic here
+  const navigate = useNavigate();
+
+  // Logout functionality
+  const handleLogout = (event) => {
+    event.preventDefault();
+    localStorage.removeItem("loggedIn");
+    navigate("/login"); // Redirect to login page after logout
   };
 
   return (

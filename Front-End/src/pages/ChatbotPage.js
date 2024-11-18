@@ -49,7 +49,7 @@ const Chatbot = () => {
           <Link to="/" className="logo">LearnLinguaAI</Link>
           <nav>
             <ul>
-              <li><Link to="/" className="active">Home</Link></li>
+              <li><Link to="/" >Home</Link></li>
               <li><Link to="/classes">Classes</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/payment">Payment</Link> </li>
@@ -61,7 +61,7 @@ const Chatbot = () => {
                   <Link to="/contact">Contact</Link>
                   <Link to="/setting">Setting</Link>
                   <Link to="/teacher">Teacher</Link>
-                  <Link to="/chatbot">Chat</Link>
+                  <Link to="/chatbot" className="active" >Chat</Link>
                   <a href="#" onClick={handleLogout}>Logout</a>
                 </div>
               </li>

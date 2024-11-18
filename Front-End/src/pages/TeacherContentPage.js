@@ -89,7 +89,7 @@ const TeacherManagement = () => {
                   <Link to="/user-profile">Profile</Link>
                   <Link to="/contact">Contact</Link>
                   <Link to="/setting">Setting</Link>
-                  <Link to="/teacher">Teacher</Link>
+                  <Link to="/teacher" className="active" >Teacher</Link>
                   <a href="#" onClick={handleLogout}>Logout</a>
                 </div>
               </li>
