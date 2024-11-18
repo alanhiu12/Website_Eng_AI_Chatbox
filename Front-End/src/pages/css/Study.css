@@ -1,44 +1,19 @@
-/* Tổng quan */
-* {
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  line-height: 1.6;
-  background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Gradient background */
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Ensure the logo link has no underline and keeps the original text style */
-.logo {
-  text-decoration: none;
-  color: white;
-  font-size: 28px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.logo:hover {
-  opacity: 0.8; /* Hover effect */
+  background-color: #f4f4f4;
 }
 
 /* Header */
-header {
-  width: 100%;
-  background-color: #1c1c1c; /* Dark background */
+.study-header {
+  background-color: #1c1c1c;
   color: white;
   padding: 15px 0;
-  position: relative;
-  z-index: 1000;
 }
 
-header .container {
+.study-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,176 +22,150 @@ header .container {
   padding: 0 20px;
 }
 
-header .logo {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-header nav ul {
+.study-header nav ul {
   list-style: none;
   display: flex;
 }
 
-header nav ul li {
+.study-header nav ul li {
   margin-left: 20px;
-  position: relative;
 }
 
-header nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
-
-/* Smooth underline animation */
-header nav ul li a::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: #00d8ff;
-  transition: width 0.4s ease-in-out;
-}
-
-header nav ul li a:hover::before,
-header nav ul li a.active::before {
-  width: 100%;
-}
-
-header nav ul li a.active {
-  color: #00d8ff;
-  background-color: transparent;
-  transition: color 0.4s ease-in-out;
-}
-
-/* Hover animation */
-header nav ul li a:hover {
-  color: #00c3d5;
-  transform: translateY(-3px);
-}
-
-/* Header Divider */
-.header-divider {
-  height: 22px;
-  position: relative;
-  bottom: -5px;
-}
-/* Container for aligning Join Section and Profile Card */
-.content-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 20px auto;
-}
-
-/* Join Section */
-/* Modify join section padding for more compact design */
-.join-section {
-  padding: 10px;
-  flex: 1;
-  max-width: 400px;
-}
-
-
-.join-input {
-  flex: 1;
-  padding: 10px 15px;
-  border-radius: 8px 0 0 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  outline: none;
-  box-sizing: border-box;
-}
-
-.join-button {
-  background-color: #7b38d8;
+.study-header nav ul li a {
   color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 0 8px 8px 0;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: bold;
-  outline: none;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
-.join-button:hover {
-  background-color: #682cb2;
+.study-header nav ul li a:hover {
+  background-color: #333;
 }
 
-/* Profile Card */
-.profile-card {
-  background-color: #e8d7ff;
-  border-radius: 15px;
-  padding: 20px;
-  width: 250px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* Main Content */
+.study-main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
 }
 
-.profile-header {
+.study-header-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
-.greeting {
-  font-size: 1.2rem;
-  color: #4e2a7f;
-  font-weight: bold;
-}
-
-.edit-button {
-  background-color: #c09df7;
-  border: none;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  cursor: pointer;
+.add-class-btn {
+  background-color: #007bff;
   color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.coin-section {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.add-class-btn:hover {
+  background-color: #0056b3;
 }
 
-.coin-request, .coin-balance {
-  background-color: #ffebd6;
-  color: #cc7000;
-  border-radius: 20px;
-  padding: 5px 10px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: bold;
-  justify-content: center;
+/* Add & Join Class Sections */
+.add-class-section, .join-class-section {
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.coin-icon {
-  font-size: 1.2rem;
+.add-class-section h2, .join-class-section h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
-  
 
-footer p {
-  margin: 0;
+.add-class-section input, 
+.join-class-section input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-class-section button, 
+.join-class-section button {
+  background-color: #0066cc;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-class-section button:hover, 
+.join-class-section button:hover {
+  background-color: #004b99;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -10px;
+}
+
+/* Class Grid */
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.class-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.class-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.class-card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.class-card p {
+  margin: 5px 0;
+}
+
+.view-class-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.view-class-btn:hover {
+  background-color: #218838;
+}
+
+/* Footer */
+.study-footer {
+  background-color: #1c1c1c;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 40px;
 }

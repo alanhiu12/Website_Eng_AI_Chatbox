@@ -73,14 +73,15 @@ const AdminDashboard = () => {
   return (
     <div className="admin-dashboard">
       
-      <header className="admin-header">
+      <header>
         <div className="container">
           <Link to="/" className="logo">LearnLinguaAI</Link>
           <nav>
             <ul>
-              <li><Link to="/" >Home</Link></li>
+              <li><Link to="/" className="active">Home</Link></li>
               <li><Link to="/classes">Classes</Link></li>
               <li><Link to="/about">About</Link></li>
+              <li><Link to="/payment">Payment</Link> </li>
               <li className="dropdown">
                 <a href="#" className="dropbtn">See More</a>
                 <div className="dropdown-content">
