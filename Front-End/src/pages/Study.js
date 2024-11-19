@@ -18,8 +18,43 @@ const Study = () => {
       description: "Introduction to Newtonian Physics.",
       code: "PHYSICS",
     },
+    {
+      id: 3,
+      name: "Chemistry",
+      teacher: "Dr. Brown",
+      description: "Explore the basics of chemical reactions.",
+      code: "CHEM101",
+    },
+    {
+      id: 4,
+      name: "Biology",
+      teacher: "Dr. Green",
+      description: "Understand the fundamentals of living organisms.",
+      code: "BIO101",
+    },
+    {
+      id: 5,
+      name: "History",
+      teacher: "Mr. Taylor",
+      description: "Dive into world history and ancient civilizations.",
+      code: "HIST101",
+    },
+    {
+      id: 6,
+      name: "Computer Science",
+      teacher: "Ms. Davis",
+      description: "Learn programming fundamentals and algorithms.",
+      code: "CS101",
+    },
+    {
+      id: 7,
+      name: "English Literature",
+      teacher: "Mrs. White",
+      description: "Study classic and modern works of literature.",
+      code: "ENG101",
+    },
   ]);
-
+  
   const [popup, setPopup] = useState(null); // "add" | "join" | null
   const [newClass, setNewClass] = useState({
     name: "",
@@ -76,100 +111,101 @@ const Study = () => {
 
   return (
     <div>
-      <header className="study-header">
-        <div className="container">
-          <Link to="/" className="logo">LearnLinguaAI</Link>
-          <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/classes">Classes</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/payment">Payment</Link></li>
-              <li className="dropdown">
-                <a href="#" className="dropbtn">More</a>
-                <div className="dropdown-content">
-                  <Link to="/profile">Profile</Link>
-                  <Link to="/settings">Settings</Link>
-                  <a href="#" onClick={handleLogout}>Logout</a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-          <div className="shikono">
-            <button onClick={() => handlePopupOpen("add")}>Add Class</button>
-            <button onClick={() => handlePopupOpen("join")}>Join Class</button>
-          </div>
-        </div>
-      </header>
-
-      <main className="study-main">
-        {popup && (
-          <div className="popup-section">
-            <div className="popup-container">
-              <h2>{popup === "add" ? "Add a New Class" : "Join a Class"}</h2>
-              {popup === "add" ? (
-                <>
-                  <input
-                    type="text"
-                    placeholder="Class Name"
-                    value={newClass.name}
-                    onChange={(e) =>
-                      setNewClass({ ...newClass, name: e.target.value })
-                    }
-                  />
-                  <input
-                    type="text"
-                    placeholder="Teacher Name"
-                    value={newClass.teacher}
-                    onChange={(e) =>
-                      setNewClass({ ...newClass, teacher: e.target.value })
-                    }
-                  />
-                  <input
-                    type="text"
-                    placeholder="Class Description"
-                    value={newClass.description}
-                    onChange={(e) =>
-                      setNewClass({
-                        ...newClass,
-                        description: e.target.value,
-                      })
-                    }
-                  />
-                  <button onClick={handleAddClass}>Add Class</button>
-                </>
-              ) : (
-                <>
-                  <input
-                    type="text"
-                    placeholder="Enter class code"
-                    value={joinCode}
-                    onChange={(e) => setJoinCode(e.target.value)}
-                  />
-                  <button onClick={handleJoinClass}>Join Class</button>
-                  {errorMessage && <p className="error-message">{errorMessage}</p>}
-                </>
-              )}
-              <button onClick={handlePopupClose}>Cancel</button>
+     <header className="study-header">
+    <div className="container">
+      <Link to="/" className="logo">LearnLinguaAI</Link>
+      <nav>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/classes">Classes</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/payment">Payment</Link></li>
+          <li className="dropdown">
+            <a href="#" className="dropbtn">More</a>
+            <div className="dropdown-content">
+              <Link to="/profile">Profile</Link>
+              <Link to="/settings">Settings</Link>
+              <a href="#" onClick={handleLogout}>Logout</a>
             </div>
-          </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main className="study-main">
+  {popup && (
+    <div className="popup-section">
+      <div className="popup-container">
+        <h2>{popup === "add" ? "Add a New Class" : "Join a Class"}</h2>
+        {popup === "add" ? (
+          <>
+            <input
+              type="text"
+              placeholder="Class Name"
+              value={newClass.name}
+              onChange={(e) =>
+                setNewClass({ ...newClass, name: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              placeholder="Teacher Name"
+              value={newClass.teacher}
+              onChange={(e) =>
+                setNewClass({ ...newClass, teacher: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              placeholder="Class Description"
+              value={newClass.description}
+              onChange={(e) =>
+                setNewClass({
+                  ...newClass,
+                  description: e.target.value,
+                })
+              }
+            />
+            <button onClick={handleAddClass}>Add Class</button>
+          </>
+        ) : (
+          <>
+            <input
+              type="text"
+              placeholder="Enter class code"
+              value={joinCode}
+              onChange={(e) => setJoinCode(e.target.value)}
+            />
+            <button onClick={handleJoinClass}>Join Class</button>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+          </>
         )}
+        <button onClick={handlePopupClose}>Cancel</button>
+      </div>
+    </div>
+  )}
 
-        <section className="class-grid">
-          {classes.map((classItem) => (
-            <div className="class-card" key={classItem.id}>
-              <h2>{classItem.name}</h2>
-              <p><strong>Teacher:</strong> {classItem.teacher}</p>
-              <p>{classItem.description}</p>
-              <button className="view-class-btn">View Class</button>
-            </div>
-          ))}
-        </section>
-      </main>
+  <div className="shikono">
+    <button onClick={() => handlePopupOpen("add")}>Add Class</button>
+    <button onClick={() => handlePopupOpen("join")}>Join Class</button>
+  </div>
 
-      <footer className="study-footer">
-        <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
-      </footer>
+  <section className="class-grid">
+    {classes.map((classItem) => (
+      <div className="class-card" key={classItem.id}>
+        <h2>{classItem.name}</h2>
+        <p><strong>Teacher:</strong> {classItem.teacher}</p>
+        <p>{classItem.description}</p>
+        <button className="view-class-btn">View Class</button>
+      </div>
+    ))}
+  </section>
+</main>
+
+  <footer className="study-footer">
+    <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
+  </footer>
     </div>
   );
 };

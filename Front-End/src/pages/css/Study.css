@@ -1,12 +1,15 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-  min-height: 100vh; /* Ensure body fills the viewport height */
+  font-family: Arial, sans-serif;
+  min-height: 100vh; /* Ensures body covers the full viewport height */
   display: flex;
-  flex-direction: column; /* Arrange children vertically */
+  flex-direction: column; /* Vertically stacks children */
+  background: linear-gradient(to bottom, #f5f5f5, #eaeaea); /* Gradient background */
+  color: #333;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  transition: background-color 0.3s ease-in-out;
 }
 
 /* Header */
@@ -14,19 +17,25 @@ body {
   background-color: #1c1c1c;
   color: white;
   padding: 15px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+  position: sticky; /* Makes the header sticky */
+  top: 0;
+  z-index: 1000;
 }
 
 .study-header .container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .study-header nav ul {
   list-style: none;
   display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 .study-header nav ul li {
@@ -38,18 +47,70 @@ body {
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .study-header nav ul li a:hover {
   background-color: #333;
+  transform: scale(1.1); /* Enlarges slightly on hover */
+}
+
+/* Buttons Placement */
+.shikono {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.shikono button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.shikono button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Subtle lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
 }
 
 /* Main Content */
 .study-main {
-  flex: 1; /* Expand main content to fill available space */
+  flex: 1;
   padding: 20px;
-} 
+  animation: fadeIn 1s ease-in-out; /* Adds fade-in effect */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer */
+.study-footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: auto;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2); /* Shadow on top */
+}
 
 /* Popup */
 .popup-section {
@@ -62,6 +123,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .popup-container {
@@ -70,6 +132,9 @@ body {
   border-radius: 10px;
   width: 400px;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Popup shadow */
+  transform: scale(1);
+  transition: transform 0.3s;
 }
 
 .popup-container input {
@@ -78,6 +143,12 @@ body {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.popup-container input:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 .popup-container button {
@@ -86,6 +157,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .popup-container button:first-child {
@@ -93,9 +165,19 @@ body {
   color: white;
 }
 
+.popup-container button:first-child:hover {
+  background: #218838;
+  transform: scale(1.05); /* Enlarges slightly on hover */
+}
+
 .popup-container button:last-child {
   background: #dc3545;
   color: white;
+}
+
+.popup-container button:last-child:hover {
+  background: #c82333;
+  transform: scale(1.05);
 }
 
 /* Class Cards */
@@ -111,11 +193,36 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.shikono{
-  display: flex;
-  gap: 20px;
+
+.class-card:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }
-.study-footer{
-  margin-bottom: 50%;
+
+.class-card h2 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.class-card p {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.class-card button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.class-card button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
