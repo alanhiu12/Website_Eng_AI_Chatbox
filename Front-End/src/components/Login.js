@@ -30,7 +30,7 @@ const LoginPage = () => {
       }
     } else if (loginMethod === 'admin') {
       if (email === 'admin@example.com' && password === 'admin123') {
-        navigate('/homepage'); // Điều hướng tới homepage sau khi login thành công
+        navigate('/'); // Điều hướng tới homepage sau khi login thành công
       } else {
         setError('Invalid email or password for Admin login.');
       }
