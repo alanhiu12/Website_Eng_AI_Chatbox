@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./css/Payment.css";
 import { Link, useNavigate } from 'react-router-dom';
 import img1 from "../assets/pictures/momo.png";
-import img2 from "../assets/pictures/zalopay.png";
+import img2 from "../assets/pictures/Zalopay2.png";
 import img3 from "../assets/pictures/visa.png";
 import img4 from "../assets/pictures/master.png";
 export default function Payment() {

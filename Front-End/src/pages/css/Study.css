@@ -4,6 +4,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  min-height: 100vh; /* Ensure body fills the viewport height */
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
 }
 
 /* Header */
@@ -41,6 +44,12 @@ body {
 .study-header nav ul li a:hover {
   background-color: #333;
 }
+
+/* Main Content */
+.study-main {
+  flex: 1; /* Expand main content to fill available space */
+  padding: 20px;
+} 
 
 /* Popup */
 .popup-section {

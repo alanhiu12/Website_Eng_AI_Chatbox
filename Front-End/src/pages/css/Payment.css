@@ -62,6 +62,13 @@
   margin-right: 10px;
 }
 
+.payment-container .payment-method img {
+  width: 100px; /* Set all images to the same width */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: contain; /* Prevent distortion */
+  display: block;
+}
+
 .payment-container .payment-button {
   display: block;
   width: 100%;
@@ -77,6 +84,7 @@
 .payment-container .payment-button:hover {
   background-color: #004b99;
 }
+
 .benefit-options label {
   display: block;
   margin: 10px 0;

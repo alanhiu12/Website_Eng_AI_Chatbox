@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './css/Classes.css'; // Import CSS for styling
-import huohuoImage from '../assets/pictures/huohuo.jpg';
+import huohuoImage from '../assets/pictures/Classroom.jpg';
 
 const ClassPage = () => {
   const navigate = useNavigate();

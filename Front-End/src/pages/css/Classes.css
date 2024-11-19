@@ -1,11 +1,10 @@
-
 /* Main content styling */
 .main-content {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-  background-color: #f4f4f9;
+  background-color: #f4f9f5;
   text-align: center;
 }
 
@@ -21,9 +20,14 @@
 }
 
 /* Button styling */
+:root {
+  --primary-color: #007bff; /* Define your primary color */
+  --button-hover-color: #0056b3; /* Define your hover color */
+}
+
 .join-class-button {
   background-color: var(--primary-color);
-  color: #000000;
+  color: #ffffff; /* Change text color to white for better contrast */
   padding: 12px 24px;
   font-size: 1rem;
   border: none;
