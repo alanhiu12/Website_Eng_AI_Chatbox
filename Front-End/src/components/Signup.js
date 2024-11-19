@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate from react
 import './styles/Signup.css';  // Assuming you have a CSS file for styling
 import Header from './Header';
 import Footer from './Footer';
+import img3 from '../assets/pictures/chill.gif'
 const Signup = () => {
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
@@ -31,12 +32,18 @@ const Signup = () => {
   };
 
   return (
+     
       <section id="register" className="signup-container">
         <Header />
-          <div className="signup-box">
+        
+          <div className='main'>
+            
+            <div className="signup-box">
               <h2 className="section-title">Đăng ký tài khoản</h2>
               <form onSubmit={handleSubmit} className="signup-form">
                   <div className="form-field">
+
+
                       <label htmlFor="fullname">Họ và tên:</label>
                       <input
                           type="text"
@@ -84,8 +91,8 @@ const Signup = () => {
                       />
                   </div>
                   <label>
-                        Vai trò:
-                    </label>
+                    Role:
+                  </label>
                   <div className="form-group">
                       <div>
                           <label htmlFor="teacher">
@@ -109,6 +116,16 @@ const Signup = () => {
                                   required
                               /> Học sinh
                           </label>
+                          <label htmlFor="admin">
+                              <input
+                                  type="radio"
+                                  id="admin"
+                                  name="role"
+                                  value="admin"
+                                  onChange={(e) => setRole(e.target.value)}
+                                  required
+                              /> Admin
+                          </label>
                       </div>
                   </div>
 
@@ -118,6 +135,9 @@ const Signup = () => {
                       <a href="/login">Đã có tài khoản? Đăng nhập</a>
                   </div>
               </form>
+              
+          </div>
+          <div className='anh'><img src={img3}></img></div>
           </div>
           <Footer/>
       </section>

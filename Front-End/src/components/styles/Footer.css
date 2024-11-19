@@ -1,7 +1,6 @@
 .login-footer {
     position: absolute;
     bottom: 0;
-    width: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     padding: 20px 0;
     text-align: center;
@@ -10,6 +9,6 @@
   
   .login-footer p {
     color: white;
-    margin: 0;
+    margin: -10px;
   }
   
