@@ -111,3 +111,28 @@
 .payment-button:hover {
   background-color: #004b99;
 }
+.payment-method {
+  display: flex;
+  gap: 20px; /* Khoảng cách giữa các tùy chọn */
+  justify-content: center; /* Căn giữa các phần tử trong toàn bộ container */
+  align-items: flex-start;
+}
+
+.payment-method label {
+  position: relative;
+  text-align: center; /* Căn giữa nội dung trong mỗi nhãn */
+  cursor: pointer; /* Biến nhãn thành click được */
+}
+
+.payment-method img {
+  width: 100px; /* Kích thước ảnh */
+  height: auto;
+  display: block; /* Ảnh là một phần tử block */
+  margin-bottom: 10px;
+}
+
+.payment-method input[type="radio"] {
+  margin-top: 10px;
+  display: block; /* Đảm bảo radio hiển thị */
+  margin: 0 auto; /* Căn giữa nút radio dưới ảnh */
+}

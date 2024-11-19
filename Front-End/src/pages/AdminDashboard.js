@@ -101,12 +101,7 @@ const AdminDashboard = () => {
 
       {/* Content */}
       <main className="admin-content">
-        <div className="admin-profile">
-          <div>
-            <h1>Welcome, Admin!</h1>
-            <p>Manage your platform with ease.</p>
-          </div>
-        </div>
+
 
         {/* User Management Section */}
         <section className="admin-section">

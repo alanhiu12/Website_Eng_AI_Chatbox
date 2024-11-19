@@ -1,7 +1,7 @@
 /* Signup pages Styles */ 
 .main{
     display:flex;
-    gap: 200px;
+    gap: 50px;
 }
 
 .signup-container {
@@ -24,7 +24,8 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
  /* Reduced width */
     text-align: left;
-    margin-left:50px ;
+    margin-left: 50px ;
+    margin-top: -2px;
     width: 500px;
     height: 570px ;
     
@@ -77,10 +78,10 @@
 .anh{
     margin-top: auto;
     margin-bottom: auto;
-    margin-left:auto ;
+    margin-left: 165px ;
     margin-right: auto;
     border-radius: 20px;
-    height: 500px;
+    height: 300px;
     align-items: center;
 }
 .extra-links{

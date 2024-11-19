@@ -82,22 +82,23 @@ export default function Payment() {
             {/* Payment Method */}
             <div className="payment-method">
               <label>
+                <img src={img1} alt="Option 1" />
                 <input type="radio" name="payment" defaultChecked />
-                <img src={img1}/>
               </label>
               <label>
+                <img src={img2} alt="Option 2" />
                 <input type="radio" name="payment" />
-                <img src={img2}/>
               </label>
               <label>
+                <img src={img3} alt="Option 3" />
                 <input type="radio" name="payment" />
-                <img src={img3}/>
               </label>
               <label>
+                <img src={img4} alt="Option 4" />
                 <input type="radio" name="payment" />
-                <img src={img4}/>
               </label>
             </div>
+
 
             <button className="payment-button">Proceed to Payment</button>
           </div>
