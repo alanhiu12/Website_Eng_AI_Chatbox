@@ -1,15 +1,14 @@
 
 /* Toàn bộ giao diện trang login */
 .login-page {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
   background-image: url('../../assets/pictures/English_pic.jpg');
-  margin-top:7%;
-  border: 1px solid #d80000;
-  background-color: #ccc;
-  width: 400px;
-  margin-left: 35%;
+  background-size: cover;
+  background-position: center;
   
 
 }

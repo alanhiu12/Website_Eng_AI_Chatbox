@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
-import './styles/Login.css'; // Đảm bảo bạn đã tạo tệp Login.css
+import './styles/Login.css';
 
 const LoginPage = () => {
   const [loginMethod, setLoginMethod] = useState('user'); // user: Student & Teacher, admin: Admin
@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   const handleMethodChange = (method) => {
     setLoginMethod(method);
-    setError(''); // Xóa thông báo lỗi khi chuyển phương thức
+    setError(''); // Clear error on method switch
     setEmail('');
     setPassword('');
   };
@@ -21,16 +21,16 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Logic đăng nhập mẫu
+    // Mock Login Logic
     if (loginMethod === 'user') {
       if (email === 'user@example.com' && password === 'password') {
-        navigate('/homepage'); // Điều hướng tới homepage sau khi login thành công
+        navigate('/homepage'); // Redirect on successful login
       } else {
         setError('Invalid email or password for User login.');
       }
     } else if (loginMethod === 'admin') {
       if (email === 'admin@example.com' && password === 'admin123') {
-        navigate('/'); // Điều hướng tới homepage sau khi login thành công
+        navigate('/admin-dashboard'); // Adjust redirect URL for admin
       } else {
         setError('Invalid email or password for Admin login.');
       }
@@ -38,85 +38,88 @@ const LoginPage = () => {
   };
 
   return (
-   <div className='catrang'>
-   <div className="login-page">
+    <div className="login-page">
       <Header />
-      
-   
-      <div className="method-toggle">
-        <button
-          className={loginMethod === 'user' ? 'active' : ''}
-          onClick={() => handleMethodChange('user')}
-        >
-          Student & Teacher
-        </button>
-        <button
-          className={loginMethod === 'admin' ? 'active' : ''}
-          onClick={() => handleMethodChange('admin')}
-        >
-          Admin
-        </button>
-      </div>
-      <div className="form-container">
-        
-        <h2>{loginMethod === 'user' ? 'Login for Student & Teacher' : 'Login for Admin'}</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-field">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-field">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          {error && <div className="error-message">{error}</div>}
-          <button type="submit" className="login-button">
-            Login
+      <div className="login-container">
+        <div className="method-toggle">
+          <button
+            className={loginMethod === 'user' ? 'active' : ''}
+            onClick={() => handleMethodChange('user')}
+          >
+            Student & Teacher
           </button>
-          <div className="extra-links">
-            <p>
-              <a
-                href="/forgot-password"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate('/forgot-password');
-                }}
-              >
-                Forgot Password?
-              </a>
-            </p>
-            <p>
-              Don’t have an account?{' '}
-              <a
-                href="/signup"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate('/signup');
-                }}
-              >
-                Sign Up
-              </a>
-            </p>
-          </div>
-        </form>
+          <button
+            className={loginMethod === 'admin' ? 'active' : ''}
+            onClick={() => handleMethodChange('admin')}
+          >
+            Admin
+          </button>
+        </div>
+        <div className="form-container">
+          <h2>
+            {loginMethod === 'user'
+              ? 'Login for Student & Teacher'
+              : 'Login for Admin'}
+          </h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-field">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                aria-label="Email"
+              />
+            </div>
+            <div className="form-field">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                aria-label="Password"
+              />
+            </div>
+            {error && <div className="error-message">{error}</div>}
+            <button type="submit" className="login-button">
+              Login
+            </button>
+            <div className="extra-links">
+              <p>
+                <a
+                  href="/forgot-password"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate('/forgot-password');
+                  }}
+                >
+                  Forgot Password?
+                </a>
+              </p>
+              <p>
+                Don’t have an account?{' '}
+                <a
+                  href="/signup"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate('/signup');
+                  }}
+                >
+                  Sign Up
+                </a>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
-      </div>
-      
+      <Footer />
     </div>
-
-
   );
 };
 
