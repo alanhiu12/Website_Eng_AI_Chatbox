@@ -1,15 +1,15 @@
-.login-footer {
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3); /* Shadow for contrast */
-    width: au;
-  }
-  
-  .login-footer p {
-    color: white;
-    margin: 0px;
-  }
-  
+.footer {
+  background-color: #002f5f; /* Dark blue background */
+  color: #ffffff; /* White text */
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  position: fixed; /* Keep footer at the bottom */
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+  margin: 0;
+}

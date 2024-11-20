@@ -29,8 +29,8 @@ const Study = () => {
   };
 
   const handleViewClass = (classItem) => setViewedClass(classItem); // View class details
-  const handleAddClass = () => { /* ... Add class functionality ... */ };
-  const handleJoinClass = () => { /* ... Join class functionality ... */ };
+  const handleAddClass = () => { /* Add class functionality */ };
+  const handleJoinClass = () => { /* Join class functionality */ };
 
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -40,20 +40,24 @@ const Study = () => {
 
   return (
     <div>
-      <header className="study-header">
+      <header>
         <div className="container">
           <Link to="/" className="logo">LearnLinguaAI</Link>
           <nav>
             <ul>
-              <li><Link to="/">Home</Link></li>
+              <li><Link to="/" className="active">Home</Link></li>
               <li><Link to="/classes">Classes</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/payment">Payment</Link></li>
               <li className="dropdown">
-                <a href="#" className="dropbtn">More</a>
+                <a href="#" className="dropbtn">See More</a>
                 <div className="dropdown-content">
-                  <Link to="/profile">Profile</Link>
-                  <Link to="/settings">Settings</Link>
+                  <Link to="/admin">Admin</Link>
+                  <Link to="/user-profile">Profile</Link>
+                  <Link to="/contact">Contact</Link>
+                  <Link to="/setting">Setting</Link>
+                  <Link to="/teacher">Teacher</Link>
+                  <Link to="/chatbot">Chat</Link>
                   <a href="#" onClick={handleLogout}>Logout</a>
                 </div>
               </li>
@@ -71,14 +75,34 @@ const Study = () => {
               {/* Add or Join form */}
               {popup === "add" ? (
                 <>
-                  <input type="text" placeholder="Class Name" value={newClass.name} onChange={(e) => setNewClass({ ...newClass, name: e.target.value })} />
-                  <input type="text" placeholder="Teacher Name" value={newClass.teacher} onChange={(e) => setNewClass({ ...newClass, teacher: e.target.value })} />
-                  <input type="text" placeholder="Class Description" value={newClass.description} onChange={(e) => setNewClass({ ...newClass, description: e.target.value })} />
+                  <input
+                    type="text"
+                    placeholder="Class Name"
+                    value={newClass.name}
+                    onChange={(e) => setNewClass({ ...newClass, name: e.target.value })}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Teacher Name"
+                    value={newClass.teacher}
+                    onChange={(e) => setNewClass({ ...newClass, teacher: e.target.value })}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Class Description"
+                    value={newClass.description}
+                    onChange={(e) => setNewClass({ ...newClass, description: e.target.value })}
+                  />
                   <button onClick={handleAddClass}>Add Class</button>
                 </>
               ) : (
                 <>
-                  <input type="text" placeholder="Enter class code" value={joinCode} onChange={(e) => setJoinCode(e.target.value)} />
+                  <input
+                    type="text"
+                    placeholder="Enter class code"
+                    value={joinCode}
+                    onChange={(e) => setJoinCode(e.target.value)}
+                  />
                   <button onClick={handleJoinClass}>Join Class</button>
                   {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </>
@@ -109,10 +133,14 @@ const Study = () => {
         <section className="class-grid">
           {classes.map((classItem) => (
             <div className="class-card" key={classItem.id}>
-              <h2>{classItem.name}</h2>
-              <p><strong>Teacher:</strong> {classItem.teacher}</p>
-              <p>{classItem.description}</p>
-              <button className="view-class-btn" onClick={() => handleViewClass(classItem)}>View Class</button>
+              <Link
+                to={`/bulletin-board/${classItem.id}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <h2>{classItem.name}</h2>
+                <p><strong>Teacher:</strong> {classItem.teacher}</p>
+                <p>{classItem.description}</p>
+              </Link>
             </div>
           ))}
         </section>

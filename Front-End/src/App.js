@@ -8,12 +8,13 @@ import Homepages from './pages/HomePage';
 import Aboutpages from './pages/AboutPage';
 import UserProfile from './pages/UserProfile'; // Fix typo from 'pagess' to 'pages'
 import Setting from './pages/Settings';
-import Classes from './pages/Classes'
+import Classes from './pages/Classes';
 import TeacherContentPage from './pages/TeacherContentPage';
-import ChatbotPage from './pages/ChatbotPage'
-import Study from './pages/Study'
-import Admin from './pages/AdminDashboard'
+import ChatbotPage from './pages/ChatbotPage';
+import Study from './pages/Study';
+import Admin from './pages/AdminDashboard';
 import Payment from './pages/Payment';
+import BulletinBoard from './pages/BulletinBoard'; // Import the BulletinBoard component
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
         <Route path="/chatbot" element={<ChatbotPage />} />
         <Route path="/study" element={<Study />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/bulletin-board/:classId" element={<BulletinBoard />} />
+
       </Routes>
     </Router>
   );
