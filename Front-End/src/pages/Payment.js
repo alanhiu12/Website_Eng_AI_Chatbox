@@ -34,31 +34,30 @@ const handleLogout = (event) => {
   return (
     <>
       {/* Header Section */}
-      <header>
-        <div className="container">
-          <Link to="/" className="logo">LearnLinguaAI</Link>
-          <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/classes">Classes</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/payment" className="active">Payment</Link></li>
-              <li className="dropdown">
-                <a href="#" className="dropbtn">See More</a>
-                <div className="dropdown-content">
-                  <Link to="/admin">Admin</Link>
-                  <Link to="/user-profile">Profile</Link>
-                  <Link to="/contact">Contact</Link>
-                  <Link to="/setting">Setting</Link>
-                  <Link to="/teacher">Teacher</Link>
-                  <Link to="/chatbot">Chat</Link>
-                  <a href="#" onClick={handleLogout}>Logout</a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <header className="header">
+  <div className="container">
+    <Link to="/" className="logo">LearnLinguaAI</Link>
+    <nav className="homepage-nav">
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/classes">Classes</Link></li>
+        <li><Link to="/chatbot">Chat</Link></li>
+        <li><Link to="/payment"  className="active" >Payment</Link></li>
+        <li className="dropdown">
+          <a href="#" className="dropbtn">See More</a>
+          <div className="dropdown-content">
+            <Link to="/admin">Admin</Link>
+            <Link to="/user-profile">Profile</Link>
+            <Link to="/contact">Contact</Link>
+            <Link to="/setting">Setting</Link>
+            <Link to="/teacher">Teacher</Link>
+            <a href="#" onClick={handleLogout}>Logout</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
       {/* Payment Content Section */}
       <div className="payment-container">
