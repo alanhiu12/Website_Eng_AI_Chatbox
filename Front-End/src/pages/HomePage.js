@@ -31,6 +31,7 @@ const Home = () => {
             <Link to="/contact">Contact</Link>
             <Link to="/setting">Setting</Link>
             <Link to="/teacher">Teacher</Link>
+            <Link to="/score">Score</Link>
             <a href="#" onClick={handleLogout}>Logout</a>
           </div>
         </li>

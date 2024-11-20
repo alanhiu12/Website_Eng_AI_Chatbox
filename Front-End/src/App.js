@@ -16,6 +16,7 @@ import Admin from './pages/AdminDashboard';
 import Payment from './pages/Payment';
 import BulletinBoard from './pages/BulletinBoard'; // Import the BulletinBoard component
 import Help  from './pages/Help';
+import Score  from './pages/Score';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path="/bulletin-board/:classId" element={<BulletinBoard />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/score" element={<Score />} />
 
       </Routes>
     </Router>
