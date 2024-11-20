@@ -41,9 +41,20 @@ const Footer = () => (
 const Score = () => {
   const [students, setStudents] = useState([
     { id: 1, name: 'John Doe', homework: 'Math Homework 1', score: null, comments: '', feedback: '', submitted: true },
-    { id: 2, name: 'Jane Smith', homework: 'Science Project', score: null, comments: '', feedback: '', submitted: true },
-    { id: 3, name: 'Mark Johnson', homework: 'History Essay', score: null, comments: '', feedback: '', submitted: false },
-    { id: 4, name: 'Emily Davis', homework: 'Art Assignment', score: null, comments: '', feedback: '', submitted: true },
+  { id: 2, name: 'Jane Smith', homework: 'Science Project', score: null, comments: '', feedback: '', submitted: true },
+  { id: 3, name: 'Mark Johnson', homework: 'History Essay', score: null, comments: '', feedback: '', submitted: false },
+  { id: 4, name: 'Emily Davis', homework: 'Art Assignment', score: null, comments: '', feedback: '', submitted: true },
+  { id: 5, name: 'Chris Brown', homework: 'Geometry Quiz', score: null, comments: '', feedback: '', submitted: true },
+  { id: 6, name: 'Laura Wilson', homework: 'Physics Lab Report', score: null, comments: '', feedback: '', submitted: false },
+  { id: 7, name: 'Daniel Garcia', homework: 'Chemistry Worksheet', score: null, comments: '', feedback: '', submitted: true },
+  { id: 8, name: 'Sophia Martinez', homework: 'Literature Analysis', score: null, comments: '', feedback: '', submitted: true },
+  { id: 9, name: 'Michael Lee', homework: 'Economics Research Paper', score: null, comments: '', feedback: '', submitted: false },
+  { id: 10, name: 'Olivia Taylor', homework: 'Biology Presentation', score: null, comments: '', feedback: '', submitted: true },
+  { id: 11, name: 'Matthew Perez', homework: 'Programming Project', score: null, comments: '', feedback: '', submitted: true },
+  { id: 12, name: 'Ava Hernandez', homework: 'Creative Writing Piece', score: null, comments: '', feedback: '', submitted: false },
+  { id: 13, name: 'Lucas Walker', homework: 'Geography Map Analysis', score: null, comments: '', feedback: '', submitted: true },
+  { id: 14, name: 'Isabella Young', homework: 'Music Composition', score: null, comments: '', feedback: '', submitted: true },
+  { id: 15, name: 'Ethan Allen', homework: 'Health Science Quiz', score: null, comments: '', feedback: '', submitted: false },
   ]);
 
   const [filter, setFilter] = useState('All');
@@ -58,10 +69,16 @@ const Score = () => {
     return 'F';
   };
 
+  const getStatus = (student) => {
+    if (!student.submitted) return 'Not Submitted';
+    if (student.score === null) return 'Pending Review';
+    return `Graded (${calculateGrade(student.score)})`;
+  };
+
   const handleScoreChange = (id, newScore) => {
     setStudents((prev) =>
       prev.map((student) =>
-        student.id === id ? { ...student, score: newScore } : student
+        student.id === id ? { ...student, score: newScore ? parseInt(newScore) : null } : student
       )
     );
   };
@@ -100,12 +117,11 @@ const Score = () => {
   };
 
   const handleExportToCSV = () => {
-    const headers = ['Name', 'Homework', 'Score', 'Grade', 'Comments', 'Submitted'];
+    const headers = ['Name', 'Homework', 'Score', 'Grade', 'Comments', 'Status'];
     const csvRows = [headers.join(',')];
     students.forEach((student) => {
       const grade = student.score !== null ? calculateGrade(student.score) : 'N/A';
-      const submitted = student.submitted ? 'Yes' : 'No';
-      const row = [student.name, student.homework, student.score || '', grade, student.comments, submitted];
+      const row = [student.name, student.homework, student.score || '', grade, student.comments, getStatus(student)];
       csvRows.push(row.join(','));
     });
 
@@ -213,7 +229,7 @@ const Score = () => {
             <tr key={student.id}>
               <td>{student.name}</td>
               <td>{student.homework}</td>
-              <td>{student.submitted ? 'Submitted' : 'Pending'}</td>
+              <td>{getStatus(student)}</td>
               <td>
                 <input
                   type="number"
