@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-// Kết nối với cơ sở dữ liệu MongoDB
+// Kết nối với cơ sở dữ liệu MongoDB mà không sử dụng các tùy chọn deprecated
 const connectDB = async () => {
     try {
+        // Kết nối trực tiếp mà không cần các tùy chọn không còn hiệu lực
         await mongoose.connect("mongodb://localhost:27017/Student");
         console.log("Database Connected Successfully");
     } catch (error) {
@@ -41,4 +42,3 @@ const User = mongoose.model('User', userSchema, 'users'); // Đặt tên collect
 
 // Xuất mô hình User và hàm connectDB
 module.exports = { User, connectDB };
-
