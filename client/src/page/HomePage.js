@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './css/HomePage.css'; // Import your CSS file
+import './css/HomePage.css';
 
 const Home = () => {
   const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Khởi tạo trạng thái đăng nhập
+  const [userRole, setUserRole] = useState(null); // Khởi tạo trạng thái vai trò người dùng
 
-  // Logout functionality
+  useEffect(() => {
+    // Lấy trạng thái đăng nhập và vai trò từ localStorage khi component được mount
+    const loggedInStatus = localStorage.getItem("loggedIn");
+    const role = localStorage.getItem("userRole");
+    setIsLoggedIn(loggedInStatus === "true"); // Kiểm tra giá trị loggedIn (chuỗi "true" từ localStorage)
+    setUserRole(role); // Gán vai trò
+  }, []);
+
+  // Hàm xử lý đăng xuất
   const handleLogout = (event) => {
     event.preventDefault();
+    // Xóa tất cả dữ liệu liên quan đến đăng nhập
     localStorage.removeItem("loggedIn");
-    navigate("/login"); // Redirect to login pages after logout
+    localStorage.removeItem("userRole");
+    localStorage.removeItem("userInfo");
+    setIsLoggedIn(false); // Cập nhật trạng thái đăng nhập
+    setUserRole(null); // Cập nhật vai trò
+    navigate("/"); // Điều hướng về trang chủ
   };
 
   return (
@@ -28,9 +43,14 @@ const Home = () => {
                   <Link to="/user-profile">Profile</Link>
                   <Link to="/contact">Contact</Link>
                   <Link to="/setting">Setting</Link>
-                  <Link to="/teacher">Teacher</Link>
+                  {/* Hiển thị mục "Teacher" nếu vai trò là giáo viên */}
+                  {userRole === 'teacher' && <Link to="/teacher">Teacher</Link>}
                   <Link to="/chatbot">Chat</Link>
-                  <a href="#" onClick={handleLogout}>Logout</a>
+                  {isLoggedIn ? (
+                    <a href="#" onClick={handleLogout}>Logout</a>
+                  ) : (
+                    <Link to="/login">Login</Link>
+                  )}
                 </div>
               </li>
             </ul>
@@ -43,7 +63,7 @@ const Home = () => {
         <div className="container">
           <h1>Welcome to LearnLinguaAI</h1>
           <p>Boost your English skills with AI-driven exercises and personalized learning paths!</p>
-          <Link to="/login" className="cta-btn">Start Learning Now</Link>
+          {!isLoggedIn && <Link to="/login" className="cta-btn">Start Learning Now</Link>}
         </div>
       </section>
 

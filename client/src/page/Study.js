@@ -1,109 +1,127 @@
-import React, { useState } from 'react';
-import './css/Study.css';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./css/Study.css";
 
-const StudyLesson = () => {
-    const [quizResult, setQuizResult] = useState('');
-    const [lessonSuccess, setLessonSuccess] = useState(false);
+const Study = () => {
+  const [classes, setClasses] = useState([
+    { id: 1, name: "Math 101", teacher: "Mr. Smith", description: "Learn Algebra and Geometry basics.", code: "MATH101" },
+    { id: 2, name: "Physics", teacher: "Ms. Johnson", description: "Introduction to Newtonian Physics.", code: "PHYSICS" },
+    { id: 3, name: "Chemistry", teacher: "Dr. Brown", description: "Explore the basics of chemical reactions.", code: "CHEM101" },
+    { id: 4, name: "Biology", teacher: "Dr. Green", description: "Understand the fundamentals of living organisms.", code: "BIO101" },
+    { id: 5, name: "History", teacher: "Mr. Taylor", description: "Dive into world history and ancient civilizations.", code: "HIST101" },
+    { id: 6, name: "Computer Science", teacher: "Ms. Davis", description: "Learn programming fundamentals and algorithms.", code: "CS101" },
+    { id: 7, name: "English Literature", teacher: "Mrs. White", description: "Study classic and modern works of literature.", code: "ENG101" },
+  ]);
 
-    const checkAnswer = (answer) => {
-        if (answer === 'run') {
-            setQuizResult('Correct!');
-        } else {
-            setQuizResult('Try again.');
-        }
-    };
+  const [popup, setPopup] = useState(null); // "add" | "join" | null
+  const [viewedClass, setViewedClass] = useState(null); // For viewing a class
+  const [newClass, setNewClass] = useState({ name: "", teacher: "", description: "" });
+  const [joinCode, setJoinCode] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-    const handleLogout = () => {
-        alert("You have logged out.");
-        window.location.href = "/";
-    };
+  const handlePopupOpen = (type) => setPopup(type); // Show popup: "add" or "join"
+  const handlePopupClose = () => {
+    setPopup(null);
+    setErrorMessage("");
+    setNewClass({ name: "", teacher: "", description: "" });
+    setJoinCode("");
+    setViewedClass(null); // Close viewed class details
+  };
 
-    return (
-        <div>
-            <header>
-                <div className="container">
-                    <a href="/" className="logo">LearnLinguaAI</a>
-                    <nav>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/study" className="active">Learn</a></li>
-                            <li><a href="/about">About</a></li>
-                            <li className="dropdown">
-                                <a href="#" className="dropbtn">See More</a>
-                                <div className="dropdown-content">
-                                    <a href="/user-profile">Profile</a>
-                                    <a href="/contact">Contact</a>
-                                    <a href="/setting">Setting</a>
-                                    <a href="#" onClick={handleLogout} id="logout-link">Logout</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
+  const handleViewClass = (classItem) => setViewedClass(classItem); // View class details
+  const handleAddClass = () => { /* ... Add class functionality ... */ };
+  const handleJoinClass = () => { /* ... Join class functionality ... */ };
+
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("loggedIn");
+    navigate("/login");
+  };
+
+  return (
+    <div>
+      <header className="study-header">
+        <div className="container">
+          <Link to="/" className="logo">LearnLinguaAI</Link>
+          <nav>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/classes">Classes</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li className="dropdown">
+                <a href="#" className="dropbtn">More</a>
+                <div className="dropdown-content">
+                  <Link to="/profile">Profile</Link>
+                  <Link to="/settings">Settings</Link>
+                  <a href="#" onClick={handleLogout}>Logout</a>
                 </div>
-            </header>
-
-            <main>
-                <section id="lesson-intro">
-                    <h2>Welcome to Your English Study</h2>
-                    <p>Today's lesson covers basic grammar and vocabulary.</p>
-                </section>
-
-                <section id="vocabulary-section">
-                    <h2>Vocabulary</h2>
-                    <ul id="vocabulary-list">
-                        <li><span>Apple</span>: A fruit.</li>
-                        <li><span>Book</span>: A collection of written words.</li>
-                        <li><span>Run</span>: To move swiftly on foot.</li>
-                    </ul>
-                </section>
-
-                <section id="quiz-section">
-                    <h2>Quick Quiz</h2>
-                    <p>Match the words with their meanings:</p>
-                    <div id="quiz">
-                        <p>1. Which word means "to move swiftly on foot"?</p>
-                        <button onClick={() => checkAnswer('run')}>Run</button>
-                        <button onClick={() => checkAnswer('apple')}>Apple</button>
-                        <button onClick={() => checkAnswer('book')}>Book</button>
-                        <p id="quiz-result">{quizResult}</p>
-                    </div>
-                </section>
-
-                <section id="other-lessons">
-                    <h2>Other English Lessons You Can Learn</h2>
-                    <div className="lesson-grid" id="lesson-grid">
-                        <div className="lesson-box">
-                            <h3>Basic Grammar</h3>
-                            <p>Learn the essential grammar rules.</p>
-                            <Link to="/basic-grammar"><button>Start Lesson</button></Link>
-                        </div>
-                        <div className="lesson-box">
-                            <h3>Intermediate Vocabulary</h3>
-                            <p>Expand your vocabulary with intermediate words.</p>
-                            <Link to="/intermediate-vocabulary"><button>Start Lesson</button></Link>
-                        </div>
-                        <div className="lesson-box">
-                            <h3>Advanced Phrases</h3>
-                            <p>Master advanced phrases for conversation.</p>
-                            <Link to="/advanced-phrases"><button>Start Lesson</button></Link>
-                        </div>
-                        <div className="lesson-box">
-                            <h3>Pronunciation Tips</h3>
-                            <p>Improve your English pronunciation.</p>
-                            <Link to="/pronunciation-tips"><button>Start Lesson</button></Link>
-                        </div>
-                    </div>
-                </section>
-            </main>
-
-            <footer>
-                <div className="container">
-                    <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
-                </div>
-            </footer>
+              </li>
+            </ul>
+          </nav>
         </div>
-    );
+      </header>
+
+      <main className="study-main">
+        {/* Popup for Add or Join */}
+        {popup && (
+          <div className="popup-section">
+            <div className="popup-container">
+              <h2>{popup === "add" ? "Add a New Class" : "Join a Class"}</h2>
+              {/* Add or Join form */}
+              {popup === "add" ? (
+                <>
+                  <input type="text" placeholder="Class Name" value={newClass.name} onChange={(e) => setNewClass({ ...newClass, name: e.target.value })} />
+                  <input type="text" placeholder="Teacher Name" value={newClass.teacher} onChange={(e) => setNewClass({ ...newClass, teacher: e.target.value })} />
+                  <input type="text" placeholder="Class Description" value={newClass.description} onChange={(e) => setNewClass({ ...newClass, description: e.target.value })} />
+                  <button onClick={handleAddClass}>Add Class</button>
+                </>
+              ) : (
+                <>
+                  <input type="text" placeholder="Enter class code" value={joinCode} onChange={(e) => setJoinCode(e.target.value)} />
+                  <button onClick={handleJoinClass}>Join Class</button>
+                  {errorMessage && <p className="error-message">{errorMessage}</p>}
+                </>
+              )}
+              <button onClick={handlePopupClose}>Cancel</button>
+            </div>
+          </div>
+        )}
+
+        {/* Class Details Popup */}
+        {viewedClass && (
+          <div className="popup-section">
+            <div className="popup-container">
+              <h2>{viewedClass.name}</h2>
+              <p><strong>Teacher:</strong> {viewedClass.teacher}</p>
+              <p><strong>Description:</strong> {viewedClass.description}</p>
+              <button onClick={handlePopupClose}>Close</button>
+            </div>
+          </div>
+        )}
+
+        <div className="shikono">
+          <button onClick={() => handlePopupOpen("add")}>Add Class</button>
+          <button onClick={() => handlePopupOpen("join")}>Join Class</button>
+        </div>
+
+        {/* Class Grid */}
+        <section className="class-grid">
+          {classes.map((classItem) => (
+            <div className="class-card" key={classItem.id}>
+              <h2>{classItem.name}</h2>
+              <p><strong>Teacher:</strong> {classItem.teacher}</p>
+              <p>{classItem.description}</p>
+              <button className="view-class-btn" onClick={() => handleViewClass(classItem)}>View Class</button>
+            </div>
+          ))}
+        </section>
+      </main>
+
+      <footer className="study-footer">
+        <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
+      </footer>
+    </div>
+  );
 };
 
-export default StudyLesson;
+export default Study;

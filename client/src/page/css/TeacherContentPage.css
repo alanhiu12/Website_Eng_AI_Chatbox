@@ -1,0 +1,84 @@
+.teacher-content-page {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.file-upload-container {
+    margin: 20px 0;
+}
+
+.file-upload-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.file-upload-label:hover {
+    background-color: #0056b3;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file-preview {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.file-preview h3 {
+    margin-bottom: 10px;
+}
+
+.file-preview ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.file-preview li {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.upload-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #28A745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+    background-color: #218838;
+}
+
+.upload-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.upload-status {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #FF0000;
+}

@@ -3,7 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify'; // Import react-toastify
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/Login.css';
 
@@ -19,23 +19,29 @@ const LoginSignupPage = () => {
         email,
         password,
       });
+
       if (response.status === 200) {
+        const user = response.data.user;
+        localStorage.setItem('userRole', user.role); // Lưu vai trò người dùng
+        localStorage.setItem('user', JSON.stringify(user)); // Lưu thông tin người dùng
+
         toast.success('Đăng nhập thành công!', {
           position: "top-center",
-          autoClose: 2000, // Đóng sau 2 giây
+          autoClose: 2000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: false,
           draggable: true,
         });
+
         setTimeout(() => {
-          navigate('/'); // Chuyển hướng sau khi hiển thị thông báo thành công
+          navigate('/'); // Điều hướng đến trang chủ cho cả giáo viên và học sinh
         }, 2000);
       }
     } catch (error) {
       toast.error('Tên tài khoản hoặc mật khẩu sai', {
         position: "top-center",
-        autoClose: 2000, // Đóng sau 2 giây
+        autoClose: 2000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: false,
@@ -89,6 +95,6 @@ const LoginSignupPage = () => {
       <ToastContainer />
     </div>
   );
-}
+};
 
 export default LoginSignupPage;

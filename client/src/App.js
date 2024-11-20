@@ -16,6 +16,8 @@ import IntermediateVocabularyPage from './page/IntermediateVocabularyPage';
 import AdvancedPhrasesPage from './page/AdvancedPhrasesPage';
 import PronunciationTipsPage from './page/PronunciationTipsPage';
 import Classes from './page/Classes'
+import AdminDashboard from './page/AdminDashboard';
+
 
 
 function App() {
@@ -38,6 +40,7 @@ function App() {
         <Route path="/advanced-phrases" element={<AdvancedPhrasesPage />} />
         <Route path="/pronunciation-tips" element={<PronunciationTipsPage />} />
         <Route path="/classes" element={<Classes />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </Router>
   );

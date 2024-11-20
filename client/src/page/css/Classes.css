@@ -22,7 +22,7 @@
 /* Button styling */
 .join-class-button {
     background-color: var(--primary-color);
-    color: #fff;
+    color: #000000;
     padding: 12px 24px;
     font-size: 1rem;
     border: none;
