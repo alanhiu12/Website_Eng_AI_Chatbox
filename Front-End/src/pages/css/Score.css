@@ -160,6 +160,29 @@
     transition: background-color 0.3s ease-in-out;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .progress-summary {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .score-table th,
+    .score-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .leaderboard li {
+        font-size: 0.9rem;
+    }
+}
+
 /* Score Input */
 .score-input {
     width: 60px;
@@ -204,19 +227,11 @@
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
 }
 
-.btn-feedback:hover {
-    transform: scale(1.05);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
-.btn-reset:hover {
-    transform: scale(1.05);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
+.btn-feedback:hover,
+.btn-reset:hover,
 .btn-export-csv:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Modal */

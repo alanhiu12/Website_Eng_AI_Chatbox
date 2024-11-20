@@ -1,5 +1,43 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './css/Score.css';
+
+const Header = () => (
+  <header className="header">
+    <div className="container">
+      <Link to="/" className="logo">LearnLinguaAI</Link>
+      <nav className="homepage-nav">
+        <ul>
+          <li><Link to="/" className="active">Home</Link></li>
+          <li><Link to="/classes">Classes</Link></li>
+          <li><Link to="/chatbot">Chat</Link></li>
+          <li><Link to="/payment">Payment</Link></li>
+          <li className="dropdown">
+            <a href="#" className="dropbtn">See More</a>
+            <div className="dropdown-content">
+              <Link to="/admin">Admin</Link>
+              <Link to="/user-profile">Profile</Link>
+              <Link to="/contact">Contact</Link>
+              <Link to="/setting">Setting</Link>
+              <Link to="/teacher">Teacher</Link>
+              <Link to="/score">Score</Link>
+              <a href="#" onClick={() => alert('Logout functionality not implemented.')}>Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+);
+
+const Footer = () => (
+  <footer>
+    <div className="container">
+      <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
+    </div>
+  </footer>
+);
+
 const Score = () => {
   const [students, setStudents] = useState([
     { id: 1, name: 'John Doe', homework: 'Math Homework 1', score: null, comments: '', feedback: '', submitted: true },
@@ -113,7 +151,6 @@ const Score = () => {
   return (
     <div className="score-container">
       <h1>📚 Homework Scoring</h1>
-
       {/* Progress Summary */}
       <div className="progress-summary">
         <div>Total Students: {students.length}</div>
@@ -123,13 +160,11 @@ const Score = () => {
           Grade Distribution:
           {Object.entries(gradeDistribution).map(([grade, count]) => (
             <span key={grade}>
-              {' '}
-              {grade}: {count}
+              {' '}{grade}: {count}
             </span>
           ))}
         </div>
       </div>
-
       {/* Filters */}
       <div className="filter-container">
         <label htmlFor="filter">Filter by Submission:</label>
@@ -138,7 +173,6 @@ const Score = () => {
           <option value="Submitted">Submitted</option>
           <option value="Not Submitted">Not Submitted</option>
         </select>
-
         <label htmlFor="score-range">Filter by Score Range:</label>
         <select id="score-range" onChange={handleScoreRangeChange}>
           <option value="All">All</option>
@@ -146,12 +180,10 @@ const Score = () => {
           <option value="51-75">51-75</option>
           <option value="76-100">76-100</option>
         </select>
-
         <button className="btn-export-csv" onClick={handleExportToCSV}>
           Export to CSV
         </button>
       </div>
-
       {/* Leaderboard */}
       <div className="leaderboard">
         <h2>🏆 Leaderboard</h2>
@@ -163,7 +195,6 @@ const Score = () => {
           ))}
         </ol>
       </div>
-
       {/* Score Table */}
       <table className="score-table">
         <thead>
@@ -221,7 +252,6 @@ const Score = () => {
           ))}
         </tbody>
       </table>
-
       {/* Feedback Modal */}
       {modalData && (
         <div className="feedback-modal">
@@ -241,4 +271,12 @@ const Score = () => {
   );
 };
 
-export default Score;
+const App = () => (
+  <>
+    <Header />
+    <Score />
+    <Footer />
+  </>
+);
+
+export default App;
