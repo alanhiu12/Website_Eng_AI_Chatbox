@@ -31,7 +31,7 @@ header .container {
     align-items: center;
     max-width: 1200px; /* Max width for header */
     margin: 0 auto; /* Center align */
-    padding: 0 20px; /* Horizontal padding */
+    padding: 0 0px; /* Horizontal padding */
 }
 
 .logo {

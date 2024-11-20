@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './css/AdminDashboard.css';
+import React, { useState } from "react";
+import "./css/AdminDashboard.css";
+import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -11,192 +11,208 @@ const AdminDashboard = () => {
     localStorage.removeItem("loggedIn");
     navigate("/login"); // Redirect to login page after logout
   };
+  const handlesetting = (event) => {
+    event.preventDefault();
+    localStorage.removeItem("loggedIn");
+    navigate("/setting"); //setting
+  };
+  const [selectedMenu, setSelectedMenu] = useState("manage-users");
 
+  // Dummy data
   const [users, setUsers] = useState([
-    { id: 1, name: "John Doe", role: "Teacher" },
-    { id: 2, name: "Jane Smith", role: "Student" },
+    { id: 1, name: "John Doe", role: "Admin" },
+    { id: 2, name: "Jane Smith", role: "Teacher" },
   ]);
-
-  const [resources, setResources] = useState([
-    { id: 1, name: "Lecture Notes", type: "PDF" },
-    { id: 2, name: "Assignment 1", type: "Word Document" },
-  ]);
-
   const [classes, setClasses] = useState([
-    { id: 1, name: "Math 101", teacher: "John Doe" },
-    { id: 2, name: "English 101", teacher: "Jane Smith" },
+    { id: 1, name: "Math 101", teacher: "Mr. Brown" },
+    { id: 2, name: "Science 101", teacher: "Ms. Green" },
   ]);
-
-  const [newResource, setNewResource] = useState({ name: "", type: "" });
   const [newClass, setNewClass] = useState({ name: "", teacher: "" });
 
+  // Event handlers
   const handleDeleteUser = (id) => {
     setUsers(users.filter((user) => user.id !== id));
-  };
-
-  const handleDeleteResource = (id) => {
-    setResources(resources.filter((resource) => resource.id !== id));
   };
 
   const handleDeleteClass = (id) => {
     setClasses(classes.filter((classItem) => classItem.id !== id));
   };
 
-  const handleAddResource = () => {
-    if (newResource.name && newResource.type) {
-      setResources([
-        ...resources,
-        { id: resources.length + 1, name: newResource.name, type: newResource.type },
-      ]);
-      setNewResource({ name: "", type: "" });
-    }
+  const handleClassInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewClass({ ...newClass, [name]: value });
   };
 
   const handleAddClass = () => {
     if (newClass.name && newClass.teacher) {
       setClasses([
         ...classes,
-        { id: classes.length + 1, name: newClass.name, teacher: newClass.teacher },
+        { id: Date.now(), name: newClass.name, teacher: newClass.teacher },
       ]);
       setNewClass({ name: "", teacher: "" });
     }
   };
 
-  const handleInputChange = (e) => {
-    setNewResource({ ...newResource, [e.target.name]: e.target.value });
-  };
+  // Render content dynamically
+  const renderContent = () => {
+    switch (selectedMenu) {
+      case "manage-users":
+        return (
+          <section className="admin-section">
+            <h2>👤 Manage Users</h2>
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((user) => (
+                  <tr key={user.id}>
+                    <td>{user.name}</td>
+                    <td>{user.role}</td>
+                    <td>
+                    <div className="cumnut">
+                      <button className="btn-edit">Edit</button>
+                      <button
+                        className="btn-delete"
+                        onClick={() => handleDeleteUser(user.id)}
+                      >
+                        Delete
+                      </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </section>
+        );
 
-  const handleClassInputChange = (e) => {
-    setNewClass({ ...newClass, [e.target.name]: e.target.value });
+      case "manage-classes":
+        return (
+          <section className="admin-section">
+            <h2>🏫 Manage Classes</h2>
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>Class Name</th>
+                  <th>Teacher</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {classes.map((classItem) => (
+                  <tr key={classItem.id}>
+                    <td>{classItem.name}</td>
+                    <td>{classItem.teacher}</td>
+                      <td>
+                      <div className="cumnut"><button className="btn-edit">Edit</button>
+                      <button
+                        className="btn-delete"
+                        onClick={() => handleDeleteClass(classItem.id)}
+                      >
+                        Delete
+                      </button> 
+                      </div>
+                      </td>
+
+                    
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="add-class-form">
+              <div className="ha"><h3>Add New Class</h3></div>
+              <div className="addnew">
+              <input
+                type="text"
+                name="name"
+                value={newClass.name}
+                onChange={handleClassInputChange}
+                placeholder="Class Name"
+              />
+              <input
+                type="text"
+                name="teacher"
+                value={newClass.teacher}
+                onChange={handleClassInputChange}
+                placeholder="Teacher Name"
+              />
+              </div>
+              <button onClick={handleAddClass} className="btn-add">
+                Add Class
+              </button>
+            </div>
+          </section>
+        );
+
+      case "analytics":
+        return (
+          <section className="admin-section">
+            <h2>📊 Analytics</h2>
+            <div className="teo">
+            <div className="analytics-card">
+              <h3>Total Users</h3>
+              <p>{users.length}</p>
+            </div>
+            <div className="analytics-card">
+              <h3>Active Classes</h3>
+              <p>{classes.length}</p>
+            </div>
+            </div>
+          </section>
+        );
+
+      default:
+        return <div>Please select a menu item.</div>;
+    }
   };
 
   return (
     <div className="admin-dashboard">
-      
-      <header className="header">
-        <div className="container">
-          <Link to="/" className="logo">LearnLinguaAI</Link>
-          <nav className="homepage-nav">
-            <ul>
-              <li><Link to="/" >Home</Link></li>
-              <li><Link to="/classes">Classes</Link></li>
-              <li><Link to="/chatbot">Chat</Link></li>
-              <li><Link to="/payment">Payment</Link></li>
-              <li className="dropdown">
-                <a href="#" className="dropbtn">See More</a>
-                <div className="dropdown-content">
-                  <Link to="/admin" className="active" >Admin</Link>
-                  <Link to="/user-profile">Profile</Link>
-                  <Link to="/contact">Contact</Link>
-                  <Link to="/setting">Setting</Link>
-                  <Link to="/teacher">Teacher</Link>
-                  <a href="#" onClick={handleLogout}>Logout</a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
-      {/* Content */}
-      <main className="admin-content">
-
-
-        {/* User Management Section */}
-        <section className="admin-section">
-          <h2>👤 Manage Users</h2>
-          <table className="admin-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Role</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((user) => (
-                <tr key={user.id}>
-                  <td>{user.name}</td>
-                  <td>{user.role}</td>
-                  <td>
-                    <button className="btn-edit">Edit</button>
-                    <button
-                      className="btn-delete"
-                      onClick={() => handleDeleteUser(user.id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-
-        {/* Classes Section */}
-        <section className="admin-section">
-          <h2>🏫 Manage Classes</h2>
-
-          <table className="admin-table">
-            <thead>
-              <tr>
-                <th>Class Name</th>
-                <th>Teacher</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {classes.map((classItem) => (
-                <tr key={classItem.id}>
-                  <td>{classItem.name}</td>
-                  <td>{classItem.teacher}</td>
-                  <td>
-                    <button className="btn-edit">Edit</button>
-                    <button
-                      className="btn-delete"
-                      onClick={() => handleDeleteClass(classItem.id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
-          <div>
-            <h3>Add New Class</h3>
-            <input
-              type="text"
-              name="name"
-              value={newClass.name}
-              onChange={handleClassInputChange}
-              placeholder="Class Name"
-            />
-            <input
-              type="text"
-              name="teacher"
-              value={newClass.teacher}
-              onChange={handleClassInputChange}
-              placeholder="Teacher Name"
-            />
-            <button onClick={handleAddClass}>Add Class</button>
-          </div>
-        </section>
-
-        {/* Analytics Section */}
-        <section className="admin-section">
-          <h2>📊 Analytics</h2>
-          <div className="analytics-card">
-            <h3>Total Users</h3>
-            <p>{users.length}</p>
-          </div>
-          <div className="analytics-card">
-            <h3>Active Classes</h3>
-            <p>{classes.length}</p>
-          </div>
-        </section>
-      </main>
+      <div className="sidebar">
+        <h2 className="logo">LEARNLINGUAAI</h2>
+        <ul className="menu">
+          <li>
+            <button
+              className={selectedMenu === "manage-users" ? "active" : ""}
+              onClick={() => setSelectedMenu("manage-users")}
+            >
+              Manage Users
+            </button>
+          </li>
+          <li>
+            <button
+              className={selectedMenu === "manage-classes" ? "active" : ""}
+              onClick={() => setSelectedMenu("manage-classes")}
+            >
+              Manage Classes
+            </button>
+          </li>
+          <li>
+            <button
+              className={selectedMenu === "analytics" ? "active" : ""}
+              onClick={() => setSelectedMenu("analytics")}
+            >
+              Analytics
+            </button>
+          </li>
+          <li className="logout-item">
+            <button className="logout-button" onClick={handlesetting}>
+              Setting
+            </button>
+          </li>
+         
+          <li className="logout-item">
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
+      </li>
+        </ul>
+      </div>
+      <div className="main-content">{renderContent()}</div>
     </div>
   );
 };

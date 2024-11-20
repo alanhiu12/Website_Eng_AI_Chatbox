@@ -1,129 +1,240 @@
-.admin-section {
+/* General Layout */
+.admin-dashboard {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #302c2c;
+  border-right: 5px solid #ddd;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
   margin-bottom: 30px;
-  padding: 25px; /* Slightly increased padding for more balanced spacing */
-  border: 1px solid #ddd;
-  border-radius: 12px; /* Rounded corners for a softer look */
-  background-color: #ffffff; /* Brighter background for contrast */
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15); /* Slightly enhanced shadow */
-  transition: all 0.3s ease; /* Subtle hover effect */
 }
 
-.admin-section:hover {
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Elevation on hover */
+.menu {
+  list-style: none;
+  padding: 8px;
+  background-color: #4c3838;
+ 
 }
 
+.menu li {
+  margin-bottom: 15px;
+  background-color: #e9e9e9;
+  border-radius: 10px;
+}
+
+.menu li button {
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-align: left;
+  color: #000000;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+  
+}
+
+.menu li button.active {
+  background-color: #000000;
+  color: #ffffff;
+
+}
+
+.menu li button:hover {
+  background-color: #000000;
+  color: #ffffff;
+ 
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff; /* Màu nền tím */
+  min-height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+  display: flex;
+  justify-content: center; /* Căn giữa nội dung */
+  align-items: center;
+  color: #000000; /* Màu chữ trắng để nổi bật */
+}
+
+/* Admin Section */
+.admin-section {
+  width: 90%; /* Chiếm 90% chiều rộng màn hình */
+  max-width: 1200px; /* Giới hạn chiều rộng */
+  background-color: rgba(255, 255, 255, 0.9); /* Nền trắng trong suốt nhẹ */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-section h2 {
+  font-size: 24px;
+  color: #333; /* Màu chữ đậm để tương phản */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Admin Table */
 .admin-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  background-color: #fff; /* Nền trắng */
 }
 
-.admin-table th,
+.admin-table th{
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
 .admin-table td {
-  padding: 14px; /* Slightly increased padding for readability */
+  padding: 10px;
   border: 1px solid #ddd;
   text-align: left;
-  font-size: 0.95rem; /* Improved font size for accessibility */
-  color: #333; /* Standardized text color */
+}
+.admin-table .td2 {
+  padding: 10px;
+
+
+
+}
+.admin-table thead {
+  background-color: #f4f4f4; /* Nền sáng cho tiêu đề bảng */
 }
 
-.admin-table th {
-  background-color: #f4f4f4; /* Light header background */
-  font-weight: bold;
-  font-size: 1rem; /* Slightly larger header font size */
+.admin-table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Hiệu ứng hover nhẹ */
 }
 
-.add-resource {
-  display: flex;
-  gap: 20px; /* Increased gap between inputs */
-  margin-top: 20px;
-  flex-wrap: wrap; /* Makes inputs responsive */
+.cumnut {
+  display: flex;            /* Kích hoạt Flexbox */
+  justify-content: center;  /* Căn giữa theo chiều ngang */
+  align-items: center;      /* Căn giữa theo chiều dọc */
+  height: 100%;             /* Đảm bảo chiếm toàn bộ chiều cao (nếu cần) */
 }
 
-.add-resource input {
-  padding: 12px; /* Enhanced input padding */
-  border: 1px solid #ccc;
-  border-radius: 6px; /* Softer border radius */
-  flex: 1;
-  font-size: 1rem;
-}
-
-.btn-add {
-  padding: 12px 24px; /* Increased padding for a prominent button */
-  background-color: #007fff;
-  color: white;
+.btn-edit,
+.btn-delete {
+  margin: 0 5px; /* Thêm khoảng cách giữa các nút */
+  padding: 8px 12px;
   border: none;
-  border-radius: 6px;
+  color: #fff;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 1.1rem; /* Slightly larger font size */
-  transition: all 0.3s ease;
-}
-
-.btn-add:hover {
-  background-color: #005bbb;
-  transform: scale(1.08); /* Slightly more pronounced hover effect */
-}
-
-.admin-profile {
-  color: #000;
-  background-color: #f0f0f0; /* Neutral background for profile */
-  border: 3px solid #ddd;
-  text-align: center;
-  margin: 20px auto;
-  max-width: 300px;
-  border-radius: 50%;
-  padding: 25px; /* Improved padding for layout consistency */
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* Slight elevation */
-}
-
-.analytics-card {
-  padding: 25px; /* More generous padding */
-  background-color: #e6f7ff; /* Light blue background for analytics */
-  border-radius: 12px; /* Softer corners */
-  text-align: center;
-  margin-bottom: 25px; /* Better spacing between cards */
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  font-size: 1.1rem; /* Increased font size for clarity */
-}
-
-.analytics-chart {
-  margin-top: 25px; /* Better spacing for chart */
-  max-width: 650px; /* Wider maximum width for clarity */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.action-buttons {
-  display: flex;
-  gap: 20px; /* Adds proper spacing between buttons */
 }
 
 .btn-edit {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 14px; /* Slightly larger padding */
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-edit:hover {
-  background-color: #45a049;
-  transform: scale(1.05);
+  background-color: #ffc107; /* Màu vàng */
 }
 
 .btn-delete {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 10px 14px; /* Matched padding with edit button */
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  background-color: #dc3545; /* Màu đỏ */
 }
 
-.btn-delete:hover {
-  background-color: #d32f2f;
-  transform: scale(1.05);
+.btn-add {
+  margin-top: 10px;
+  background-color: #28a745; /* Màu xanh lá */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end; /* Canh nút sang phải */
 }
+/* Bố cục Flexbox cho Analytics Card */
+.teo {
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: stretch; /* Chiều cao đồng đều giữa các thẻ */
+  gap: 20px; /* Khoảng cách giữa các thẻ */
+  flex-wrap: wrap; /* Cho phép xuống dòng khi không đủ chỗ */
+}
+
+/* Analytics Card */
+.analytics-card {
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Viền nhẹ */
+  padding: 20px; /* Khoảng cách bên trong */
+  border-radius: 10px; /* Bo góc cho thẻ */
+  text-align: center; /* Căn giữa nội dung */
+  width: calc(50% - 20px); /* Đảm bảo mỗi thẻ chiếm 50% chiều rộng với khoảng cách */
+  width: 500px; /* Chiều rộng cụ thể */
+  height: 150px; /* Chiều cao cụ thể */
+  background-color: rgba(161, 139, 139, 0.8); /* Nền đỏ với độ trong suốt */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hiệu ứng hover */
+}
+
+.analytics-card:hover {
+  transform: translateY(-5px); /* Nâng thẻ lên khi hover */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Tăng đổ bóng khi hover */
+}
+
+/* Tiêu đề trong Analytics Card */
+.analytics-card h3 {
+  margin: 0 0 10px; /* Khoảng cách bên dưới */
+  font-size: 18px; /* Kích thước chữ vừa */
+  color: #000000; /* Màu chữ trắng nổi bật */
+}
+
+/* Nội dung bên trong Analytics Card */
+.analytics-card p {
+  font-size: 16px; /* Kích thước chữ */
+  font-weight: bold; /* Chữ đậm */
+  color: #000000; /* Màu chữ trắng */
+  margin: 0; /* Loại bỏ khoảng cách mặc định */
+}
+
+/* Add Class Form */
+.add-class-form {
+  width: 100%;
+  margin-top: 20px;
+
+  flex-wrap: wrap;
+  gap: 10px; /* Khoảng cách giữa các ô nhập */
+}
+.add-class-form .ha{
+  text-align: left;
+}
+
+.add-class-form input {
+  flex: 1 1 calc(50% - 10px); /* Chiếm 50% không gian */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9); /* Nền trắng nhẹ */
+  color: #333; /* Màu chữ tối */
+}
+
+.add-class-form input::placeholder {
+  color: rgba(0, 0, 0, 0.6); /* Màu chữ placeholder */
+}
+
+.add-class-form button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff; /* Màu xanh lam */
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1 1 100%; /* Chiếm toàn bộ chiều rộng */
+  max-width: 200px; /* Giới hạn chiều rộng */
+}
+
