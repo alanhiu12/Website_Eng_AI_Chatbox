@@ -22,7 +22,7 @@ const Home = () => {
               <li><Link to="/" className="active">Home</Link></li>
               <li><Link to="/classes">Classes</Link></li>
               <li><Link to="/about">About</Link></li>
-              <li><Link to="/payment">Payment</Link> </li>
+              <li><Link to="/payment">Payment</Link></li>
               <li className="dropdown">
                 <a href="#" className="dropbtn">See More</a>
                 <div className="dropdown-content">
@@ -65,6 +65,68 @@ const Home = () => {
             <div className="feature-item">
               <h3>Instant Feedback</h3>
               <p>Receive real-time feedback on your progress, helping you improve faster.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works Section */}
+      <section id="how-it-works">
+        <div className="container">
+          <h2>How It Works</h2>
+          <div className="steps">
+            <div className="step">
+              <h3>1. Sign Up</h3>
+              <p>Create an account to start your journey with LearnLinguaAI.</p>
+            </div>
+            <div className="step">
+              <h3>2. Take a Placement Test</h3>
+              <p>Our AI analyzes your current proficiency level to customize your learning experience.</p>
+            </div>
+            <div className="step">
+              <h3>3. Start Learning</h3>
+              <p>Access tailored lessons, quizzes, and exercises to improve your skills.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials">
+        <div className="container">
+          <h2>What Our Users Say</h2>
+          <div className="testimonial-list">
+            <div className="testimonial">
+              <p>"LearnLinguaAI has completely transformed the way I learn languages. The AI recommendations are spot-on!"</p>
+              <h4>- Jane Doe</h4>
+            </div>
+            <div className="testimonial">
+              <p>"The interactive exercises are so engaging, and the feedback helps me improve quickly!"</p>
+              <h4>- John Smith</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing">
+        <div className="container">
+          <h2>Pricing Plans</h2>
+          <div className="pricing-cards">
+            <div className="card">
+              <h3>Basic</h3>
+              <p>Free</p>
+              <p>Access to basic lessons and exercises.</p>
+            </div>
+            <div className="card">
+              <h3>Pro</h3>
+              <p>$9.99/month</p>
+              <p>Includes advanced lessons, personalized feedback, and more.</p>
+            </div>
+            <div className="card">
+              <h3>Premium</h3>
+              <p>$19.99/month</p>
+              <p>All features, including one-on-one AI tutoring and exclusive content.</p>
             </div>
           </div>
         </div>

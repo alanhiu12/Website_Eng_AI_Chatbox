@@ -7,13 +7,14 @@ import img3 from "../assets/pictures/visa.png";
 import img4 from "../assets/pictures/master.png";
 export default function Payment() {
   const navigate = useNavigate();
-
   // Logout functionality
-  const handleLogout = (event) => {
-    event.preventDefault();
-    localStorage.removeItem("loggedIn");
-    navigate("/login"); // Redirect to login pages after logout
-  };
+const handleLogout = (event) => {
+  event.preventDefault();
+  localStorage.removeItem("loggedIn");
+  navigate("/login"); // Redirect to login page after logout
+};
+
+
   const [selectedBenefits, setSelectedBenefits] = useState([]);
 
   const handleBenefitChange = (event) => {
@@ -51,7 +52,7 @@ export default function Payment() {
                   <Link to="/setting">Setting</Link>
                   <Link to="/teacher">Teacher</Link>
                   <Link to="/chatbot">Chat</Link>
-                  <a href="#">Logout</a>
+                  <a href="#" onClick={handleLogout}>Logout</a>
                 </div>
               </li>
             </ul>

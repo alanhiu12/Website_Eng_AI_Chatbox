@@ -1,264 +1,196 @@
-/* Tổng quan */
-* {
+/* General Styles */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    line-height: 1.6;
-    background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Gradient nhẹ nhàng cho nền */
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Soft gradient */
     color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Ensure the logo link has no underline and keeps the original text style */
-.logo {
-    text-decoration: none;
-    color: white;
-    font-size: 28px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-/* Optionally, you can add hover effects for the logo link */
-.logo:hover {
-    opacity: 0.8; /* Slight hover effect */
-}
-
-/* Header */
-header {
-    width: 100%;
-    background-color: #1c1c1c; /* Dark background for the header */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  /* Header */
+  header {
+    background-color: #1c1c1c;
     color: white;
     padding: 15px 0;
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 1000;
-}
-
-header .container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  header .container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-header .logo {
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-header nav ul {
+  }
+  
+  header .logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  header nav ul {
     list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
-    display: flex;
-}
-
-header nav ul li {
+  }
+  
+  header nav ul li {
     margin-left: 20px;
-    position: relative;
-}
-
-header nav ul li a {
-    color: #fff;
+  }
+  
+  header nav ul li a {
+    color: white;
     text-decoration: none;
-    font-size: 1rem;
-    padding: 10px 15px;
+    padding: 8px 12px;
     border-radius: 5px;
-    display: inline-block;
-    position: relative;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
-
-/* Smooth underline animation */
-header nav ul li a::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #00d8ff; /* Underline color */
-    transition: width 0.4s ease-in-out; /* Smooth underline transition */
-}
-
-header nav ul li a:hover::before,
-header nav ul li a.active::before {
-    width: 100%; /* Expand underline on hover and active state */
-}
-
-/* Active link styling without background color */
-header nav ul li a.active {
-    color: #00d8ff; /* Thay đổi màu chữ cho trang đang được chọn */
-    background-color: transparent; /* Loại bỏ màu nền */
-    transition:  width  0.4s ease-in-out; /* Chuyển đổi mượt chỉ cho màu chữ */
-}
-
-/* Animation on hover */
-header nav ul li a:hover {
-    color: #00c3d5; /* Text color change on hover */
-    transform: translateY(-3px); /* Lift the link slightly on hover */
-}
-
-/* Pixelated divider under the header */
-.header-divider {
-    background: url('') repeat-x;
-    height: 22px;
-    position: relative;
-    bottom: -5px;
-}
-
-/* Phần nội dung chính */
-#main-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    text-align: center;
-    background-color: #99CCFF;
-    background-image: url('https://i.imgur.com/g4Q6mQ5.png');
-    background-repeat: repeat;
-    background-size: cover;
-    color: #fff;
-}
-
-#main-content .container {
-    max-width: 800px;
-}
-
-#main-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-#main-content p {
-    font-size: 1.2rem;
-}
-
-/* Dropdown Menu Animation */
-.dropdown-content {
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  header nav ul li a:hover {
+    background-color: #333;
+    transform: scale(1.1); /* Slightly enlarges on hover */
+  }
+  
+  header nav ul li .active {
+    background-color: #007bff;
+    font-weight: bold;
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-content {
     display: none;
     position: absolute;
-    top: 40px;
-    right: 0;
-    background-color:black;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #333;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    border-radius: 4px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-}
-
-.dropdown-content a {
-    color: #fff;
-    padding: 12px 16px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .dropdown-content a {
+    color: white;
     text-decoration: none;
     display: block;
-    text-align: left;
-    font-weight: 400;
-    transition: background-color 0.2s ease;
-}
-
-/* Hiệu ứng hover cho các mục trong dropdown */
-.dropdown-content a:hover {
-    background-color: black;
-}
-
-/* Hiển thị dropdown với animation khi người dùng di chuột qua */
-nav ul li:hover .dropdown-content {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0); /* Slide down effect */
-}
-
-/* Responsive - Hiển thị tốt trên thiết bị nhỏ hơn */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    #main-content {
-        padding: 20px;
-    }
-
-    #main-content h2 {
-        font-size: 2rem;
-    }
-
-    #main-content p {
-        font-size: 1rem;
-    }
-}
-
-
-/* Main */
-main {
-    padding: 2rem;
-}
-
-/* Sections */
-section {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
-
-/* About Project Section */
-#about-project p {
-    font-size: 1.2rem;
-    color: #666;
-}
-
-/* Technology Section */
-#technology ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#technology ul li {
-    background-color: #e0e0e0;
-    margin: 0.5rem 0;
-    padding: 0.7rem;
+    padding: 8px 12px;
     border-radius: 5px;
-    
-}
-
-/* Team Section */
-#team {
-    text-align: center;
-}
-
-.team-grid {
+    transition: background-color 0.3s;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #555;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Main Content */
+  main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out; /* Adds fade-in effect */
+  }
+  
+  main section {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  main section:hover {
+    transform: translateY(-5px); /* Lifts slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  main section h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+  }
+  
+  main section p {
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  main section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 10px;
+  }
+  
+  main section ul li {
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  /* Team Section */
+  .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.team-member {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 1.5rem;
-    border-radius: 8px;
-}
-
-.team-member h3 {
-    color: #0b3f77;
-}
-
-.team-member p {
-    font-size: 1rem;
-    color: #666;
-}
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding-top: 20px;
+  }
+  
+  .team-member {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .team-member:hover {
+    transform: scale(1.05); /* Slight zoom-in effect */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .team-member h3 {
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .team-member p {
+    color: #555;
+    font-size: 0.9rem;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #1c1c1c;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  /* Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
