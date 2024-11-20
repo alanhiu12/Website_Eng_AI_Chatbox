@@ -1,9 +1,14 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./css/BulletinBoard.css"; // Import the CSS file
 
 const BulletinBoard = () => {
   const { classId } = useParams();
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate("/study"); // Navigate back to the Study.js page
+  };
 
   // Simulated class data
   const classDetails = [
@@ -46,9 +51,10 @@ const BulletinBoard = () => {
         </ul>
       </section>
 
-      <footer className="bulletin-board-footer">
-        <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>
-      </footer>
+      {/* Add a Back button */}
+      <button className="back-button" onClick={handleBack}>
+        Back
+      </button>
     </div>
   );
 };
