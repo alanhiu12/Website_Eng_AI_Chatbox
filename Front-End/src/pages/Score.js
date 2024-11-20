@@ -7,6 +7,7 @@ const Score = () => {
       { id: 3, name: 'Mark Johnson', homework: 'History Essay', score: null, comments: '', feedback: '', submitted: false },
       { id: 4, name: 'Emily Davis', homework: 'Art Assignment', score: null, comments: '', feedback: '', submitted: true },
     ]);
+  
     const [filter, setFilter] = useState('All');
     const [scoreRange, setScoreRange] = useState('All');
     const [modalData, setModalData] = useState(null);
@@ -25,8 +26,6 @@ const Score = () => {
           student.id === id ? { ...student, score: newScore } : student
         )
       );
-      // Simulate notification
-      alert(`Score updated for student ID: ${id}`);
     };
   
     const handleCommentsChange = (id, newComments) => {
@@ -43,7 +42,6 @@ const Score = () => {
           student.id === id ? { ...student, feedback } : student
         )
       );
-      alert(`Feedback submitted for student ID: ${id}`);
       setModalData(null);
     };
   
