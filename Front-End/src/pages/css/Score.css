@@ -1,106 +1,256 @@
+/* General Container */
 .score-container {
+    font-family: 'Arial', sans-serif;
+    margin: 20px auto;
+    max-width: 1200px;
     padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
     background-color: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  h1 {
+  /* Header */
+  .score-container h1 {
     text-align: center;
-    color: #333;
+    color: #007fff;
     margin-bottom: 20px;
   }
   
-  .filter-container {
+  /* Progress Summary */
+  .progress-summary {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #e6f7ff;
+    border-radius: 10px;
+  }
+  
+  .progress-summary div {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 5px;
+  }
+  
+  /* Filters Section */
+  .filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
   }
   
-  .filter-container select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .btn-export {
+  .filter-container select,
+  .filter-container button {
     padding: 10px 15px;
-    background-color: #007fff;
-    color: white;
-    border: none;
+    font-size: 1rem;
+    border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
   }
   
-  .btn-export:hover {
-    background-color: #005bbb;
+  .filter-container button {
+    background-color: #007fff;
+    color: white;
+    border: none;
   }
   
+  .filter-container button:hover {
+    background-color: #005bbb;
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+  }
+  
+  /* Leaderboard */
+  .leaderboard {
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .leaderboard h2 {
+    text-align: center;
+    color: #444;
+  }
+  
+  .leaderboard ol {
+    padding-left: 20px;
+  }
+  
+  .leaderboard li {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  /* Score Table */
   .score-table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
   .score-table th,
   .score-table td {
-    padding: 12px 16px;
-    text-align: left;
+    padding: 15px;
     border: 1px solid #ddd;
-    font-size: 1rem;
+    text-align: left;
   }
   
-  .score-input,
+  .score-table th {
+    background-color: #007fff;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .score-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .score-table tr:hover {
+    background-color: #f1f1f1;
+    transition: 0.3s ease-in-out;
+  }
+  
+  /* Score Input */
+  .score-input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .score-input:focus {
+    border-color: #007fff;
+    box-shadow: 0 0 5px #007fff;
+    outline: none;
+    transition: 0.3s ease-in-out;
+  }
+  
+  /* Comments Input */
   .comments-input {
     width: 100%;
-    padding: 8px;
+    height: 50px;
+    padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 3px;
     resize: none;
   }
   
-  .comments-input {
-    height: 50px;
+  .comments-input:focus {
+    border-color: #007fff;
+    box-shadow: 0 0 5px #007fff;
+    outline: none;
+    transition: 0.3s ease-in-out;
   }
   
-  .btn-submit-score {
-    padding: 5px 10px;
+  /* Buttons */
+  .btn-feedback,
+  .btn-reset,
+  .btn-export-csv {
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-feedback {
     background-color: #28a745;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
   }
   
-  .btn-reset-score {
-    padding: 5px 10px;
-    background-color: #ff4d4f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin-left: 5px;
-  }
-  
-  .btn-submit-score:hover {
+  .btn-feedback:hover {
     background-color: #218838;
   }
   
-  .btn-reset-score:hover {
-    background-color: #d9363e;
+  .btn-reset {
+    background-color: #ffc107;
+    color: black;
   }
   
-  .view-link {
-    color: #007fff;
-    text-decoration: underline;
+  .btn-reset:hover {
+    background-color: #e0a800;
+  }
+  
+  .btn-export-csv {
+    background-color: #007fff;
+    color: white;
+  }
+  
+  .btn-export-csv:hover {
+    background-color: #005bbb;
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+  }
+  
+  /* Modal */
+  .feedback-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .feedback-modal h3 {
+    margin-bottom: 15px;
+  }
+  
+  .feedback-modal textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    resize: none;
+  }
+  
+  .feedback-modal button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
     cursor: pointer;
+  }
+  
+  .feedback-modal button:first-of-type {
+    background-color: #007fff;
+    color: white;
+  }
+  
+  .feedback-modal button:first-of-type:hover {
+    background-color: #005bbb;
+  }
+  
+  .feedback-modal button:last-of-type {
+    background-color: #ccc;
+  }
+  
+  .feedback-modal button:last-of-type:hover {
+    background-color: #aaa;
+  }
+  
+  /* Overlay */
+  .feedback-modal ~ div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
   }
   
