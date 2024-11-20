@@ -116,16 +116,6 @@ const Signup = () => {
                                   required
                               /> Học sinh
                           </label>
-                          <label htmlFor="admin">
-                              <input
-                                  type="radio"
-                                  id="admin"
-                                  name="role"
-                                  value="admin"
-                                  onChange={(e) => setRole(e.target.value)}
-                                  required
-                              /> Admin
-                          </label>
                       </div>
                   </div>
 

@@ -91,7 +91,10 @@ body {
   
   /* Hero Section */
   #hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('D:\Website_Eng_AI_Chatbox\Front-End\src\assets\pictures\home.png') no-repeat center center/cover;
+    background-image: url('../../assets/pictures/hhh.gif'); /* Đặt ảnh nền */
+    background-size: cover; /* Tự động chỉnh kích thước ảnh để phủ kín */
+    background-position: center; /* Căn giữa ảnh */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
     color: #fff;
     text-align: center;
     padding: 100px 20px;
@@ -203,11 +206,74 @@ body {
   }
   
   /* Pricing Section */
-  .pricing-cards .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  #pricing {
+    padding: 40px 20px;
     background-color: #f9f9f9;
+    text-align: center;
   }
+  
+  #pricing h2 {
+    margin-bottom: 30px;
+    font-size: 2em;
+  }
+  
+  .pricing-cards {
+    display: flex;
+    justify-content: space-around; /* Cân đều khoảng cách giữa các thẻ */
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    flex: 0 1 calc(30% - 20px); /* Mỗi thẻ chiếm khoảng 30% chiều rộng container */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 30px; /* Tăng padding bên trong thẻ */
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+  }
+  
+  .card p {
+    font-size: 1.1em;
+    margin: 10px 0;
+  }
+  
+  @media (max-width: 768px) {
+    .pricing-cards {
+      flex-direction: column; /* Sắp xếp theo cột khi màn hình nhỏ */
+      gap: 20px;
+    }
+  
+    .card {
+      flex: 0 1 90%; /* Thẻ rộng hơn trên màn hình nhỏ */
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .pricing-cards {
+      flex-direction: column; /* Sắp xếp theo cột khi màn hình nhỏ */
+      gap: 20px;
+    }
+  
+    .card {
+      max-width: 100%; /* Chiều rộng toàn bộ khi xuống cột */
+    }
+  }
+  
   
   /* Animations */
   @keyframes fadeInDown {
