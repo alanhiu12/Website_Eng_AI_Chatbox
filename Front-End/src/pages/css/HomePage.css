@@ -14,80 +14,83 @@ body {
   }
   
   /* Header */
-  header {
-    background-color: #0077b6;
-    color: #fff;
-    padding: 15px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  header .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  
-  header nav ul li {
-    margin-left: 20px;
-  }
-  
-  header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
-  }
-  
-  header nav ul li a.active {
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  
-  header nav ul li a:hover {
-    color: #00b4d8;
-  }
-  
-  header nav ul li .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    color: #0077b6;
-    min-width: 150px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    transition: opacity 0.3s ease;
-  }
-  
-  header nav ul li .dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1;
-  }
-  
-  header nav ul li .dropdown-content a {
-    color: #0077b6;
-    padding: 10px 15px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  header nav ul li .dropdown-content a:hover {
-    background-color: #f0f0f0;
-    color: #00b4d8;
-  }
+header {
+  width: 100%;
+  background-color: #1c1c1c; /* Dark background */
+  color: white;
+  padding: 15px 0;
+  position: relative;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header .logo {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+
+header nav ul li {
+  margin-left: 20px;
+  position: relative;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Smooth underline animation */
+header nav ul li a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #00d8ff;
+  transition: width 0.4s ease-in-out;
+}
+
+header nav ul li a:hover::before,
+header nav ul li a.active::before {
+  width: 100%;
+}
+
+header nav ul li a.active {
+  color: #00d8ff;
+  background-color: transparent;
+  transition: color 0.4s ease-in-out;
+}
+
+/* Hover animation */
+header nav ul li a:hover {
+  color: #00c3d5;
+  transform: translateY(-3px);
+}
+
+/* Header Divider */
+.header-divider {
+  height: 22px;
+  position: relative;
+  bottom: -5px;
+}
   
   /* Hero Section */
   #hero {
