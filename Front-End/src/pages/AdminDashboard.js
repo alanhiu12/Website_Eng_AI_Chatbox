@@ -14,7 +14,7 @@ const AdminDashboard = () => {
   const handlesetting = (event) => {
     event.preventDefault();
     localStorage.removeItem("loggedIn");
-    navigate("/setting"); // Redirect to settings page
+    navigate("/admin-setting"); // Redirect to settings page
   };
 
   const [selectedMenu, setSelectedMenu] = useState("manage-users");

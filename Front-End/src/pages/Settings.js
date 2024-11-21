@@ -102,8 +102,8 @@ const handleChange = (e) => {
                   />
                 </label>
                 <div className="popup-actions">
-                  <button onClick={handleSave}>Save</button>
-                  <button onClick={handleCancel}>Cancel</button>
+                <div className="saveset"><button onClick={handleSave}>Save</button></div>
+                <div className="cancelset"><button onClick={handleCancel}>Cancel</button></div>
                 </div>
               </div>
             </div>
