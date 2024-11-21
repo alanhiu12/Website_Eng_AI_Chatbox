@@ -64,7 +64,7 @@
   flex: 1;
   padding: 20px;
   background-color: #ffffff; /* Màu nền tím */
-  min-height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+  min-height: 10vh; /* Chiếm toàn bộ chiều cao màn hình */
   display: flex;
   justify-content: center; /* Căn giữa nội dung */
   align-items: center;
@@ -206,21 +206,38 @@
 .add-class-form {
   width: 100%;
   margin-top: 20px;
-
+  background-color: rgb(232, 224, 224) ;
   flex-wrap: wrap;
   gap: 10px; /* Khoảng cách giữa các ô nhập */
+  padding: 25px;
+  border-radius: 5px;
+}
+.addnew {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
 }
 .add-class-form .ha{
+  text-align: center;
+
+}
+.add-class-form .h4{
   text-align: left;
 }
 
+
 .add-class-form input {
-  flex: 1 1 calc(50% - 10px); /* Chiếm 50% không gian */
+  width: 97%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.9); /* Nền trắng nhẹ */
   color: #333; /* Màu chữ tối */
+  margin-left: 15px;
+  padding: 10px;
+
+
 }
 
 .add-class-form input::placeholder {
@@ -228,7 +245,7 @@
 }
 
 .add-class-form button {
-  padding: 10px 20px;
+  padding:10px 30px;
   border: none;
   background-color: #007bff; /* Màu xanh lam */
   color: #fff;
@@ -236,7 +253,11 @@
   cursor: pointer;
   flex: 1 1 100%; /* Chiếm toàn bộ chiều rộng */
   max-width: 200px; /* Giới hạn chiều rộng */
+  float: right;
+  margin-right: 25px;
+  
 }
+
 
 /* Pop-up styling */
 .popup {
@@ -265,6 +286,9 @@
   margin-bottom: 20px;
   font-size: 1.5rem;
   color: #333;
+}
+.popup-content h4 {
+text-align: left;
 }
 
 .popup-content input {

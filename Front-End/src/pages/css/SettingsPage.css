@@ -1,75 +1,117 @@
-.settings-page {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  color: #333;
+/* Header styles */
+.header {
+  background-color: #333;
+  padding: 10px 20px;
+  color: #fff;
 }
 
-.settings-section h1 {
-  text-align: center;
-  font-size: 1.8rem;
-  color: #333;
+.header .logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
 }
 
-.settings-section {
-  background: #fff;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.settings-section h2 {
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 15px;
+.header .homepage-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  align-items: center;
+  gap: 15px;
+}
+
+.header .homepage-nav a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  z-index: 1;
+}
+
+.header .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Main page styles */
+.settings-page {
+  padding: 20px;
+
+}
+
+.settings-title {
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.settings-body {
+  display: flex;
+  gap: 20px;
+}
+
+.settings-sidebar{
+background-color: #dc3545;
+}
+/* Sidebar */
+.settings-sidebar ul {
+  list-style: none;
+  padding: 0;
+  display: block;
+}
+
+.settings-sidebar li {
+  padding: 10px;
+  cursor: pointer;
+  display:flex;
+}
+
+.settings-sidebar li.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Content section */
+.settings-content {
+  flex-grow: 1;
 }
 
 .settings-item {
+  margin: 10px 0;
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  font-size: 1rem;
-  border-bottom: 1px solid #eee;
 }
 
-.settings-item:last-child {
-  border-bottom: none;
+.settings-item-btn {
+  padding: 10px 15px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  cursor: pointer;
 }
 
-.settings-value {
-  color: #888;
+.settings-item-btn.danger {
+  background-color: #dc3545;
 }
 
+/* Footer */
 .settings-footer {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-  padding: 15px;
-  background-color: #f4f4f9;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  color: #666;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
 }
 
-.settings-footer a {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #333;
+.footer-links a {
+  margin: 0 10px;
   text-decoration: none;
-  transition: color 0.3s ease;
+  color: #fff;
 }
 
-.settings-footer a:hover {
-  color: #007fff;
-}
-
-.settings-footer a i {
-  font-size: 1.1rem;
+.footer-links a:hover {
+  text-decoration: underline;
 }

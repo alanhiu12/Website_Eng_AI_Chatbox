@@ -158,7 +158,9 @@ const AdminDashboard = () => {
               <div className="ha">
                 <h3>Add New Class</h3>
               </div>
+              
               <div className="addnew">
+                <div className="h4"><h4>ClassName</h4></div>
                 <input
                   type="text"
                   name="name"
@@ -166,6 +168,7 @@ const AdminDashboard = () => {
                   onChange={handleClassInputChange}
                   placeholder="Class Name"
                 />
+                <div className="h4"><h4>Teacher</h4></div>
                 <input
                   type="text"
                   name="teacher"
