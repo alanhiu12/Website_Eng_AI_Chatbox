@@ -12,6 +12,36 @@ const SettingsPage = () => {
     localStorage.removeItem('loggedIn'); // Xóa trạng thái đăng nhập
     navigate('/login'); // Chuyển hướng về trang đăng nhập
   };
+  const [showPopup, setShowPopup] = useState(false);
+const [profile, setProfile] = useState({
+  username: "halo47665_82077",
+  name: "Trịnh Hieu",
+  email: "halo47665@gmail.com",
+  classes: "1 class",
+});
+const [editProfile, setEditProfile] = useState({ ...profile });
+
+const handleEdit = () => {
+  setEditProfile({ ...profile });
+  setShowPopup(true);
+};
+
+const handleSave = () => {
+  setProfile({ ...editProfile }); // Cập nhật thông tin hiển thị
+  setShowPopup(false); // Đóng popup
+};
+
+const handleCancel = () => setShowPopup(false);
+
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  setEditProfile((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+
+};
+
 
   // Render từng phần trong Settings
   const renderSection = () => {
@@ -19,24 +49,67 @@ const SettingsPage = () => {
       case 'profile':
         return (
           <div className="section-content">
-            <h2>👤 Profile</h2>
-            <div className="settings-item">
-              <span>Username</span>
-              <span className="settings-value">halo47665_82077</span>
-            </div>
-            <div className="settings-item">
-              <span>Name</span>
-              <span className="settings-value">Trịnh Hieu</span>
-            </div>
-            <div className="settings-item">
-              <span>Email</span>
-              <span className="settings-value">halo47665@gmail.com</span>
-            </div>
-            <div className="settings-item">
-              <span>Classes</span>
-              <span className="settings-value">1 class</span>
-            </div>
+          <h2>👤 Profile</h2>
+          <div className="settings-item">
+            <span>Username</span>
+            <span className="settings-value">{profile.username}</span>
           </div>
+          <div className="settings-item">
+            <span>Name</span>
+            <span className="settings-value">{profile.name}</span>
+          </div>
+          <div className="settings-item">
+            <span>Email</span>
+            <span className="settings-value">{profile.email}</span>
+          </div>
+          <div className="settings-item">
+            <span>Classes</span>
+            <span className="settings-value">{profile.classes}</span>
+          </div>
+          <div className="settings-actions">
+            <button onClick={handleEdit}>Edit</button>
+          </div>
+      
+          {showPopup && (
+            <div className="popup-overlay">
+              <div className="popup-content">
+                <h3>Edit Profile</h3>
+                <label>
+                  <h4>Username:</h4>
+                  <input
+                    type="text"
+                    name="username"
+                    value={editProfile.username}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                  <h4>Name:</h4>
+                  <input
+                    type="text"
+                    name="name"
+                    value={editProfile.name}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                  <h4>Email:</h4>
+                  <input
+                    type="email"
+                    name="email"
+                    value={editProfile.email}
+                    onChange={handleChange}
+                  />
+                </label>
+                <div className="popup-actions">
+                  <button onClick={handleSave}>Save</button>
+                  <button onClick={handleCancel}>Cancel</button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
         );
       case 'privacy':
         return (
