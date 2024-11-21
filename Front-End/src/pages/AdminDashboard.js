@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./css/AdminDashboard.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -14,8 +14,9 @@ const AdminDashboard = () => {
   const handlesetting = (event) => {
     event.preventDefault();
     localStorage.removeItem("loggedIn");
-    navigate("/setting"); //setting
+    navigate("/setting"); // Redirect to settings page
   };
+
   const [selectedMenu, setSelectedMenu] = useState("manage-users");
 
   // Dummy data
@@ -28,6 +29,12 @@ const AdminDashboard = () => {
     { id: 2, name: "Science 101", teacher: "Ms. Green" },
   ]);
   const [newClass, setNewClass] = useState({ name: "", teacher: "" });
+
+  // Popup edit states
+  const [isEditingUser, setIsEditingUser] = useState(false);
+  const [isEditingClass, setIsEditingClass] = useState(false);
+  const [editingUser, setEditingUser] = useState({ id: null, name: "", role: "" });
+  const [editingClass, setEditingClass] = useState({ id: null, name: "", teacher: "" });
 
   // Event handlers
   const handleDeleteUser = (id) => {
@@ -53,6 +60,28 @@ const AdminDashboard = () => {
     }
   };
 
+  // Handle Edit User
+  const handleEditUser = (user) => {
+    setEditingUser(user);
+    setIsEditingUser(true);
+  };
+
+  const handleSaveEditUser = () => {
+    setUsers(users.map((u) => (u.id === editingUser.id ? editingUser : u)));
+    setIsEditingUser(false);
+  };
+
+  // Handle Edit Class
+  const handleEditClass = (classItem) => {
+    setEditingClass(classItem);
+    setIsEditingClass(true);
+  };
+
+  const handleSaveEditClass = () => {
+    setClasses(classes.map((c) => (c.id === editingClass.id ? editingClass : c)));
+    setIsEditingClass(false);
+  };
+
   // Render content dynamically
   const renderContent = () => {
     switch (selectedMenu) {
@@ -73,14 +102,16 @@ const AdminDashboard = () => {
                     <td>{user.name}</td>
                     <td>{user.role}</td>
                     <td>
-                    <div className="cumnut">
-                      <button className="btn-edit">Edit</button>
-                      <button
-                        className="btn-delete"
-                        onClick={() => handleDeleteUser(user.id)}
-                      >
-                        Delete
-                      </button>
+                      <div className="cumnut">
+                        <button className="btn-edit" onClick={() => handleEditUser(user)}>
+                          Edit
+                        </button>
+                        <button
+                          className="btn-delete"
+                          onClick={() => handleDeleteUser(user.id)}
+                        >
+                          Delete
+                        </button>
                       </div>
                     </td>
                   </tr>
@@ -99,7 +130,6 @@ const AdminDashboard = () => {
                 <tr>
                   <th>Class Name</th>
                   <th>Teacher</th>
-                 
                 </tr>
               </thead>
               <tbody>
@@ -107,39 +137,42 @@ const AdminDashboard = () => {
                   <tr key={classItem.id}>
                     <td>{classItem.name}</td>
                     <td>{classItem.teacher}</td>
-                      <td>
-                      <div className="cumnut"><button className="btn-edit">Edit</button>
-                      <button
-                        className="btn-delete"
-                        onClick={() => handleDeleteClass(classItem.id)}
-                      >
-                        Delete
-                      </button> 
+                    <td>
+                      <div className="cumnut">
+                        <button className="btn-edit" onClick={() => handleEditClass(classItem)}>
+                          Edit
+                        </button>
+                        <button
+                          className="btn-delete"
+                          onClick={() => handleDeleteClass(classItem.id)}
+                        >
+                          Delete
+                        </button>
                       </div>
-                      </td>
-
-                    
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
             <div className="add-class-form">
-              <div className="ha"><h3>Add New Class</h3></div>
+              <div className="ha">
+                <h3>Add New Class</h3>
+              </div>
               <div className="addnew">
-              <input
-                type="text"
-                name="name"
-                value={newClass.name}
-                onChange={handleClassInputChange}
-                placeholder="Class Name"
-              />
-              <input
-                type="text"
-                name="teacher"
-                value={newClass.teacher}
-                onChange={handleClassInputChange}
-                placeholder="Teacher Name"
-              />
+                <input
+                  type="text"
+                  name="name"
+                  value={newClass.name}
+                  onChange={handleClassInputChange}
+                  placeholder="Class Name"
+                />
+                <input
+                  type="text"
+                  name="teacher"
+                  value={newClass.teacher}
+                  onChange={handleClassInputChange}
+                  placeholder="Teacher Name"
+                />
               </div>
               <button onClick={handleAddClass} className="btn-add">
                 Add Class
@@ -153,14 +186,14 @@ const AdminDashboard = () => {
           <section className="admin-section">
             <h2>📊 Analytics</h2>
             <div className="teo">
-            <div className="analytics-card">
-              <h3>Total Users</h3>
-              <p>{users.length}</p>
-            </div>
-            <div className="analytics-card">
-              <h3>Active Classes</h3>
-              <p>{classes.length}</p>
-            </div>
+              <div className="analytics-card">
+                <h3>Total Users</h3>
+                <p>{users.length}</p>
+              </div>
+              <div className="analytics-card">
+                <h3>Active Classes</h3>
+                <p>{classes.length}</p>
+              </div>
             </div>
           </section>
         );
@@ -204,15 +237,76 @@ const AdminDashboard = () => {
               Setting
             </button>
           </li>
-         
           <li className="logout-item">
-        <button className="logout-button" onClick={handleLogout}>
-          Logout
-        </button>
-      </li>
+            <button className="logout-button" onClick={handleLogout}>
+              Logout
+            </button>
+          </li>
         </ul>
       </div>
       <div className="main-content">{renderContent()}</div>
+
+      {/* Edit User Popup */}
+      {isEditingUser && (
+        <div className="popup">
+          <div className="popup-content">
+            <h3>Edit User</h3>
+            <h4>Name</h4>
+            <input
+              type="text"
+              value={editingUser.name}
+              onChange={(e) => setEditingUser({ ...editingUser, name: e.target.value })}
+              placeholder="Name"
+            />
+            <h4>Role</h4>
+            <input
+              type="text"
+              value={editingUser.role}
+              onChange={(e) => setEditingUser({ ...editingUser, role: e.target.value })}
+              placeholder="Role"
+            />
+            <div className="popup-actions">
+              <button onClick={handleSaveEditUser} className="btn-save">
+                Save
+              </button>
+              <button onClick={() => setIsEditingUser(false)} className="btn-cancel">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Class Popup */}
+      {isEditingClass && (
+        <div className="popup">
+          <div className="popup-content">
+            <h3>Edit Class</h3>
+            <h4>Class name</h4>
+            <input
+              type="text"
+              value={editingClass.name}
+              onChange={(e) => setEditingClass({ ...editingClass, name: e.target.value })}
+              placeholder="Class Name"
+            />
+            <h4>Teacher</h4>
+            <input
+              type="text"
+              value={editingClass.teacher}
+              onChange={(e) => setEditingClass({ ...editingClass, teacher: e.target.value })}
+              placeholder="Teacher Name"
+            />
+            <div className="popup-actions">
+              <button onClick={handleSaveEditClass} className="btn-save">
+                Save
+              </button>
+              <button onClick={() => setIsEditingClass(false)} className="btn-cancel">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
