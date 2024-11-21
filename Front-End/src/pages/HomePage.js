@@ -29,7 +29,7 @@ const Home = () => {
             <Link to="/admin">Admin</Link>
             <Link to="/user-profile">Profile</Link>
             <Link to="/contact">Contact</Link>
-            <Link to="/setting">Setting</Link>
+            <Link to="/admin-setting">Setting</Link>
             <Link to="/teacher">Teacher</Link>
             <Link to="/score">Score</Link>
             <a href="#" onClick={handleLogout}>Logout</a>

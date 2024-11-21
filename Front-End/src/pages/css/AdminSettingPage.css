@@ -1,0 +1,102 @@
+/* General Page Styling */
+.admin-settings-page {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    animation: fadeIn 1s ease-in-out; /* Page fade-in effect */
+  }
+  
+  .admin-settings-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  /* Container Styling */
+  .admin-settings-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  /* Section Styling */
+  .admin-settings-section {
+    flex: 0 1 calc(48% - 20px);
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .admin-settings-section:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  }
+  
+  .admin-settings-section h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .admin-settings-section p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  /* Buttons Styling */
+  .admin-action-button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-right: 10px;
+    background: #0077ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .admin-action-button:hover {
+    background: #005bb5;
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  /* Save Button Styling */
+  .admin-save-button {
+    display: block;
+    margin: 30px auto 0;
+    padding: 15px 30px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .admin-save-button:hover {
+    background: #218838;
+    transform: translateY(-3px); /* Slight upward motion */
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

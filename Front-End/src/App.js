@@ -8,6 +8,7 @@ import Homepages from './pages/HomePage';
 import Aboutpages from './pages/AboutPage';
 import UserProfile from './pages/UserProfile'; // Fix typo from 'pagess' to 'pages'
 import Setting from './pages/Settings';
+import AdminSettingPage from './pages/AdminSettingsPage';
 import Classes from './pages/Classes';
 import TeacherContentPage from './pages/TeacherContentPage';
 import ChatbotPage from './pages/ChatbotPage';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/setting" element={<Setting />} />
+        <Route path="/admin-setting" element={<AdminSettingPage />} />
         <Route path="/classes" element={<Classes />} />
         <Route path="/teacher" element={<TeacherContentPage />} />
         <Route path="/chatbot" element={<ChatbotPage />} />
