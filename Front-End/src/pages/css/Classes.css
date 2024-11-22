@@ -28,7 +28,7 @@
 .join-class-button {
   background-color: var(--primary-color);
   color: #ffffff; /* Change text color to white for better contrast */
-  padding: 12px 24px;
+  padding: 20px 0;
   font-size: 1rem;
   border: none;
   border-radius: 5px;

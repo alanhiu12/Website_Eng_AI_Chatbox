@@ -194,9 +194,9 @@ header nav ul li .active {
 
 /* Buttons */
 .payment-button {
-  background: #007bff;
+  background: #1c77d8;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 10;
   border: none;
   border-radius: 5px;
   cursor: pointer;

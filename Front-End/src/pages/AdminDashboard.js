@@ -5,17 +5,19 @@ import { useNavigate } from "react-router-dom";
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
+  const [profile, setProfile] = useState({
+    username: "halo47665_82077",
+    name: "Trịnh Hieu",
+    email: "halo47665@gmail.com",
+  });
+
   // Logout functionality
   const handleLogout = (event) => {
     event.preventDefault();
     localStorage.removeItem("loggedIn");
     navigate("/login"); // Redirect to login page after logout
   };
-  const handlesetting = (event) => {
-    event.preventDefault();
-    localStorage.removeItem("loggedIn");
-    navigate("/admin-setting"); // Redirect to settings page
-  };
+
 
   const [selectedMenu, setSelectedMenu] = useState("manage-users");
 
@@ -88,7 +90,7 @@ const AdminDashboard = () => {
       case "manage-users":
         return (
           <section className="admin-section">
-            <h2>👤 Manage Users</h2>
+            <h2>Manage Users</h2>
             <table className="admin-table">
               <thead>
                 <tr>
@@ -124,7 +126,7 @@ const AdminDashboard = () => {
       case "manage-classes":
         return (
           <section className="admin-section">
-            <h2>🏫 Manage Classes</h2>
+            <h2>Manage Classes</h2>
             <table className="admin-table">
               <thead>
                 <tr>
@@ -187,7 +189,7 @@ const AdminDashboard = () => {
       case "analytics":
         return (
           <section className="admin-section">
-            <h2>📊 Analytics</h2>
+            <h2>Analytics</h2>
             <div className="teo">
               <div className="analytics-card">
                 <h3>Total Users</h3>
@@ -200,6 +202,31 @@ const AdminDashboard = () => {
             </div>
           </section>
         );
+        case 'admin-profile':
+          return (
+            <section className="profsection">
+            <h2>👤 Profile</h2>
+            <div className="settings-item">
+              <span>Username</span>
+              <span className="settings-value">{profile.username}</span>
+            </div>
+            <div className="settings-item">
+              <span>Name</span>
+              <span className="settings-value">{profile.name}</span>
+            </div>
+            <div className="settings-item">
+              <span>Email</span>
+              <span className="settings-value">{profile.email}</span>
+            </div>
+            <div className="bonut" >
+            <button >Update Password</button>
+            <button >Edit</button>
+
+          </div>
+
+          </section>
+          );
+        
 
       default:
         return <div>Please select a menu item.</div>;
@@ -235,11 +262,14 @@ const AdminDashboard = () => {
               Analytics
             </button>
           </li>
-          <li className="logout-item">
-            <button className="logout-button" onClick={handlesetting}>
-              Setting
-            </button>
-          </li>
+          <li>
+  <button
+    className={selectedMenu === "admin-profile" ? "active" : ""}
+    onClick={() => setSelectedMenu("admin-profile")}
+  >
+    Admin Profile
+  </button>
+</li>
           <li className="logout-item">
             <button className="logout-button" onClick={handleLogout}>
               Logout
@@ -310,6 +340,7 @@ const AdminDashboard = () => {
           </div>
         </div>
       )}
+      
     </div>
   );
 };

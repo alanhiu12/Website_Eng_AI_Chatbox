@@ -144,6 +144,7 @@ width: 15%;
   background-color: #007bff;
   border: none;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .settings-item-btn.danger {
