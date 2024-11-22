@@ -139,16 +139,29 @@ width: 15%;
 }
 
 .settings-item-btn {
-  padding: 10px 15px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  cursor: pointer;
-  margin-right: 10px;
+  background-color: #0e46e0;
+}
+.settings-item-btn:hover {
+  background-color: #004cff; /* Darker shade for hover */
+  transform: scale(1.05); /* Slightly increase the size */
+  color: #e0e0e0; /* Lighter text color on hover */
 }
 
-.settings-item-btn.danger {
-  background-color: #dc3545;
+.settings-item-btndanger {
+  background-color: #cd0e21;
+}
+.settings-item-btndanger:hover {
+  background-color: #ff0000; /* Darker shade for hover */
+  transform: scale(1.05); /* Slightly increase the size */
+  color: #e0e0e0; /* Lighter text color on hover */
+}
+.settings-item-btncut {
+  background-color: #806c6c;
+}
+.settings-item-btncut:hover {
+  background-color: #2a2c31; /* Darker shade for hover */
+  transform: scale(1.05); /* Slightly increase the size */
+  color: #e0e0e0; /* Lighter text color on hover */
 }
 
 /* Footer */
@@ -244,4 +257,9 @@ width: 15%;
   background-color: rgb(138, 33, 33); /* Đổi màu khi hover */
   transform: scale(1.05); /* Phóng to nút một chút */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng */
+}
+.bonut{
+  float: right;
+  display: flex;
+  gap: 10px ;
 }
