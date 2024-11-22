@@ -5,7 +5,68 @@ import './css/SettingsPage.css'; // Đảm bảo đường dẫn đúng
 const SettingsPage = () => {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('profile'); // State lưu mục đang chọn
-
+  const [showPasswordPopup, setShowPasswordPopup] = useState(false);
+  const [passwordForm, setPasswordForm] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
+  const [errorMessage, setErrorMessage] = useState("");
+  
+  // Open popup
+  const handleOpenPasswordPopup = () => {
+    setPasswordForm({
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+    });
+    setErrorMessage("");
+    setShowPasswordPopup(true);
+  };
+  
+  // Close popup
+  const handleClosePasswordPopup = () => {
+    setShowPasswordPopup(false);
+  };
+  
+  // Handle input change
+  const handlePasswordChange = (e) => {
+    const { name, value } = e.target;
+    setPasswordForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  
+  // Handle form submission
+  const handlePasswordUpdate = () => {
+    const { currentPassword, newPassword, confirmPassword } = passwordForm;
+  
+    // Validate input
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      setErrorMessage("All fields are required.");
+      return;
+    }
+    if (newPassword.length < 6) {
+      setErrorMessage("Password must be at least 6 characters long.");
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      setErrorMessage("New password and confirm password do not match.");
+      return;
+    }
+  
+    // Simulate password update (e.g., call API or validate current password)
+    if (currentPassword !== "mockOldPassword") {
+      setErrorMessage("Current password is incorrect.");
+      return;
+    }
+  
+    // Success action
+    alert("Password updated successfully!");
+    setShowPasswordPopup(false);
+  };
+  
   // Xử lý logout
   const handleLogout = (event) => {
     event.preventDefault();
@@ -159,20 +220,67 @@ const handleChange = (e) => {
         return (
           <div className="section-content">
             <h2>🔐 Account Settings</h2>
-            <Link to="/update-password" className="settings-item-btn">
-              Update Password
-            </Link>
-            <Link to="/delete-account" className="settings-item-btn danger">
+            <div className='bonut2'>
+              <button onClick={handleOpenPasswordPopup} className="settings-item-btn">
+               Update Password
+            </button>             
+            <button className="settings-item-btndanger">
               Delete Account
-            </Link>
-            <a href="#" onClick={handleLogout} className="settings-item-btn danger">
-              Logout
-            </a>
+            </button>               
+            <button   onClick={() => {
+                    localStorage.removeItem('loggedIn'); // Clear session data
+                    navigate('/login'); // Redirect to the login page
+                    }} className="settings-item-btncut">
+               Log out
+            </button>  
+            </div> 
+  
+            {showPasswordPopup && (
+  <div className="popup-overlay">
+    <div className="popup-content">
+      <h3>Update Password</h3>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <label>
+        <h4>Current Password:</h4>
+        <input
+          type="password"
+          name="currentPassword"
+          value={passwordForm.currentPassword}
+          onChange={handlePasswordChange}
+        />
+      </label>
+      <label>
+        <h4>New Password:</h4>
+        <input
+          type="password"
+          name="newPassword"
+          value={passwordForm.newPassword}
+          onChange={handlePasswordChange}
+        />
+      </label>
+      <label>
+        <h4>Confirm New Password:</h4>
+        <input
+          type="password"
+          name="confirmPassword"
+          value={passwordForm.confirmPassword}
+          onChange={handlePasswordChange}
+        />
+      </label>
+      <div className="popup-actions">
+      <div className="saveset"><button  onClick={handlePasswordUpdate}>Save</button></div>
+      <div className="cancelset"><button className='cancelset' onClick={handleClosePasswordPopup}>Cancel</button></div>
+      </div>
+    </div>
+  </div>
+)}
+
           </div>
         );
       default:
         return <div className="section-content">Select a section</div>;
     }
+    
   };
 
   return (
