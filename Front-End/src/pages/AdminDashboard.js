@@ -131,7 +131,7 @@ const AdminDashboard = () => {
                   <tr key={user.id}>
                     <td>{user.name}</td>
                     <td>{user.role}</td>
-                    <td>
+                    <td1>
                       <div className="cumnut">
                         <button className="btn-edit" onClick={() => handleEditUser(user)}>
                           Edit
@@ -140,7 +140,7 @@ const AdminDashboard = () => {
                           Delete
                         </button>
                       </div>
-                    </td>
+                    </td1>
                   </tr>
                 ))}
               </tbody>
@@ -150,8 +150,9 @@ const AdminDashboard = () => {
 
       case "manage-classes":
         return (
-          <section className="admin-section">
-            <h2>Manage Classes</h2>
+          <section className="class-section">
+            <div className="add-class-form2">            
+              <h2>Manage Classes</h2>
             <table className="admin-table">
               <thead>
                 <tr>
@@ -164,7 +165,7 @@ const AdminDashboard = () => {
                   <tr key={classItem.id}>
                     <td>{classItem.name}</td>
                     <td>{classItem.teacher}</td>
-                    <td>
+                    <td1>
                       <div className="cumnut">
                         <button className="btn-edit" onClick={() => handleEditClass(classItem)}>
                           Edit
@@ -173,11 +174,12 @@ const AdminDashboard = () => {
                           Delete
                         </button>
                       </div>
-                    </td>
+                    </td1>
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table></div>
+
             <div className="add-class-form">
               <h3>Add New Class</h3>
               <div>
@@ -237,8 +239,12 @@ const AdminDashboard = () => {
               <span className="settings-value">{profile.email}</span>
             </div>
             <div>
-              <button onClick={handleEditProfile}>Edit</button>
-              <button onClick={() => setIsUpdatingPassword(true)}>Update Password</button>
+              <div className="bonut">
+                <div className="upn"><button className="upnn" onClick={() => setIsUpdatingPassword(true)}>Update Password</button></div>
+                <div className="editn"><button className="editnn" onClick={handleEditProfile}>Edit</button></div>
+                
+                </div>
+              
             </div>
           </section>
         );
@@ -253,22 +259,45 @@ const AdminDashboard = () => {
       <div className="sidebar">
         <h2>Admin Dashboard</h2>
         <ul>
-          <li>
-            <button onClick={() => setSelectedMenu("manage-users")}>Manage Users</button>
-          </li>
-          <li>
-            <button onClick={() => setSelectedMenu("manage-classes")}>Manage Classes</button>
-          </li>
-          <li>
-            <button onClick={() => setSelectedMenu("analytics")}>Analytics</button>
-          </li>
-          <li>
-            <button onClick={() => setSelectedMenu("admin-profile")}>Profile</button>
-          </li>
-        </ul>
-        <button onClick={handleLogout} className="logout-btn">Logout</button>
+        <li>
+          <button 
+            onClick={() => setSelectedMenu("manage-users")}
+            className={selectedMenu === "manage-users" ? "active" : ""}
+          >
+            Manage Users
+          </button>
+        </li>
+        <li>
+          <button 
+            onClick={() => setSelectedMenu("manage-classes")}
+            className={selectedMenu === "manage-classes" ? "active" : ""}
+          >
+            Manage Classes
+          </button>
+        </li>
+        <li>
+          <button 
+            onClick={() => setSelectedMenu("analytics")}
+            className={selectedMenu === "analytics" ? "active" : ""}
+          >
+            Analytics
+          </button>
+        </li>
+        <li>
+          <button 
+            onClick={() => setSelectedMenu("admin-profile")}
+            className={selectedMenu === "admin-profile" ? "active" : ""}
+          >
+            Profile
+          </button>
+        </li>
+        <li>
+          <button onClick={handleLogout} className="logout-btn">Logout</button>
+        </li>
+      </ul>
+       
       </div>
-      <div className="content">
+      <div className="main-content">
         {renderContent()}
       </div>
 
@@ -278,7 +307,7 @@ const AdminDashboard = () => {
           <div className="popup-content">
             <h2>Edit Profile</h2>
             <label>
-              Username:
+              <h4>Username:</h4>
               <input
                 type="text"
                 name="username"
@@ -287,7 +316,7 @@ const AdminDashboard = () => {
               />
             </label>
             <label>
-              Name:
+              <h4>Name:</h4>
               <input
                 type="text"
                 name="name"
@@ -296,7 +325,7 @@ const AdminDashboard = () => {
               />
             </label>
             <label>
-              Email:
+              <h4>Email:</h4>
               <input
                 type="email"
                 name="email"
@@ -305,8 +334,8 @@ const AdminDashboard = () => {
               />
             </label>
             <div className="popup-buttons">
-              <button onClick={handleSaveProfile}>Save</button>
-              <button onClick={() => setIsEditingProfile(false)}>Cancel</button>
+              <div className="saveset"><button onClick={handleSaveProfile}>Save</button></div>
+              <div className="cancelset"><button onClick={() => setIsEditingProfile(false)}>Cancel</button></div>
             </div>
           </div>
         </div>
@@ -318,7 +347,7 @@ const AdminDashboard = () => {
           <div className="popup-content">
             <h2>Update Password</h2>
             <label>
-              Current Password:
+              <h4>Current Password:</h4>
               <input
                 type="password"
                 value={currentPassword}
@@ -326,7 +355,7 @@ const AdminDashboard = () => {
               />
             </label>
             <label>
-              New Password:
+              <h4>New Password:</h4>
               <input
                 type="password"
                 value={newPassword}
@@ -334,7 +363,7 @@ const AdminDashboard = () => {
               />
             </label>
             <label>
-              Confirm New Password:
+              <h4>Confirm New Password:</h4>
               <input
                 type="password"
                 value={confirmNewPassword}
@@ -342,8 +371,8 @@ const AdminDashboard = () => {
               />
             </label>
             <div className="popup-buttons">
-              <button onClick={handleUpdatePassword}>Save</button>
-              <button onClick={() => setIsUpdatingPassword(false)}>Cancel</button>
+            <div className="saveset"><button onClick={handleUpdatePassword}>Save</button></div>
+            <div className="cancelset"><button onClick={() => setIsUpdatingPassword(false)}>Cancel</button></div>
             </div>
           </div>
         </div>
@@ -355,7 +384,7 @@ const AdminDashboard = () => {
           <div className="popup-content">
             <h2>Edit User</h2>
             <label>
-              Name:
+              <h4>Name:</h4>
               <input
                 type="text"
                 name="name"
@@ -364,7 +393,7 @@ const AdminDashboard = () => {
               />
             </label>
             <label>
-              Role:
+              <h4>Role:</h4>
               <input
                 type="text"
                 name="role"
@@ -373,8 +402,8 @@ const AdminDashboard = () => {
               />
             </label>
             <div className="popup-buttons">
-              <button onClick={handleSaveUser}>Save</button>
-              <button onClick={() => setIsEditingUser(false)}>Cancel</button>
+            <div className="saveset"><button onClick={handleSaveUser}>Save</button></div>
+            <div className="cancelset"><button onClick={() => setIsEditingUser(false)}>Cancel</button></div>
             </div>
           </div>
         </div>
@@ -386,7 +415,7 @@ const AdminDashboard = () => {
           <div className="popup-content">
             <h2>Edit Class</h2>
             <label>
-              Class Name:
+              <h4>Class Name:</h4>
               <input
                 type="text"
                 name="name"
@@ -395,7 +424,7 @@ const AdminDashboard = () => {
               />
             </label>
             <label>
-              Teacher:
+              <h4>Teacher:</h4>
               <input
                 type="text"
                 name="teacher"
