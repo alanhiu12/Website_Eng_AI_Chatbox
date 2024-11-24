@@ -24,7 +24,7 @@ const LoginPage = () => {
     // Mock Login Logic
     if (loginMethod === 'user') {
       if (email === 'user@example.com' && password === 'password') {
-        navigate('/homepage'); // Redirect on successful login
+        navigate('/'); // Redirect on successful login
       } else {
         setError('Invalid email or password for User login.');
       }
