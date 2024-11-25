@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './css/HomePage.css'; // Import your CSS file
+import anh12 from "../assets/pictures/personalizedLearning.jpg";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -56,16 +57,34 @@ const Home = () => {
           <h2>Why LearnLinguaAI?</h2>
           <div className="features-list">
             <div className="feature-item">
-              <h3>Personalized Learning</h3>
-              <p>AI tailors lessons to your proficiency level, ensuring you learn at your own pace.</p>
+              <div className='chu'>
+                <h3>Personalized Learning</h3>
+              <p>LearnLinguaAI is designed to adapt to your unique learning style and goals. By analyzing your current abilities, the platform creates a personalized learning path tailored specifically for you. Whether you're a beginner or an advanced learner, it adjusts the content and pace to match your needs. This means you can focus on improving the areas where you struggle most while building on your strengths, ensuring steady and effective progress.</p></div>
+              <div className='anh000'> <img src={anh12} ></img></div>
             </div>
             <div className="feature-item">
-              <h3>Interactive Exercises</h3>
-              <p>Engage in a variety of exercises from grammar to vocabulary to boost your skills.</p>
+            <div className='chu'><h3>Interactive Exercises</h3>
+              <p>Learning a language becomes exciting with LearnLinguaAI's interactive exercises. These activities are designed to immerse you in real-life scenarios, from simulated conversations to engaging quizzes and challenges. Instead of passive memorization, you actively use the language, making the process both enjoyable and practical. The hands-on approach keeps you engaged and motivated as you apply what you’ve learned in meaningful ways.</p></div>
+              
+              <div className='anh000'> <img src={anh12} ></img></div>
+            </div>
+
+            <div className="feature-item">
+            <div className='chu'><h3>Instant Feedback</h3>
+              <p>One of the standout features of LearnLinguaAI is the instant feedback it provides during your exercises. Whether you're practicing pronunciation, answering grammar questions, or building sentences, the platform immediately highlights your mistakes and offers suggestions for improvement. This real-time guidance allows you to correct errors on the spot, helping you learn faster and more accurately while boosting your confidence in using the language.</p>
+              </div>
+             
+              <div className='anh000'> <img src={anh12} ></img></div>
             </div>
             <div className="feature-item">
-              <h3>Instant Feedback</h3>
-              <p>Receive real-time feedback on your progress, helping you improve faster.</p>
+              <h3>Real-Time Conversation Practice</h3>
+              <p>LearnLinguaAI takes your speaking skills to the next level with real-time conversation practice. You can engage in simulated dialogues with AI, allowing you to practice speaking naturally in various scenarios, such as ordering food, asking for directions, or discussing daily topics. These interactive conversations help you develop fluency and confidence while preparing you for real-world interactions.</p>
+              <div className='anh000'> <img src={anh12} ></img></div>
+            </div>
+            <div className="feature-item">
+              <h3>Progress Tracking and Insights</h3>
+              <p>With LearnLinguaAI, tracking your progress is effortless. The platform provides detailed insights into your learning journey, including the number of words you've mastered, your improvements in grammar, and your fluency growth. These data-driven metrics not only help you celebrate your achievements but also keep you motivated to reach your language goals.</p>
+              <div className='anh000'> <img src={anh12} ></img></div>
             </div>
           </div>
         </div>
