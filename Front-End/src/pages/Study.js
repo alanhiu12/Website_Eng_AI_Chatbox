@@ -123,10 +123,7 @@ const Study = () => {
           </div>
         )}
 
-        <div className="shikono">
-          <button onClick={() => handlePopupOpen("add")}>Add Class</button>
-          <button onClick={() => handlePopupOpen("join")}>Join Class</button>
-        </div>
+      
 
         {/* Class Grid */}
         <section className="class-grid">
@@ -143,7 +140,11 @@ const Study = () => {
             </div>
           ))}
         </section>
-      </main>
+      </main>  
+      <div className="shikono">
+          <button onClick={() => handlePopupOpen("add")}>Add Class</button>
+          <button onClick={() => handlePopupOpen("join")}>Join Class</button>
+        </div>
 
       <footer className="study-footer">
         <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>

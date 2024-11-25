@@ -46,20 +46,22 @@ const UserProfile = () => {
     </nav>
   </div>
 </header>
-
+      <div className='tonhtheuser'>
       <div className="Users-info">
         <div className="profile-info">
           <h1>User Profile</h1>
             <img src={profileImage} alt="Profile" className="profile-image" />
         </div>
-        <div className="info">
-          <h2>Name: {user.name}</h2>
-          <p>Joined : {user.time}</p>
-          <p>Learning Progress: {user.progress}</p>
-        </div>
+          <div class="user-profile-info">
+            <h2 class="user-profile-name">Name: {user.name}</h2>
+            <p class="user-profile-joined">Joined: {user.time}</p>
+            <p class="user-profile-progress">Learning Progress: {user.progress}</p>
+          </div>
+          
       </div>
-
       <ProgressDashboard />
+      </div>
+  
       <footer>
                 <div className="container">
                     <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>

@@ -25,9 +25,9 @@
  /* Reduced width */
     text-align: left;
     margin-left: 50px ;
-    margin-top: -2px;
+    margin-top: 30px;
     width: 500px;
-    height: 570px ;
+    height: 580px ;
     
 }
 
@@ -35,6 +35,7 @@
     margin-bottom: -2px; /* Reduced margin */
     font-size: 1.4rem; /* Slightly reduced font size */
     color: #000000;
+    text-align: center
 }
 
 .signup-box input[type="text"],

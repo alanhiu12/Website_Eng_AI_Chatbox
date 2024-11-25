@@ -1,3 +1,44 @@
+/* Header styles */
+.header {
+  background-color: #000000;
+  padding: 10px 20px;
+  color: #fff;
+  height:60px ;
+}
+
+.header .logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  margin-top: 5%;
+
+}
+
+.header .homepage-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+  margin-top: 5%;
+}
+
+.header .homepage-nav a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  z-index: 1;
+}
+
+.header .dropdown:hover .dropdown-content {
+  display: block;
+}
 /* Main content styling */
 .main-content {
   display: flex;

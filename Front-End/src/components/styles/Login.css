@@ -43,13 +43,14 @@
 
 /* Container cho form */
 .form-container {
-  max-width: 400px;
+  width: 390px;;
   margin: 0 auto;
   text-align: left;
   background: #fff;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  height: auto;
 }
 
 .form-container h2 {

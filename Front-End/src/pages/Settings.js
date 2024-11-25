@@ -127,9 +127,18 @@ const handleChange = (e) => {
             <span>Classes</span>
             <span className="settings-value">{profile.classes}</span>
           </div>
-          <div className="settings-actions">
-            <button onClick={handleEdit}>Edit</button>
-          </div>
+
+             
+            <div className='bonut'>
+              <button onClick={handleOpenPasswordPopup} className="settings-item-btn">
+               Update Password
+            </button>             
+            <button className="settings-item-btndanger">
+              Delete Account
+            </button> 
+            <button onClick={handleEdit} className="settings-item-btncut">Edit</button>
+            </div>
+
       
           {showPopup && (
             <div className="popup-overlay">
@@ -169,6 +178,45 @@ const handleChange = (e) => {
               </div>
             </div>
           )}
+          {showPasswordPopup && (
+  <div className="popup-overlay">
+    <div className="popup-content">
+      <h3>Update Password</h3>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <label>
+        <h4>Current Password:</h4>
+        <input
+          type="password"
+          name="currentPassword"
+          value={passwordForm.currentPassword}
+          onChange={handlePasswordChange}
+        />
+      </label>
+      <label>
+        <h4>New Password:</h4>
+        <input
+          type="password"
+          name="newPassword"
+          value={passwordForm.newPassword}
+          onChange={handlePasswordChange}
+        />
+      </label>
+      <label>
+        <h4>Confirm New Password:</h4>
+        <input
+          type="password"
+          name="confirmPassword"
+          value={passwordForm.confirmPassword}
+          onChange={handlePasswordChange}
+        />
+      </label>
+      <div className="popup-actions">
+      <div className="saveset"><button  onClick={handlePasswordUpdate}>Save</button></div>
+      <div className="cancelset"><button className='cancelset' onClick={handleClosePasswordPopup}>Cancel</button></div>
+      </div>
+    </div>
+  </div>
+)}
         </div>
 
         );
@@ -216,67 +264,7 @@ const handleChange = (e) => {
             </div>
           </div>
         );
-      case 'account':
-        return (
-          <div className="section-content">
-            <h2>🔐 Account Settings</h2>
-            <div className='bonut2'>
-              <button onClick={handleOpenPasswordPopup} className="settings-item-btn">
-               Update Password
-            </button>             
-            <button className="settings-item-btndanger">
-              Delete Account
-            </button>               
-            <button   onClick={() => {
-                    localStorage.removeItem('loggedIn'); // Clear session data
-                    navigate('/login'); // Redirect to the login page
-                    }} className="settings-item-btncut">
-               Log out
-            </button>  
-            </div> 
-  
-            {showPasswordPopup && (
-  <div className="popup-overlay">
-    <div className="popup-content">
-      <h3>Update Password</h3>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <label>
-        <h4>Current Password:</h4>
-        <input
-          type="password"
-          name="currentPassword"
-          value={passwordForm.currentPassword}
-          onChange={handlePasswordChange}
-        />
-      </label>
-      <label>
-        <h4>New Password:</h4>
-        <input
-          type="password"
-          name="newPassword"
-          value={passwordForm.newPassword}
-          onChange={handlePasswordChange}
-        />
-      </label>
-      <label>
-        <h4>Confirm New Password:</h4>
-        <input
-          type="password"
-          name="confirmPassword"
-          value={passwordForm.confirmPassword}
-          onChange={handlePasswordChange}
-        />
-      </label>
-      <div className="popup-actions">
-      <div className="saveset"><button  onClick={handlePasswordUpdate}>Save</button></div>
-      <div className="cancelset"><button className='cancelset' onClick={handleClosePasswordPopup}>Cancel</button></div>
-      </div>
-    </div>
-  </div>
-)}
-
-          </div>
-        );
+     
       default:
         return <div className="section-content">Select a section</div>;
     }
@@ -354,12 +342,14 @@ const handleChange = (e) => {
               >
                 Notification Settings
               </li>
-              <li
-                className={activeSection === 'account' ? 'active' : ''}
-                onClick={() => setActiveSection('account')}
-              >
-                Account Settings
-              </li>
+
+              <li2>
+                <button   onClick={() => {
+                    localStorage.removeItem('loggedIn'); // Clear session data
+                    navigate('/login'); // Redirect to the login page
+                    }} className="settings-item-btnbien">Log out
+                    </button> 
+                    </li2>
             </ul>
           </nav>
 

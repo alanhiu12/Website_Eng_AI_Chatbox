@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div>
       <header className="header">
-  <div className="container">
+      <div className="container">
     <Link to="/" className="logo">LearnLinguaAI</Link>
     <nav className="homepage-nav">
       <ul>
@@ -23,11 +23,12 @@ const Home = () => {
         <li><Link to="/classes">Classes</Link></li>
         <li><Link to="/chatbot">Chat</Link></li>
         <li><Link to="/payment">Payment</Link></li>
+        <li><Link to="/user-profile">Profile</Link></li>
         <li className="dropdown">
           <a href="#" className="dropbtn">See More</a>
           <div className="dropdown-content">
             <Link to="/admin">Admin</Link>
-            <Link to="/user-profile">Profile</Link>
+            
             <Link to="/contact">Contact</Link>
             <Link to="/setting">Setting</Link>
             <Link to="/teacher">Teacher</Link>
@@ -109,29 +110,7 @@ const Home = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing">
-        <div className="container">
-          <h2>Pricing Plans</h2>
-          <div className="pricing-cards">
-            <div className="card">
-              <h3>Basic</h3>
-              <p>Free</p>
-              <p>Access to basic lessons and exercises.</p>
-            </div>
-            <div className="card">
-              <h3>Pro</h3>
-              <p>$9.99/month</p>
-              <p>Includes advanced lessons, personalized feedback, and more.</p>
-            </div>
-            <div className="card">
-              <h3>Premium</h3>
-              <p>$19.99/month</p>
-              <p>All features, including one-on-one AI tutoring and exclusive content.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
       <footer>
         <div className="container">
           <p>&copy; 2024 LearnLinguaAI. All Rights Reserved.</p>

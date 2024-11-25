@@ -1,8 +1,9 @@
 /* Header styles */
 .header {
-  background-color: #333;
+  background-color: #000000;
   padding: 10px 20px;
   color: #fff;
+  height:60px ;
 }
 
 .header .logo {
@@ -10,7 +11,8 @@
   font-weight: bold;
   text-decoration: none;
   color: #fff;
-  margin-top: 20px;
+  margin-top: 5%;
+
 }
 
 .header .homepage-nav ul {
@@ -19,6 +21,7 @@
   margin: 0;
   display: flex;
   gap: 15px;
+  margin-top: 5%;
 }
 
 .header .homepage-nav a {
@@ -55,10 +58,10 @@
 }
 
 .settings-sidebar{
-  margin-top: 10px;
+margin-top: 10px;
 background-color: #000000;
 border-radius: 10px;
-height: 76vh;
+height: 82vh;
 width: 15%;
 }
 /* Sidebar */
@@ -87,6 +90,12 @@ width: 15%;
   transition: all 0.3s ease-in-out;
   
 }
+.settings-sidebar li2 {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: ;
+  
+}
 
 .settings-sidebar li.active {
   background-color: #19e1e4;
@@ -105,6 +114,7 @@ width: 15%;
   transition: all 0.3s ease-in-out; /* Hiệu ứng mượt */
 
 }
+
 
 
 /* Content section */
@@ -159,11 +169,20 @@ width: 15%;
   background-color: #806c6c;
 }
 .settings-item-btncut:hover {
-  background-color: #2a2c31; /* Darker shade for hover */
+  background-color: #5a5e69; /* Darker shade for hover */
   transform: scale(1.05); /* Slightly increase the size */
   color: #e0e0e0; /* Lighter text color on hover */
 }
 
+.settings-item-btnbien {
+  background-color: #af2a2a;
+  margin-top: 250px;
+}
+.settings-item-btnbien:hover {
+  background-color: #ff0000; /* Darker shade for hover */
+  transform: scale(1.05); /* Slightly increase the size */
+  color: #e0e0e0; /* Lighter text color on hover */
+}
 /* Footer */
 .settings-footer {
   background-color: #333;

@@ -98,63 +98,45 @@ nav ul li a:hover {
     padding: 40px; /* Padding for main content */
     text-align: center; /* Center text alignment */
 }
+.tonhtheuser{
+    display: flex;
+}
 
 /* Profile Image */
 
 
 .Users-info{
-    background-color: #eeefef;
-    display: flex;
-    width: 900px; /* Set a specific width */
-    height: auto; /* Set a specific height */
-    border-radius: 10%; /* Make it circular */
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 3px solid hsl(189, 4%, 68%); 
-    margin-left: auto;
-    margin-right: auto;
-
-
+    background: linear-gradient(to bottom right, #00bcd4, #009688);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    color: white;
+    padding: 20px;
+    overflow: hidden;
+    height: 528px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 .profile-info{
-    margin-left: 20px;
-}
-.profile-image {
- 
-    width: 150px; /* Set a specific width */
-    height: 150px; /* Set a specific height */
-    border-radius: 50%; /* Make it circular */
-    border: 3px solid #00d8ff; /* Add border for emphasis */
-    margin-bottom: 20px; /* Space below the image */
-    display: flex; /* Ensure the image behaves like a block element */
-    margin-left: 30px;
-}
-
-.h1 {
-    margin-top: 20px;
-    font-size: 2.5rem; /* Main heading size */
-    margin-bottom: 20px; /* Space below heading */
-    text-align: left;
+    margin-left: auto;
     
 }
-.info{
-    margin-left: 150px;
+.profile-image {
+
+    height: 200px; /* Set a specific height */
+    border-radius: 50%; /* Make it circular */
+    border: 3px solid #ffffff; /* Add border for emphasis */
+    margin-bottom: 20px; /* Space below the image */
+    margin-left: 30px;
+   text-align: center;
 }
 
-.info h2 {
-    margin-top: 50px;
-    font-size: 2rem; /* Name font size */
-    margin-bottom: 10px; /* Space below name */
-    text-align: left; 
-
+.profile-info h1 {
+    font-size: 2.0rem; /* Main heading size */
+    margin-bottom: 10px; /* Space below heading */
+    text-align: center;
 }
 
-.info p {
-    font-size: 1.2rem; /* Info font size */
-    margin-bottom: 10px; /* Space below each paragraph */
-    text-align: left;
-}
 
 /* Dropdown Menu Styles */
 .dropdown-content {
@@ -218,3 +200,42 @@ nav ul li:hover .dropdown-content {
         font-size: 1rem; /* Adjust info size */
     }
 }
+
+
+
+/* General User Profile Info Styles */
+.user-profile-info {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #333333;
+    font-family: 'Arial', sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Name Section */
+  .user-profile-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555555;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+  }
+  
+  /* Joined Section */
+  .user-profile-joined {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #777777;
+  }
+  
+  /* Progress Section */
+  .user-profile-progress {
+    font-size: 16px;
+    color: #000000;
+    font-weight: bold;
+  }
+  
