@@ -6,6 +6,8 @@ import anh12 from "../assets/pictures/personalizedLearning.jpg";
 const Home = () => {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0); // Quản lý bình luận hiện tại
+  const [isAnimating, setIsAnimating] = useState(false);
+
   const testimonials = [
     {
       quote: "LearnLinguaAI has completely transformed the way I learn languages. The AI recommendations are spot-on!",
@@ -23,14 +25,24 @@ const Home = () => {
       img: anh12,
     },
   ];
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  const handlePrev = () => {
+    if (isAnimating) return; // Tránh click khi animation đang chạy
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        (prevIndex - 1 + testimonials.length) % testimonials.length
+      );
+      setIsAnimating(false);
+    }, 50); // Thời gian khớp với transition CSS
   };
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1
-    );
+  const handleNext = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+      setIsAnimating(false);
+    }, 50);
   };
   // Logout functionality
   const handleLogout = (event) => {

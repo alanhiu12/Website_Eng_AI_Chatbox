@@ -46,7 +46,7 @@
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-  background-color: #f4f9f5;
+  
   text-align: center;
 }
 
@@ -58,7 +58,8 @@
   max-width: 100%;
   height: 300px;
   margin-bottom: 20px;
-  border-radius: 5px;
+  border-radius: 20px;
+
 }
 
 /* Button styling */

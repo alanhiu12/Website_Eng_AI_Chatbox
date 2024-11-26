@@ -92,7 +92,9 @@ const Study = () => {
                     value={newClass.description}
                     onChange={(e) => setNewClass({ ...newClass, description: e.target.value })}
                   />
+                  <div className="shika"></div>
                   <button onClick={handleAddClass}>Add Class</button>
+                  <button onClick={handlePopupClose}>Cancel</button>
                 </>
               ) : (
                 <>
@@ -102,11 +104,14 @@ const Study = () => {
                     value={joinCode}
                     onChange={(e) => setJoinCode(e.target.value)}
                   />
-                  <button onClick={handleJoinClass}>Join Class</button>
+                  <div className="shika">
+                    <button onClick={handleJoinClass}>Join Class</button>
+                    <button onClick={handlePopupClose}>Cancel</button>
+                  </div>
                   {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </>
               )}
-              <button onClick={handlePopupClose}>Cancel</button>
+              
             </div>
           </div>
         )}

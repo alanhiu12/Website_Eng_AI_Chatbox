@@ -57,28 +57,29 @@ body {
 
 /* Buttons Placement */
 .shikono {
-  display: flex;
-  gap: 20px;
-  justify-content: flex-end;
-  padding-right: 20px;
+  display: flex; /* Sử dụng flexbox */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+
+  margin-top: -60px; /* Khoảng cách trên/dưới với các phần tử khác */
 }
 
 .shikono button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s, transform 0.3s;
+  background-color: #007bff; /* Màu nền nút */
+  color: #ffffff; /* Màu chữ */
+  border: none; /* Xóa đường viền mặc định */
+  border-radius: 5px; /* Góc bo tròn */
+  padding: 10px 15px; /* Khoảng cách bên trong nút */
+  font-size: 16px; /* Kích thước chữ */
+  cursor: pointer; /* Con trỏ chuột dạng tay khi hover */
+  transition: background-color 0.3s ease; /* Hiệu ứng hover */
+  width: 20%;
 }
 
 .shikono button:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px); /* Subtle lift on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
+  background-color: #0056b3; /* Màu nền khi hover */
 }
+
 
 /* Main Content */
 .study-main {
@@ -100,15 +101,27 @@ body {
 }
 
 /* Footer */
+/* Định dạng tổng thể cho footer */
 .study-footer {
-  background-color: black;
-  color: white;
+  background-color: #2c3e50; /* Màu nền tối */
+  color: #ecf0f1; /* Màu chữ sáng */
   text-align: center;
-  padding: 10px;
-  margin-top: auto;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2); /* Shadow on top */
+  padding: 10px 20px;
+  position: fixed; /* Giữ cố định ở cuối trang */
+  bottom: 0; /* Căn dưới */
+  left: 0; /* Căn trái */
+  width: 100%; /* Chiếm toàn bộ chiều ngang */
+  font-size: 14px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng bóng */
+  z-index: 10; /* Đảm bảo footer luôn hiển thị phía trên nội dung khác */
+}
+
+/* Điều chỉnh padding cho footer trên thiết bị nhỏ */
+@media (max-width: 768px) {
+  .study-footer {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
 }
 
 /* Popup */
@@ -224,4 +237,10 @@ body {
 .class-card button:hover {
   background-color: #0056b3;
   transform: scale(1.05);
+}
+
+.shika{
+  display: flex;
+  margin-left: 50px;
+  gap: 50px;
 }
