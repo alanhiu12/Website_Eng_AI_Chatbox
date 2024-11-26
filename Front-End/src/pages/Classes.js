@@ -28,7 +28,7 @@ const ClassPage = () => {
             <li><Link to="/" >Home</Link></li>
             <li><Link to="/classes" className="active" >Classes</Link></li>
             <li><Link to="/chatbot">Chat</Link></li>
-            <li><Link to="/payment">Payment</Link></li>
+
             <li className="dropdown">
               <a href="#" className="dropbtn">See More</a>
               <div className="dropdown-content">

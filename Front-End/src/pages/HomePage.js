@@ -1,11 +1,37 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './css/HomePage.css'; // Import your CSS file
 import anh12 from "../assets/pictures/personalizedLearning.jpg";
 
 const Home = () => {
   const navigate = useNavigate();
+  const [currentIndex, setCurrentIndex] = useState(0); // Quản lý bình luận hiện tại
+  const testimonials = [
+    {
+      quote: "LearnLinguaAI has completely transformed the way I learn languages. The AI recommendations are spot-on!",
+      name: "Jane Doe",
+      img: anh12,
+    },
+    {
+      quote: "The interactive exercises are so engaging, and the feedback helps me improve quickly!",
+      name: "John Smith",
+      img: anh12,
+    },
+    {
+      quote: "I love the personalized learning plans. They keep me motivated and on track!",
+      name: "Emily White",
+      img: anh12,
+    },
+  ];
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
 
+  const handlePrev = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
+  };
   // Logout functionality
   const handleLogout = (event) => {
     event.preventDefault();
@@ -23,7 +49,7 @@ const Home = () => {
         <li><Link to="/" className="active">Home</Link></li>
         <li><Link to="/classes">Classes</Link></li>
         <li><Link to="/chatbot">Chat</Link></li>
-        <li><Link to="/payment">Payment</Link></li>
+
         <li><Link to="/user-profile">Profile</Link></li>
         <li className="dropdown">
           <a href="#" className="dropbtn">See More</a>
@@ -77,13 +103,15 @@ const Home = () => {
               <div className='anh000'> <img src={anh12} ></img></div>
             </div>
             <div className="feature-item">
-              <h3>Real-Time Conversation Practice</h3>
-              <p>LearnLinguaAI takes your speaking skills to the next level with real-time conversation practice. You can engage in simulated dialogues with AI, allowing you to practice speaking naturally in various scenarios, such as ordering food, asking for directions, or discussing daily topics. These interactive conversations help you develop fluency and confidence while preparing you for real-world interactions.</p>
+              <div className='chu'><h3>Real-Time Conversation Practice</h3>
+              <p>LearnLinguaAI takes your speaking skills to the next level with real-time conversation practice. You can engage in simulated dialogues with AI, allowing you to practice speaking naturally in various scenarios, such as ordering food, asking for directions, or discussing daily topics. These interactive conversations help you develop fluency and confidence while preparing you for real-world interactions.</p></div>
+              
               <div className='anh000'> <img src={anh12} ></img></div>
             </div>
             <div className="feature-item">
-              <h3>Progress Tracking and Insights</h3>
-              <p>With LearnLinguaAI, tracking your progress is effortless. The platform provides detailed insights into your learning journey, including the number of words you've mastered, your improvements in grammar, and your fluency growth. These data-driven metrics not only help you celebrate your achievements but also keep you motivated to reach your language goals.</p>
+              <div className='chu'><h3>Progress Tracking and Insights</h3>
+              <p>With LearnLinguaAI, tracking your progress is effortless. The platform provides detailed insights into your learning journey, including the number of words you've mastered, your improvements in grammar, and your fluency growth. These data-driven metrics not only help you celebrate your achievements but also keep you motivated to reach your language goals.</p></div>
+              
               <div className='anh000'> <img src={anh12} ></img></div>
             </div>
           </div>
@@ -92,38 +120,50 @@ const Home = () => {
 
       {/* How it Works Section */}
       <section id="how-it-works">
-        <div className="container">
-          <h2>How It Works</h2>
-          <div className="steps">
-            <div className="step">
-              <h3>1. Sign Up</h3>
-              <p>Create an account to start your journey with LearnLinguaAI.</p>
-            </div>
-            <div className="step">
-              <h3>2. Take a Placement Test</h3>
-              <p>Our AI analyzes your current proficiency level to customize your learning experience.</p>
-            </div>
-            <div className="step">
-              <h3>3. Start Learning</h3>
-              <p>Access tailored lessons, quizzes, and exercises to improve your skills.</p>
+          <div className="container">
+            <h2>How It Works</h2>
+            <div className="steps">
+              <div className="step">
+                <h3>1. Sign Up</h3>
+                <p>Create an account to start your journey with LearnLinguaAI.</p>
+                <img src={anh12} ></img>
+              </div>
+              <div className="step">
+                <h3>2. Take a Placement Test</h3>
+                <p>Our AI analyzes your current proficiency level to customize your learning experience.</p>
+                <img src={anh12} ></img>
+              </div>
+              <div className="step">
+                <h3>3. Start Learning</h3>
+                <p>Access tailored lessons, quizzes, and exercises to improve your skills.</p>
+                <img src={anh12} ></img>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
+        </section>
       {/* Testimonials Section */}
       <section id="testimonials">
         <div className="container">
           <h2>What Our Users Say</h2>
-          <div className="testimonial-list">
-            <div className="testimonial">
-              <p>"LearnLinguaAI has completely transformed the way I learn languages. The AI recommendations are spot-on!"</p>
-              <h4>- Jane Doe</h4>
+          <div className="testimonial-slider">
+            <button onClick={handlePrev} className="prev-btn">
+              &#8249;
+            </button>
+            <div className="testimonial">     
+              <div className='anhvachu'>              
+                <img src={testimonials[currentIndex].img} alt={testimonials[currentIndex].name} className="testimonial-img" />
+                <h4>{testimonials[currentIndex].name}</h4>
+                
+                </div>
+
+              
+              <p>{testimonials[currentIndex].quote}"</p>
+
+
             </div>
-            <div className="testimonial">
-              <p>"The interactive exercises are so engaging, and the feedback helps me improve quickly!"</p>
-              <h4>- John Smith</h4>
-            </div>
+            <button onClick={handleNext} className="next-btn">
+              &#8250;
+            </button>
           </div>
         </div>
       </section>

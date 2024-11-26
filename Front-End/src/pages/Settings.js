@@ -290,9 +290,7 @@ const handleChange = (e) => {
               <li>
                 <Link to="/chatbot">Chat</Link>
               </li>
-              <li>
-                <Link to="/payment">Payment</Link>
-              </li>
+
               <li className="dropdown">
                 <a href="#" className="dropbtn">
                   See More

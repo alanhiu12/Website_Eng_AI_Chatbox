@@ -52,7 +52,7 @@ const Chatbot = () => {
         <li><Link to="/" >Home</Link></li>
         <li><Link to="/classes">Classes</Link></li>
         <li><Link to="/chatbot" className="active" >Chat</Link></li>
-        <li><Link to="/payment">Payment</Link></li>
+
         <li className="dropdown">
           <a href="#" className="dropbtn">See More</a>
           <div className="dropdown-content">

@@ -28,9 +28,9 @@ const LoginPage = () => {
       } else {
         setError('Invalid email or password for User login.');
       }
-    } else if (loginMethod === 'admin') {
-      if (email === 'admin@example.com' && password === 'admin123') {
-        navigate('/admin-dashboard'); // Adjust redirect URL for admin
+    } else if (loginMethod === 'teacher') {
+      if (email === 'teacher@example.com' && password === 'teacher123') {
+        navigate('/'); // Adjust redirect URL for admin
       } else {
         setError('Invalid email or password for Admin login.');
       }
@@ -46,20 +46,20 @@ const LoginPage = () => {
             className={loginMethod === 'user' ? 'active' : ''}
             onClick={() => handleMethodChange('user')}
           >
-            Student & Teacher
+            Student
           </button>
           <button
-            className={loginMethod === 'admin' ? 'active' : ''}
-            onClick={() => handleMethodChange('admin')}
+            className={loginMethod === 'teacher' ? 'active' : ''}
+            onClick={() => handleMethodChange('teacher')}
           >
-            Admin
+            Teacher   
           </button>
         </div>
         <div className="form-container">
           <h2>
             {loginMethod === 'user'
-              ? 'Login for Student & Teacher'
-              : 'Login for Admin'}
+              ? 'Login for Student'
+              : 'Login for Teacher'}
           </h2>
           <form onSubmit={handleSubmit}>
             <div className="form-field">

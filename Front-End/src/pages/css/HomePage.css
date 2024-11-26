@@ -33,6 +33,14 @@ header .container {
   margin: 0 auto;
   padding: 0 20px;
 }
+.container {
+
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
 header .logo {
   font-size: 2rem;
@@ -137,19 +145,18 @@ header nav ul li a:hover {
   #features {
     margin-top: 10px;
     border-radius: 10px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+
     padding: 50px 20px;
     background: linear-gradient(to bottom right, #01ffc8,#01ccff, #9800f6);
   }
   
   #features h2 {
     margin-top: -20px;
-    
-
+    margin-right: 20px;
     margin-bottom: 30px;
-    color: #ffffff;
+    color: #181414;
+    font-size: 30px;
   }
   .anh000 {
     max-width: 100%; /* Chiều rộng tối đa là 100% so với container cha */
@@ -161,7 +168,6 @@ header nav ul li a:hover {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
-
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tùy chọn: thêm hiệu ứng đổ bóng */
 }
 
@@ -206,40 +212,209 @@ header nav ul li a:hover {
   }
   
   /* How it Works Section */
+ /* Đảm bảo rằng layout luôn có không gian thoáng đãng và đẹp mắt */
+#how-it-works {
+  margin-top: 20px;
+  background: linear-gradient(45deg, #00ffa2, #80deea);
+  padding: 60px 20px; /* Thêm padding để phần tử không bị chật */
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+#how-it-works h2{
+  margin-top: -40px;
+  margin-bottom: 40px;
+  text-align: left;
+  font-size: 2.0em;
+}
+
+/* Các bước trong phần How It Works */
+#how-it-works .steps {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Cho phép các bước xuống hàng khi màn hình nhỏ */
+  gap: 20px;
+}
+
+/* Các bước trong layout */
+.step {
+  flex: 1;
+  min-width: 280px; /* Đảm bảo mỗi bước có chiều rộng tối thiểu */
+  max-width: 350px; /* Giới hạn chiều rộng của từng bước */
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Tăng cường hiệu ứng hover để các phần tử không bị khô khan */
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border-left: 5px solid #00796b;
+}
+
+.step h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #00796b;
+}
+
+.step p {
+  font-size: 1em;
+  margin-top: 10px;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.step:hover h3 {
+  color: #004d40;
+}
+
+.step:hover p {
+  opacity: 1;
+}
+
+/* Tối ưu cho hình ảnh */
+.step img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.step:hover img {
+  transform: scale(1.05); /* Phóng to hình ảnh khi hover */
+}
+
+/* Tối ưu cho các màn hình nhỏ (Mobile, tablet) */
+@media (max-width: 768px) {
+  #how-it-works {
+    padding: 40px 10px; /* Giảm padding cho thiết bị nhỏ */
+  }
+
   #how-it-works .steps {
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
+    flex-direction: column; /* Chuyển từ hàng sang cột cho màn hình nhỏ */
+    gap: 10px;
   }
-  
+
   .step {
-    flex: 1;
-    text-align: center;
-    padding: 20px;
-    background: #f0f0f0;
-    border-radius: 8px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    min-width: 100%; /* Các bước sẽ chiếm toàn bộ chiều rộng */
   }
+}
   
-  .step:hover {
-    transform: scale(1.05);
-    background-color: #e0f7fa;
-  }
+  
   
   /* Testimonials Section */
-  .testimonial {
-    text-align: center;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Testimonials */
+
+#testimonials .container {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 70px;
+
+  
+}
+
+.testimonial-slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 20px;
+}
+.anhvachu {
+  margin-left: 30px;
+  margin-right: 60px;
+}
+.anhvachu h4{
+  height: 60px;
+  width: 200px;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  
+}
+.testimonial p{
+  text-align: left;
+  margin-top: 30px;
+  background-color: #b62e2e;
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+   padding: 10px;
+}
+
+.testimonial {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 18px;
+  color: #333;
+  transition: transform 0.5s ease-in-out;
+  background-color: #01ffc8;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+
+ 
+} 
+.testimonial-img {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Make it square to ensure perfect circle */
+    border-radius: 50%; /* This creates the rounded effect */
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+    border: 3px solid #ffffff; /* Optional: Add a border around the image */
+    margin-bottom: 1rem; /* Space between image and text */
+    margin-top: 10px;
   }
   
-  .testimonial:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-  }
+
+.prev-btn,
+.next-btn {
+  background-color: #555;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 50%; /* Giữ vị trí ở giữa theo chiều dọc */
+  transform: translateY(-50%);
+
+}
+
+button:focus {
+  outline: none;
+}
+
+.prev-btn {
+  left: 20px; 
+  background-color: #00d9ff;/* Cách lề trái 20px */
+  color: #000;
+}
+
+.next-btn {
+  right: 20px;
+  background-color: #00d8ff; /* Cách lề phải 20px */
+  color: #000;
+}
+.prev-btn:hover,
+.next-btn:hover {
+  opacity: 1; /* Rõ nét khi hover */
+  background-color: #00d9ff;
+}
+
   
   /* Pricing Section */
   #pricing {
@@ -333,4 +508,8 @@ header nav ul li a:hover {
       transform: translateY(0);
     }
   }
+  
+
+
+
   

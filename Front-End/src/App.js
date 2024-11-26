@@ -14,7 +14,7 @@ import TeacherContentPage from './pages/TeacherContentPage';
 import ChatbotPage from './pages/ChatbotPage';
 import Study from './pages/Study';
 import Admin from './pages/AdminDashboard';
-import Payment from './pages/Payment';
+
 import BulletinBoard from './pages/BulletinBoard'; // Import the BulletinBoard component
 import Help  from './pages/Help';
 import Score  from './pages/Score';
@@ -37,7 +37,7 @@ function App() {
         <Route path="/teacher" element={<TeacherContentPage />} />
         <Route path="/chatbot" element={<ChatbotPage />} />
         <Route path="/study" element={<Study />} />
-        <Route path="/payment" element={<Payment />} />
+
         <Route path="/bulletin-board/:classId" element={<BulletinBoard />} />
         <Route path="/help" element={<Help />} />
         <Route path="/score" element={<Score />} />
