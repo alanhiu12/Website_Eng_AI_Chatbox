@@ -244,3 +244,28 @@ body {
   margin-left: 50px;
   gap: 50px;
 }
+.grading-results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.grading-results-table th,
+.grading-results-table td {
+  border: 1px solid #c31111;
+  padding: 8px;
+  text-align: left;
+}
+
+.grading-results-table th {
+  background-color: #000000;
+  font-weight: bold;
+}
+
+.grading-results-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.grading-results-table tr:hover {
+  background-color: #f1f1f1;
+}
