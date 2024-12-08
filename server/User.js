@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 
-// Kết nối với cơ sở dữ liệu MongoDB mà không sử dụng các tùy chọn deprecated
+// Kết nối với cơ sở dữ liệu MongoDB
 const connectDB = async () => {
     try {
-        // Kết nối trực tiếp mà không cần các tùy chọn không còn hiệu lực
         await mongoose.connect("mongodb://localhost:27017/Student");
         console.log("Database Connected Successfully");
     } catch (error) {
@@ -12,16 +11,18 @@ const connectDB = async () => {
     }
 };
 
-// Tạo Schema
+// Tạo Schema cho User
 const userSchema = new mongoose.Schema({
     fullname: {
         type: String,
         required: true,
     },
+
     email: {
         type: String,
         required: true,
-        unique: true,
+        unique: true, // Đảm bảo email là duy nhất
+        match: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/, // Đảm bảo định dạng email hợp lệ
     },
     password: {
         type: String,
@@ -32,10 +33,8 @@ const userSchema = new mongoose.Schema({
         enum: ['teacher', 'student'],
         required: true,
     },
-    profilePicture: {
-        type: String, // Lưu trữ URL hoặc đường dẫn của ảnh
-    },
-});
+
+}, { timestamps: true }); // Thêm trường timestamps tự động lưu thời gian tạo và cập nhật
 
 // Tạo mô hình collection và chỉ định tên collection
 const User = mongoose.model('User', userSchema, 'users'); // Đặt tên collection là 'users'

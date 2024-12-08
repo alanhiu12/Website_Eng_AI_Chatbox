@@ -1,0 +1,12 @@
+Monorepo: tạo cilent vs backend chung
+React: lib
++ Framework
+
++ next js: tailwind,MUI(...),axios,(swc/reactquery), core nextjs
++ Build mannly: webpack, Vite , 
+Pracel,esbuild
++HOOKs, useEffect,memo/useMemo/useCallback(ver18),ver19 (reactcompiler)
+-Javscript
++es5. es6 es2018
+babel
+ 
