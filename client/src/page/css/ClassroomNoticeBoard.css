@@ -1,0 +1,111 @@
+/* Container for the bulletin board */
+.bulletin-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title at the top */
+.bulletin-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Section styles */
+.bulletin-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Section headings */
+.section-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Announcement list */
+.announcement-list {
+    list-style: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.announcement-item {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Study materials list */
+.material-list {
+    list-style: none;
+    padding: 0;
+}
+
+.material-item {
+    margin-bottom: 10px;
+}
+
+.material-link {
+    text-decoration: none;
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* No materials message */
+.no-materials {
+    color: #777;
+    font-style: italic;
+}
+
+/* Back button */
+.button-containers {
+    text-align: center;
+    display: flex;
+    gap: 30px;
+}
+
+.back-button {
+    padding: 10px 20px;
+    background-color: #ff2f00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #e04a2c;
+}
+.material-item .delete-button-file {
+    background-color: red;
+    color: white;
+    border: none;
+    width: 100px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    float: right;
+}
+
+.delete-button-file:hover {
+    background-color: darkred;
+}

@@ -1,44 +1,31 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './css/Classes.css'; // Import CSS for styling
-import huohuoImage from '../assets/pictures/huohuo.jpg';
+import huohuoImage from '../assets/pictures/Class.png';
 
 const ClassPage = () => {
     const navigate = useNavigate();
-
-    // Logout functionality
-    const handleLogout = (event) => {
-        event.preventDefault();
-        localStorage.removeItem("loggedIn");
-        navigate("/login"); // Redirect to login page after logout
-    };
-
     // Navigate to Study page
     const handleJoinClass = () => {
-        navigate("/study"); // Redirect to study pagef
+        navigate("/noticeboard"); // Redirect to study page
     };
 
     return (
         <div>
-            <header>
+            <header className='Header'>
                 <div className="container">
-                    <Link to="/" className="logo">LearnLinguaAI</Link>
+                    <Link to="/home" className="logo">LearnLinguaAI</Link>
                     <nav>
                         <ul>
-                            <li><Link to="/" >Home</Link></li>
-                            <li><Link to="/classes" className="active" >Classes</Link></li>
-                            <li><Link to="/about">About</Link></li>
-                            <li><Link to="/payment">Payment</Link> </li>
+                            <li><Link to="/home">Home</Link></li>
+                            <li><Link to="/classes" className="active">Classes</Link></li>
+                            <li><a href="/dictionary">Dictionary</a></li>
                             <li className="dropdown">
                                 <a href="#" className="dropbtn">See More</a>
-                                <div className="dropdown-content">
-                                    <Link to="/admin">Admin</Link>
-                                    <Link to="/user-profile">Profile</Link>
+                                <div className="Dropdown-content">
                                     <Link to="/contact">Contact</Link>
                                     <Link to="/setting">Setting</Link>
-                                    <Link to="/teacher">Teacher</Link>
                                     <Link to="/chatbot">Chat</Link>
-                                    <a href="#" onClick={handleLogout}>Logout</a>
                                 </div>
                             </li>
                         </ul>

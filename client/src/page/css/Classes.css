@@ -21,8 +21,8 @@
 
 /* Button styling */
 .join-class-button {
-    background-color: var(--primary-color);
-    color: #000000;
+    background-color:#00eeff;
+    color: #000;
     padding: 12px 24px;
     font-size: 1rem;
     border: none;
@@ -32,5 +32,5 @@
 }
 
 .join-class-button:hover {
-    background-color: var(--button-hover-color);
+    background-color:#00eeff(--button-hover-color);
 }

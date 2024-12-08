@@ -1,0 +1,157 @@
+/* General Container Styling */
+.help-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: #333;
+
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  /* Smooth Fade-in Effect */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Title Styling */
+  .help-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Section Styling */
+  .help-section {
+    margin-bottom: 30px;
+    animation: slideIn 0.6s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .help-section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #0056b3;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* FAQ Item Styling */
+  .faq-item {
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .faq-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: #f1f9ff;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .faq-item h3 {
+    font-size: 20px;
+    color: #333;
+    position: relative;
+  }
+  
+  .faq-item h3::before {
+    content: "Q:";
+    font-weight: bold;
+    color: #007bff;
+    margin-right: 5px;
+  }
+  
+  .faq-item p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+    margin-left: 20px;
+  }
+  
+  .faq-item p::before {
+    content: "A:";
+    font-weight: bold;
+    color: #28a745;
+    margin-right: 5px;
+  }
+  
+  /* Links */
+  .faq-item a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .faq-item a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
+  
+  /* Contact Section */
+  .help-section:last-child p {
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .help-section:last-child a {
+    font-weight: bold;
+    color: #dc3545;
+    transition: color 0.3s ease;
+  }
+  
+  .help-section:last-child a:hover {
+    color: #a71d2a;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .help-container {
+      padding: 15px;
+    }
+  
+    .help-title {
+      font-size: 28px;
+    }
+  
+    .help-section h2 {
+      font-size: 24px;
+    }
+  
+    .faq-item h3 {
+      font-size: 18px;
+    }
+  
+    .faq-item p {
+      font-size: 14px;
+    }
+  }
+  

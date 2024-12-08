@@ -27,18 +27,16 @@ const ContactUs = () => {
 
     return (
         <div>
-            <header>
+            <header className='Header'>
                 <div className="container">
-                    <a href="/" className="logo">LearnLinguaAI</a>
+                    <a href="/home" className="logo">LearnLinguaAI</a>
                     <nav>
                         <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/study">Learn</a></li>
+                            <li><a href="/home">Home</a></li>
                             <li><a href="/about">About</a></li>
                             <li className="dropdown">
                                 <a href="#" className="dropbtn">More</a>
-                                <div className="dropdown-content">
-                                    <a href="/user-profile">Profile</a>
+                                <div className="Dropdown-content">
                                     <a href="/contact">Contact</a>
                                     <Link to="/setting">Setting</Link>
                                     <a href="#" id="logout-link">Logout</a>

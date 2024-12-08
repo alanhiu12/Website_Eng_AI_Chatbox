@@ -216,7 +216,7 @@ main {
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     max-width: 600px;
-    margin: 0 auto;
+    margin-top: -20px;
     text-align: center;
 }
 
@@ -225,6 +225,7 @@ main {
     font-size: 2rem;
     color: #004a9a;
     margin-bottom: 20px;
+    text-decoration: none;
 }
 
 /* Form */

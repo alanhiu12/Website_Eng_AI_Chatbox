@@ -1,101 +1,68 @@
-import React, { useState } from "react";
-import "./css/ChatbotPage.css";
+import './css/ChatbotPage.css'; // Để thêm các kiểu tùy chỉnh
+import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
 
-const ChatbotMessenger = () => {
-  const [messages, setMessages] = useState([
-    { content: "How can I help you?", role: "assistant" },
-  ]);
-  const [inputMessage, setInputMessage] = useState("");
-  const [chatbotResponse, setChatbotResponse] = useState("");
-  const [error, setError] = useState("");
+const ChatbotPage = () => {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Trạng thái đăng nhập
+  const [userRole, setUserRole] = useState(null); // Vai trò người dùng
 
-  const API_URL = "https://www.chatbase.co/api/v1/chat";
-  const API_KEY = "58585775-d058-4228-a38b-14eac11927eb";
-  const CHATBOT_ID = "WqpEHCHu7nrwmQ1VjPBDX";
+  useEffect(() => {
+    // Lấy trạng thái đăng nhập và vai trò từ localStorage
+    const loggedInStatus = localStorage.getItem("loggedIn");
+    const role = localStorage.getItem("userRole");
+    setIsLoggedIn(loggedInStatus === "true");
+    setUserRole(role);
+  }, []);
 
-  const sendMessage = async (e) => {
-    e.preventDefault();
-    setError("");
-    setChatbotResponse("");
+  // Hàm xử lý đăng xuất
+  const handleLogout = (event) => {
+    event.preventDefault();
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("userRole");
+    localStorage.removeItem("userInfo");
 
-    if (!inputMessage.trim()) {
-      setError("Please enter a message.");
-      return;
-    }
+    setIsLoggedIn(false); // Cập nhật trạng thái
+    setUserRole(null); // Xóa vai trò
 
-    const updatedMessages = [...messages, { content: inputMessage, role: "user" }];
-    setMessages(updatedMessages);
-
-    try {
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          messages: updatedMessages,
-          chatbotId: CHATBOT_ID,
-          stream: false,
-          model: "gpt-3.5-turbo",
-          temperature: 0,
-        }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to fetch response.");
-      }
-
-      const data = await response.json();
-      setChatbotResponse(data.text);
-      setMessages([...updatedMessages, { content: data.text, role: "assistant" }]);
-    } catch (err) {
-      console.error(err);
-      setError(err.message || "An error occurred while sending the message.");
-    }
-
-    setInputMessage("");
+    navigate("/login"); // Chuyển hướng đến trang đăng nhập
   };
-
   return (
-    <div className="chatbot-container">
-      <h1>Chat with Your Chatbot</h1>
-      <div className="chat-window">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`message ${message.role === "user" ? "user-message" : "assistant-message"}`}
-          >
-            <strong>{message.role === "user" ? "You" : "Chatbot"}:</strong> {message.content}
-          </div>
-        ))}
-      </div>
+  <div>
+          <header className='Header'>
+        <div className="container">
+          <Link to="/home" className="logo">LearnLinguaAI</Link>
+          <nav>
+            <ul>
+              <li><Link to="/home" >Home</Link></li>
+              <li>{userRole === 'student' && <Link to="/classes">Classes</Link>}</li>
+              <li>{userRole === 'teacher' && <Link to="/teacher">Teacher</Link>}</li>
+              <li><Link to="/about">About</Link></li>
+              <li className="dropdown">
+                <a href="#" className="dropbtn">See More</a>
+                <div className="dropdown-content">
+                  <Link to="/contact">Contact</Link>
+                  <Link to="/setting">Setting</Link>
+                  {/* Hiển thị mục "Teacher" nếu vai trò là giáo viên */}
+                  <Link to="/chatbot">Chat</Link>
 
-      <form className="chat-input-form" onSubmit={sendMessage}>
-        <input
-          type="text"
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
-          placeholder="Type your message..."
-          className="chat-input"
-        />
-        <button type="submit" className="chat-send-button">
-          Send
-        </button>
-      </form>
-
-      {chatbotResponse && (
-        <div className="chat-response">
-          <p>
-            <strong>Chatbot Response:</strong> {chatbotResponse}
-          </p>
+                </div>
+              </li>
+            </ul>
+          </nav>
         </div>
-      )}
-
-      {error && <div className="chat-error">{error}</div>}
+      </header>
+    <div className="chatbot-container">
+      <iframe
+        src="https://www.chatbase.co/chatbot-iframe/WqpEHCHu7nrwmQ1VjPBDX"
+        width="100%"
+        style={{ height: "100%", minHeight: "700px" }}
+        frameBorder="0"
+        title="Chatbot"
+      ></iframe>
     </div>
+  </div>
   );
 };
 
-export default ChatbotMessenger;
+export default ChatbotPage;

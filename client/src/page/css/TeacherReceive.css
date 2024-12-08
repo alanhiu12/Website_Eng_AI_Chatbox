@@ -1,17 +1,9 @@
-.Teacher-content-page {
-    margin-top: 20px;
-    width: 600px;
+.teacher-content-page {
+    max-width: 600px;
     margin: 0 auto;
     text-align: center;
     font-family: Arial, sans-serif;
     color: #333;
-    background: linear-gradient(to bottom, #f9f9f9, #e6f7ff);
-    border-radius: 10px;
-    height: 600px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-}
-.Teacher-content-page main{
-    margin-top: 20px;
 }
 
 h1 {
@@ -36,7 +28,6 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    
 }
 
 .file-upload-label:hover {
@@ -75,7 +66,6 @@ input[type="file"] {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    
 }
 
 .upload-button:hover {
@@ -92,3 +82,20 @@ input[type="file"] {
     font-weight: bold;
     color: #FF0000;
 }
+.delete-button-list {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 3px 6px; /* Giảm kích thước padding */
+    font-size: 0.8rem; /* Giảm kích thước font */
+    cursor: pointer;
+    border-radius: 3px; /* Làm tròn góc nút */
+    width: 60px; /* Giới hạn chiều rộng của nút */
+    text-align: center; /* Canh giữa nội dung */
+    float: right; /* Đẩy nút sang bên trái */
+}
+
+.delete-button-list:hover {
+    background-color: darkred;
+}
+

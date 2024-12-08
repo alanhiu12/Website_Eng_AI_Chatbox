@@ -4,6 +4,7 @@ import axios from 'axios';
 import './styles/Signup.css';
 import Header from './Header';
 import Footer from './Footer';
+import img3 from '../assets/pictures/chill.gif'
 
 const Signup = () => {
     const [fullname, setFullname] = useState('');
@@ -18,7 +19,7 @@ const Signup = () => {
         e.preventDefault();
 
         if (password !== confirmPassword) {
-            setErrorMessage('Mật khẩu xác nhận không khớp!');
+            setErrorMessage('Confirmation password does not match!');
             return;
         }
 
@@ -33,12 +34,12 @@ const Signup = () => {
             if (response.status === 201) {
                 // Lưu thông tin người dùng vào localStorage
                 localStorage.setItem('user', JSON.stringify({ fullname, email, role }));
-                alert('Đăng ký thành công!');
+                alert('Registration successful!');
                 navigate('/login');
             }
         } catch (error) {
-            console.error('Lỗi đăng ký:', error);
-            setErrorMessage('Đăng ký thất bại. Vui lòng thử lại.');
+            console.error('Registration error:', error);
+            setErrorMessage('Registration failed. Please try again.');
         }
     };
 
@@ -50,13 +51,13 @@ const Signup = () => {
                 {errorMessage && <div className="error-message">{errorMessage}</div>}
                 <form onSubmit={handleSubmit} className="signup-form">
                     <div className="form-field">
-                        <label htmlFor="fullname">Họ và tên:</label>
+                        <label htmlFor="fullname">Full name:</label>
                         <input
                             type="text"
                             id="fullname"
                             value={fullname}
                             onChange={(e) => setFullname(e.target.value)}
-                            placeholder="Nhập họ và tên"
+                            placeholder="Enter your first and last name"
                             required
                         />
                     </div>
@@ -67,34 +68,34 @@ const Signup = () => {
                             id="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Nhập email của bạn"
+                            placeholder="Enter your email"
                             required
                         />
                     </div>
                     <div className="form-field">
-                        <label htmlFor="password">Mật khẩu:</label>
+                        <label htmlFor="password">Password:</label>
                         <input
                             type="password"
                             id="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Nhập mật khẩu của bạn"
+                            placeholder="Enter your password"
                             required
                         />
                     </div>
                     <div className="form-field">
-                        <label htmlFor="confirm-password">Xác nhận mật khẩu:</label>
+                        <label htmlFor="confirm-password">Confirm Password:</label>
                         <input
                             type="password"
                             id="confirm-password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
-                            placeholder="Nhập lại mật khẩu"
+                            placeholder="Re-enter password"
                             required
                         />
                     </div>
+                    <label>Role:</label>
                     <div className="form-group">
-                        <label>Vai trò:</label>
                         <div>
                             <label htmlFor="teacher">
                                 <input
@@ -104,7 +105,7 @@ const Signup = () => {
                                     value="teacher"
                                     onChange={(e) => setRole(e.target.value)}
                                     required
-                                /> Giáo viên
+                                /> Teacher
                             </label>
                             <label htmlFor="student">
                                 <input
@@ -114,16 +115,20 @@ const Signup = () => {
                                     value="student"
                                     onChange={(e) => setRole(e.target.value)}
                                     required
-                                /> Học sinh
+                                /> Student
                             </label>
                         </div>
                     </div>
-                    <button type="submit" className="btn-primary">Đăng ký</button>
+                    <button type="submit" className="btn-primary">Register</button>
                     <div className="extra-links">
-                        <a href="/login">Đã có tài khoản? Đăng nhập</a>
+                        <a href="/login">Already have an account? Sign in</a>
                     </div>
                 </form>
-            </div>
+
+            </div>                
+            <div className='anh'>
+                 <img src={img3}></img>
+                </div>
             <Footer />
         </section>
     );

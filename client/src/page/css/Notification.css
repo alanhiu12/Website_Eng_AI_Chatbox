@@ -1,0 +1,32 @@
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.notification.success {
+    background-color: #4CAF50;
+}
+
+/* Green */
+.notification.error {
+    background-color: #f44336;
+}
+
+/* Red */
+.close-btn {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}

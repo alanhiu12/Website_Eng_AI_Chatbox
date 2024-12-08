@@ -6,8 +6,8 @@ const Header = () => {
   return (
     <header className="login-header">
       <div className="container">
-        <h1 className="logo">
-          <Link to="/">LearnLinguaAI</Link>
+        <h1>
+          <Link to="/" className="logos">LearnLinguaAI</Link>
         </h1>
       </div>
     </header>

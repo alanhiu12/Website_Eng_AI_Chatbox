@@ -7,19 +7,18 @@ const About = () => {
   return (
     <div>
       {/* Header */}
-      <header>
+      <header className='Header'>
         <div className="container">
           {/* Wrapped the logo in a Link */}
-          <Link to="/" className="logo">LearnLinguaAI</Link>
+          <Link to="/home" className="logo">LearnLinguaAI</Link>
           <nav>
             <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/study">Learn</Link></li>
+              <li><Link to="/home">Home</Link></li>
+
               <li><Link to="/about" className="active">About</Link></li>
               <li className="dropdown">
                 <a href="#" className="dropbtn">See More</a>
                 <div className="dropdown-content">
-                  <Link to="/user-profile">Profile</Link>
                   <Link to="/contact">Contact</Link>
                   <Link to="/setting">Setting</Link>
                 </div>

@@ -15,7 +15,8 @@
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px; /* Increased the max width for better layout */
+  max-width: 400px;
+  /* Increased the max width for better layout */
   box-sizing: border-box;
 }
 
@@ -23,8 +24,10 @@
 h2 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 1.8rem; /* Larger heading for more prominence */
-  color: #2c3e50; /* Darker color for contrast */
+  font-size: 1.8rem;
+  /* Larger heading for more prominence */
+  color: #2c3e50;
+  /* Darker color for contrast */
 }
 
 /* Form Field */
@@ -105,6 +108,7 @@ button[disabled] {
 .toggle-text button:hover {
   color: #0056b3;
 }
+
 .extra-links a {
   color: #007bff;
   text-decoration: none;
@@ -115,4 +119,3 @@ button[disabled] {
 .extra-links a:hover {
   color: #0056b3;
 }
-

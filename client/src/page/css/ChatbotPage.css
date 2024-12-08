@@ -1,90 +1,23 @@
-/* Chatbot Container */
+/* ChatbotPage.css */
 .chatbot-container {
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Title */
-.chatbot-container h1 {
-  text-align: center;
-  color: #007bff;
-  margin-bottom: 20px;
-}
-
-/* Chat Window */
-.chat-window {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 15px;
-  max-height: 300px;
-  overflow-y: auto;
-  background-color: #fff;
-  margin-bottom: 20px;
-}
-
-/* Message Styles */
-.message {
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 5px;
-  max-width: 80%;
-}
-
-.user-message {
-  background-color: #d1ecf1;
-  color: #0c5460;
-  text-align: right;
-  align-self: flex-end;
-}
-
-.assistant-message {
-  background-color: #f8d7da;
-  color: #721c24;
-  text-align: left;
-  align-self: flex-start;
-}
-
-/* Input Form */
-.chat-input-form {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9; /* Màu nền nhẹ nhàng */
 }
 
-.chat-input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.chat-send-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+.chatbot-iframe {
+  width: 100%;  /* Chiếm toàn bộ chiều rộng màn hình */
+  height: 100vh;  /* Chiếm toàn bộ chiều cao màn hình */
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  border-radius: 0;  /* Bỏ bo góc để iframe chiếm trọn màn hình */
 }
 
-.chat-send-button:hover {
-  background-color: #0056b3;
-}
-
-/* Chatbot Response */
-.chat-response {
-  margin-top: 10px;
-  color: #28a745;
-}
-
-/* Error Message */
-.chat-error {
-  margin-top: 10px;
-  color: #dc3545;
-  text-align: center;
+@media (max-width: 768px) {
+  .chatbot-iframe {
+    height: 100vh; /* Đảm bảo iframe chiếm toàn bộ chiều cao ngay cả trên thiết bị di động */
+  }
 }

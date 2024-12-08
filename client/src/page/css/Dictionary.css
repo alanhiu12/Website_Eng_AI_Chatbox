@@ -1,0 +1,110 @@
+main{
+    background-color: #fdfdfd;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 90%;
+    height: 0%;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Vocabulary Section */
+#vocabulary-section {
+    margin-top: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border: 2px solid #c3aaaa;
+    margin-bottom: 50px;
+    
+}
+
+#vocabulary-section input {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    width: 80%;
+    max-width: 500px;
+    margin-right: 10px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+#vocabulary-section input:focus {
+    border: 1px solid #007acc;
+}
+
+#vocabulary-section button {
+    padding: 12px 20px;
+    background-color: #007acc;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 160px;
+}
+
+#vocabulary-section button:hover {
+    background-color: #005f99;
+}
+
+#vocabulary-section button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Vocabulary Explanation */
+#vocabulary-explanation {
+    margin-top: 10px;
+    background-color: #ffffffa6;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.explanation-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Success Message */
+#lesson-success-message {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #28A745; /* Green */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #vocabulary-section input {
+        width: 100%;
+    }
+
+    #vocabulary-section button {
+        width: 100%;
+    }
+
+    #vocabulary-explanation {
+        width: 90%;
+    }
+}
+#lesson-intro {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    text-align: center; /* Đảm bảo nội dung chữ căn giữa */
+    height: 100px; /* Tùy chỉnh chiều cao cho vùng chứa */
+    margin-top: 10px; /* Thêm khoảng cách phía trên nếu cần */
+    margin-bottom: 20px; /* Thêm khoảng cách phía dưới nếu cần */
+    border: 2px solid #d3bcbc;
+}

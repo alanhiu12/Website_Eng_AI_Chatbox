@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
@@ -7,25 +7,68 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/Login.css';
 
-const LoginSignupPage = () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  // Kiểm tra khi trang tải lại nếu đã có thông tin đăng nhập
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('user');
+    if (isLoggedIn) {
+      navigate('/');  // Nếu đã đăng nhập, điều hướng ngay đến trang HomePage
+    }
+  }, [navigate]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:3500/login', {
-        email,
-        password,
+
+    // Kiểm tra tài khoản Admin
+    if (email === 'Admin@gmail.com' && password === '25820042004') {
+      toast.success('Đăng nhập Admin thành công!', {
+        position: 'top-center',
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
       });
 
-      if (response.status === 200) {
-        const user = response.data.user;
-        localStorage.setItem('userRole', user.role); // Lưu vai trò người dùng
-        localStorage.setItem('user', JSON.stringify(user)); // Lưu thông tin người dùng
+      // Lưu trạng thái Admin vào localStorage
+      localStorage.setItem('userRole', 'admin');
+      localStorage.setItem('user', JSON.stringify({ email, role: 'admin' }));
 
-        toast.success('Đăng nhập thành công!', {
+      setTimeout(() => {
+        navigate('/admin'); // Điều hướng đến trang Admin
+      }, 2000);
+    } else {
+      try {
+        // Kiểm tra tài khoản từ server
+        const response = await axios.post('http://localhost:3500/login', {
+          email,
+          password,
+        });
+
+        if (response.status === 200) {
+          const user = response.data.user;
+          localStorage.setItem('userRole', user.role); // Lưu vai trò người dùng
+          localStorage.setItem('user', JSON.stringify(user)); // Lưu thông tin người dùng
+
+          toast.success('Login success!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+          });
+
+          setTimeout(() => {
+            navigate('/home'); // Điều hướng đến trang chủ cho cả giáo viên và học sinh
+          }, 2000);
+        }
+      } catch (error) {
+        toast.error('Incorrect username or password', {
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: true,
@@ -33,20 +76,7 @@ const LoginSignupPage = () => {
           pauseOnHover: false,
           draggable: true,
         });
-
-        setTimeout(() => {
-          navigate('/'); // Điều hướng đến trang chủ cho cả giáo viên và học sinh
-        }, 2000);
       }
-    } catch (error) {
-      toast.error('Tên tài khoản hoặc mật khẩu sai', {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-      });
     }
   };
 
@@ -54,7 +84,7 @@ const LoginSignupPage = () => {
     <div className="login-signup-page">
       <Header />
       <div className="form-container">
-        <h2>Đăng nhập</h2>
+        <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-field">
             <label>Email</label>
@@ -66,7 +96,7 @@ const LoginSignupPage = () => {
             />
           </div>
           <div className="form-field">
-            <label>Mật khẩu</label>
+            <label>Password</label>
             <input
               type="password"
               value={password}
@@ -74,19 +104,19 @@ const LoginSignupPage = () => {
               required
             />
           </div>
-          <button type="submit">Đăng nhập</button>
+          <button type="submit">Login</button>
         </form>
 
         <div className="extra-links">
           <p>
             <a href="/forgot-password" onClick={(e) => { e.preventDefault(); navigate('/forgot-password'); }}>
-              Quên mật khẩu?
+              Forgot password?
             </a>
           </p>
           <p>
-            Chưa có tài khoản?{' '}
+            Don't have an account?{' '}
             <a href="/signup" onClick={(e) => { e.preventDefault(); navigate('/signup'); }}>
-              Đăng ký
+              Signup
             </a>
           </p>
         </div>
@@ -97,4 +127,4 @@ const LoginSignupPage = () => {
   );
 };
 
-export default LoginSignupPage;
+export default Login;
